@@ -1,0 +1,12 @@
+@import '../../utility.scss';
+@import '../../variables.scss';
+
+.footer {
+  @include flex-column-aligncenter-center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 100px;
+  &__copywrite {
+    @include font-decoration($black, 12px, Noto Sans, 400, 2px);
+  }
+}
