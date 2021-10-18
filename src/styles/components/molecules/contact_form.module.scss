@@ -1,0 +1,32 @@
+@import 'styles/variables.scss';
+@import 'styles/utility.scss';
+
+.contact_form {
+  @include flex-column-aligncenter-center;
+  width: 100vw;
+  img {
+    margin-bottom: 48px;
+  }
+
+  textarea {
+    width: 100%;
+    height: 120px;
+  }
+  button {
+    margin-top: 40px;
+    cursor: pointer;
+  }
+
+  @include mq('md') {
+    img {
+      width: 400px;
+      height: 72px;
+    }
+  }
+  @include mq('lg') {
+    img {
+      width: 504px;
+      height: 88px;
+    }
+  }
+}

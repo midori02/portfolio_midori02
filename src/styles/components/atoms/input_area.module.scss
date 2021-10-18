@@ -1,0 +1,25 @@
+@import '../../utility.scss';
+@import '../../variables.scss';
+
+.input_area {
+  width: 90%;
+  p {
+    @include font-decoration($grey700, 12px, Noto Sans, 300, 2px);
+    margin-bottom: 4px;
+    span {
+      color: $red;
+      padding-left: 24px;
+    }
+  }
+  input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid $black;
+  }
+  @include mq('md') {
+    width: 70%;
+  }
+  @include mq('lg') {
+    width: 50%;
+  }
+}
