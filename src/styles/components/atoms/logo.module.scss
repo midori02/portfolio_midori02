@@ -1,0 +1,17 @@
+@import '../../variables.scss';
+
+.logo {
+  svg {
+    width: 160px;
+    height: 32px;
+  }
+  @include mq('md') {
+    svg {
+      width: 200px;
+      height: 40px;
+    }
+  }
+  @include mq('lg') {
+    cursor: pointer;
+  }
+}

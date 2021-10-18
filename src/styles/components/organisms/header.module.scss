@@ -1,0 +1,20 @@
+@import '../../utility.scss';
+@import '../../variables.scss';
+
+.header {
+  @include flex-row-aligncenter-spacebetween;
+  padding: 16px;
+  width: 100vw;
+  height: 80px;
+  position: fixed;
+  background-color: $white;
+  // box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  backdrop-filter: opacity(20%);
+  backdrop-filter: blur(10px);
+  @include mq('md') {
+    padding: 40px;
+    div[class='logo_logo__3KYf7'] {
+      margin-top: 16px;
+    }
+  }
+}
