@@ -118,9 +118,16 @@
     }
   }
   &__sns {
-    width: 100vw;
     @include flex-row-aligncenter;
+    width: 100vw;
     justify-content: center;
-    gap: 64px;
+    gap: 48px;
+    @include mq('lg') {
+      gap: 64px;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
   }
 }

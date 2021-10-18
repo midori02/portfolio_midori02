@@ -4,6 +4,7 @@ import { NextPage } from 'next'
 const Sample: NextPage = () => {
   return (
     <>
+      <Header />
       <Footer />
     </>
   )
