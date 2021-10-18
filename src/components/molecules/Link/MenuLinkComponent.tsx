@@ -1,4 +1,5 @@
 import { FC, useState } from 'react'
+import { useRouter } from 'next/dist/client/router'
 
 import { TextArea } from 'components/atoms/Texts'
 import { MenuList } from '../Texts'
@@ -6,13 +7,14 @@ import styles from 'styles/components/molecules/link_component.module.scss'
 
 const MenuLinkComponent: FC = () => {
   const [active, setActive] = useState<boolean>(false)
+  const router = useRouter()
   return (
     <div className={styles.link_component__menu}>
-      <div className={styles.link_component__menu_pc}>
-        <TextArea text={'works'} />
-        <TextArea text={'about'} />
-        <TextArea text={'contact'} />
-      </div>
+      <ul className={styles.link_component__menu_pc}>
+        <li onClick={() => router.push('/')}>works</li>
+        <li onClick={() => router.push('/')}>about</li>
+        <li onClick={() => router.push('/')}>contact</li>
+      </ul>
       <div className={styles.link_component__menu_tb}>
         <div
           onClick={() => {

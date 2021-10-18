@@ -1,12 +1,7 @@
 import { NextPage } from 'next'
-import { Header } from 'components/organisms'
 
 const Sample: NextPage = () => {
-  return (
-    <>
-      <Header />
-    </>
-  )
+  return <></>
 }
 
 export default Sample
