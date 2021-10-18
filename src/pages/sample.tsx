@@ -1,7 +1,13 @@
+import { Footer, Header } from 'components/organisms'
 import { NextPage } from 'next'
 
 const Sample: NextPage = () => {
-  return <></>
+  return (
+    <>
+      <Header />
+      <Footer />
+    </>
+  )
 }
 
 export default Sample

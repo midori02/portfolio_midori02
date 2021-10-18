@@ -103,6 +103,7 @@
         @include flex-row-aligncenter;
         justify-content: flex-end;
         margin: 20px 32px 0 0;
+        padding: 0;
         gap: 72px;
         list-style: none;
         li {
@@ -113,6 +114,19 @@
 
       &_tb {
         display: none;
+      }
+    }
+  }
+  &__sns {
+    @include flex-row-aligncenter;
+    width: 100vw;
+    justify-content: center;
+    gap: 48px;
+    @include mq('lg') {
+      gap: 64px;
+      img {
+        width: 40px;
+        height: 40px;
       }
     }
   }
