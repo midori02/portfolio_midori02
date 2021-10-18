@@ -1,0 +1,33 @@
+@import url('https://use.typekit.net/phb0zlb.css');
+
+$white: #fff;
+$grey50: #fafafa;
+$grey100: #f9f9f9;
+$grey200: #eeeeee;
+$grey300: #e0e0e0;
+$grey400: #bdbdbd;
+$grey500: #9e9e9e;
+$grey600: #757575;
+$grey700: #616161;
+$grey800: #424242;
+$grey900: #212121;
+$greyA100: #d6d6d6;
+$greyA200: #aaaaaa;
+$greyA400: #303030;
+$greyA700: #616161;
+$black: #000;
+
+$breakpoints: (
+  'xs': 'screen and (min-width: 440px)',
+  'sm': 'screen and (min-width: 600px)',
+  'md': 'screen and (min-width: 768px)',
+  'lg': 'screen and (min-width: 1024px)',
+  'xl': 'screen and (min-width: 1440px)',
+) !default;
+
+// 初期値はlg(tablet screen size)
+@mixin mq($breakpoint: lg) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
