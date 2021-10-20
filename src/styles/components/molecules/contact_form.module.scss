@@ -16,6 +16,11 @@
     margin-top: 40px;
     cursor: pointer;
   }
+  &__after_sent {
+    p {
+      @include font-decoration($white, 20px, mic-32-new-web, 400, 2px);
+    }
+  }
 
   @include mq('md') {
     img {

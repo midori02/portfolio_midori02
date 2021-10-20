@@ -57,7 +57,7 @@ const ContactForm: React.FC<Props> = (props) => {
       />
 
       <Button type={'submit'} text={'送信'} size={'sm'} value={'submit'} />
-      {sent && <p>送信しました.</p>}
+      {sent && <p className={styles.contact_form__after_sent}>送信しました.</p>}
     </form>
   )
 }
