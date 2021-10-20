@@ -3,7 +3,7 @@
 
 .input_area {
   width: 90%;
-  p {
+  label {
     @include font-decoration($grey700, 12px, Noto Sans, 300, 2px);
     margin-bottom: 4px;
     span {
@@ -15,6 +15,7 @@
     width: 100%;
     height: 40px;
     border: 1px solid $black;
+    margin-bottom: 20px;
   }
   @include mq('md') {
     width: 70%;

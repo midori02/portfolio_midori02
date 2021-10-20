@@ -3,15 +3,15 @@
 
 .button {
   &__sm {
-    @include font-decoration($white, 16px, mic-32-new-web, 500, 12px);
+    @include font-decoration($white, 16px, Noto Sans JP, 400, 20px);
     width: 144px;
     min-height: 32px;
     background-color: $yellow;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(0);
-    text-align: center;
+    padding-left: 24px;
     &:hover {
       opacity: 0.9;
       transform: translateY(4px);
@@ -20,7 +20,7 @@
     }
   }
   &__md {
-    @include font-decoration($white, 20px, mic-32-new-web, 500, 12px);
+    @include font-decoration($white, 20px, Noto Sans JP, 400, 12px);
     width: 184px;
     min-height: 40px;
     background-color: $yellow;

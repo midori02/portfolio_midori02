@@ -24,22 +24,3 @@ export const menu_list = [
     list: 'others',
   },
 ]
-
-export const contact = [
-  {
-    text: 'お名前',
-    redText: '※必須',
-  },
-  {
-    text: 'フリガナ',
-    redText: '※必須',
-  },
-  {
-    text: 'メールアドレス',
-    redText: '※必須',
-  },
-  {
-    text: 'お電話番号',
-    redText: '※必須',
-  },
-]
