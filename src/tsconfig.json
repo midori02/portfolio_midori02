@@ -15,6 +15,12 @@
     "jsx": "preserve",
     "baseUrl": "."
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/molecules/Validation/validateInfo.js",
+    "components/validateInfo.js"
+  ],
   "exclude": ["node_modules"]
 }

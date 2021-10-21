@@ -16,10 +16,8 @@
     margin-top: 40px;
     cursor: pointer;
   }
-  &__after_sent {
-    p {
-      @include font-decoration($white, 20px, mic-32-new-web, 400, 2px);
-    }
+  p {
+    @include font-decoration($grey700, 14px, mic-32-new-web, 400, 2px);
   }
 
   @include mq('md') {
@@ -34,4 +32,11 @@
       height: 88px;
     }
   }
+}
+.error_message {
+  @include font-decoration($red, 10px, mic-32-new-web, 400, 2px);
+  width: 50vw;
+  display: flex;
+  align-items: flex-start;
+  padding: 0;
 }

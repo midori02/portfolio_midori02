@@ -53,4 +53,10 @@
       box-shadow: none;
     }
   }
+  &__disabled {
+    opacity: 0.9;
+    transform: translateY(4px);
+    transition: 0.3s ease-in-out;
+    box-shadow: none;
+  }
 }
