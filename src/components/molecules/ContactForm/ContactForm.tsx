@@ -2,10 +2,10 @@ import { FC, useState, useEffect } from 'react'
 
 import { IconArea } from 'components/atoms/Images'
 import { InputArea } from 'components/atoms/Texts'
-import { TextBox } from 'components/atoms/Texts'
 import { Button } from 'components/atoms/Buttons'
 import { useStringChangeEvent } from 'lib/customHooks'
 import { handleSubmit } from 'lib/slack'
+import { isValidEmail, isValidFurigana, isValidTelephone } from 'lib/validation'
 import styles from 'styles/components/molecules/contact_form.module.scss'
 
 const ContactForm: FC = () => {
@@ -15,11 +15,7 @@ const ContactForm: FC = () => {
   const [email, setEmail] = useState('')
   const [telephone, setTelephone] = useState('')
   const [textbox, setTextbox] = useState('')
-  const [nameErrors, setNameErrors] = useState('')
-  const [furiganaErrors, setFuriganaErrors] = useState('')
-  const [emailErrors, setEmailErrors] = useState('')
-  const [telephoneErrors, setTelephoneErrors] = useState('')
-  const [textboxErrors, setTextboxErrors] = useState('')
+  const [error, setError] = useState('')
 
   useEffect(() => {
     if (sent) {
@@ -35,56 +31,38 @@ const ContactForm: FC = () => {
     e.preventDefault()
 
     if (!name) {
-      setNameErrors('※ お名前を入力してください。')
-      setSent(false)
-      return
+      setError('name')
+      return false
     }
     if (!furigana) {
-      setFuriganaErrors('※ フリガナを入力してください。')
-      setSent(false)
-      return
-    } else {
-      const regex = /^[ア-ン゛゜ァ-ォャ-ョー]+$/
-      if (!regex.test(furigana)) {
-        setFuriganaErrors('※ 正しい形式でフリガナを入力してください。')
-        setSent(false)
-        return
-      }
+      setError('furigana')
+      return false
+    } else if (!isValidFurigana(furigana)) {
+      setError('furiganaValidation')
+      return false
     }
+
     if (!email) {
-      setEmailErrors('メールアドレスを入力してください')
-      setSent(false)
-      return
-    } else {
-      const regex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-      if (!regex.test(email)) {
-        setEmailErrors('※正しい形式でメールアドレスを入力してください')
-        setSent(false)
-        return
-      }
+      setError('email')
+      return false
+    } else if (!isValidEmail(email)) {
+      setError('emailValidation')
+      return false
     }
     if (telephone) {
-      const regex =
-        /\A(((0(\d{1}[-(]?\d{4}|\d{2}[-(]?\d{3}|\d{3}[-(]?\d{2}|\d{4}[-(]?\d{1}|[5789]0[-(]?\d{4})[-)]?)|\d{1,4}\-?)\d{4}|0120[-(]?\d{3}[-)]?\d{3})\z/
-      if (!regex.test(telephone)) {
-        setTelephoneErrors('※正しい形式で電話番号を入力してください')
-        setSent(false)
-        return
+      if (!isValidTelephone(telephone)) {
+        setError('telephoneValidation')
+        return false
       }
     }
     if (!textbox) {
-      setTextboxErrors('※ 内容を入力してください。')
-      setSent(false)
-      return
+      setError('textbox')
+      return false
     }
 
     handleSubmit(content)
       .then(() => {
-        setNameErrors('')
-        setFuriganaErrors('')
-        setEmailErrors('')
-        setTelephoneErrors('')
-        setTextboxErrors('')
+        setError('')
         setSent(true)
       })
       .catch((error) => {
@@ -100,24 +78,56 @@ const ContactForm: FC = () => {
       }}
     >
       <IconArea path={'title-contact.svg'} width={320} height={56} />
-      <InputArea value={name} text={'お名前'} redText={'※ 必須'} onChange={useStringChangeEvent(setName)} />
-      {nameErrors && <div className={styles.error_message}>{nameErrors}</div>} <br />
-      <InputArea value={furigana} text={'フリガナ'} redText={'※ 必須'} onChange={useStringChangeEvent(setFurigana)} />
-      {furiganaErrors && <div className={styles.error_message}>{furiganaErrors}</div>}
+      <InputArea
+        value={name}
+        isRequired
+        text={'お名前'}
+        onChange={useStringChangeEvent(setName)}
+        isError={error === 'name' ? true : false}
+        errorMessage={'※ お名前を入力してください。'}
+      />
       <br />
-      <InputArea value={email} text={'メールアドレス'} redText={'※ 必須'} onChange={useStringChangeEvent(setEmail)} />
-      {emailErrors && <div className={styles.error_message}>{emailErrors}</div>}
+      <InputArea
+        value={furigana}
+        isRequired
+        text={'フリガナ'}
+        onChange={useStringChangeEvent(setFurigana)}
+        isError={error === 'furigana' || error === 'furiganaValidation' ? true : false}
+        errorMessage={
+          error === 'furigana' ? '※ フリガナを入力してください。' : '※ 正しい形式でフリガナを入力してください。'
+        }
+      />
       <br />
-      <InputArea value={telephone} text={'お電話番号'} onChange={useStringChangeEvent(setTelephone)} />
-      {telephoneErrors && <div className={styles.error_message}>{telephoneErrors}</div>}
+      <InputArea
+        value={email}
+        isRequired
+        text={'メールアドレス'}
+        onChange={useStringChangeEvent(setEmail)}
+        isError={error === 'email' || error === 'emailValidation' ? true : false}
+        errorMessage={
+          error === 'email' ? '※ メールアドレスを入力してください' : '※正しい形式でメールアドレスを入力してください'
+        }
+      />
       <br />
-      <TextBox
+      <InputArea
+        value={telephone}
+        text={'お電話番号'}
+        onChange={useStringChangeEvent(setTelephone)}
+        isError={error === 'telephoneValidation' ? true : false}
+        errorMessage={'※正しい形式で電話番号を入力してください'}
+      />
+      <br />
+      <InputArea
         value={textbox}
         text={'お問い合わせ内容'}
-        redText={'※ 必須'}
+        multiLine
+        rows={10}
+        isRequired
         onChange={useStringChangeEvent(setTextbox)}
+        isError={error === 'textbox' ? true : false}
+        errorMessage={'※ 内容を入力してください。'}
       />
-      {textboxErrors && <div className={styles.error_message}>{textboxErrors}</div>}
+      <br />
       <Button type={'submit'} text={'送信'} size={'sm'} value={'submit'} disabled={sent === true} />
       {sent && <p className={styles.contact_form__after_sent}>送信されました !</p>}
     </form>

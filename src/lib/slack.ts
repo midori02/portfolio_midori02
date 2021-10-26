@@ -7,7 +7,14 @@ export const handleSubmit = (content): Promise<boolean | undefined> => {
         text: `お問い合わせがありました\nお名前：${content.name} \nフリガナ:${content.furigana}\nEmail：${content.email}\nPhone Number：${content.telephone}\nContent： ${content.textbox}`,
       }),
     })
-      .then(() => resolve(true))
+      .then((response) => {
+        if (response.ok) {
+          resolve(true)
+        } else {
+          console.error(response.status, response.statusText)
+          reject(undefined)
+        }
+      })
       .catch((error) => {
         console.error(error)
         reject(undefined)
