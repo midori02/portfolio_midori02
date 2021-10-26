@@ -1,0 +1,44 @@
+@import '../../utility.scss';
+@import '../../variables.scss';
+
+.input_area {
+  width: 90%;
+  label {
+    @include font-decoration($grey700, 12px, Noto Sans, 300, 2px);
+    margin-bottom: 4px;
+    span {
+      color: $red;
+      padding-left: 24px;
+    }
+  }
+  input,
+  textarea {
+    width: 100%;
+    text-indent: 4px;
+    border: 1px solid $black;
+    border-radius: 4px;
+    &:focus {
+      outline: none;
+      border-color: $yellow;
+    }
+  }
+  input {
+    height: 40px;
+  }
+  textarea {
+    line-height: 24px;
+  }
+  @include mq('md') {
+    width: 70%;
+  }
+  @include mq('lg') {
+    width: 50%;
+  }
+}
+.error_message {
+  @include font-decoration($red, 10px, mic-32-new-web, 400, 2px);
+  width: 50vw;
+  display: flex;
+  align-items: flex-start;
+  padding: 0;
+}

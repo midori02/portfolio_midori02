@@ -1,0 +1,62 @@
+@import '../../utility.scss';
+@import '../../variables.scss';
+
+.button {
+  &__sm {
+    @include font-decoration($white, 16px, Noto Sans JP, 400, 20px);
+    width: 144px;
+    min-height: 32px;
+    background-color: $yellow;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+    padding-left: 24px;
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(4px);
+      transition: 0.3s ease-in-out;
+      box-shadow: none;
+    }
+  }
+  &__md {
+    @include font-decoration($white, 20px, Noto Sans JP, 400, 12px);
+    width: 184px;
+    min-height: 40px;
+    background-color: $yellow;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+    text-align: center;
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(4px);
+      transition: 0.3s ease-in-out;
+      box-shadow: none;
+    }
+  }
+  &__lg {
+    @include font-decoration($white, 24px, mic-32-new-web, 500, 24px);
+    width: 240px;
+    min-height: 56px;
+    background-color: $yellow;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+    text-align: center;
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(4px);
+      transition: 0.3s ease-in-out;
+      box-shadow: none;
+    }
+  }
+  &__disabled {
+    opacity: 0.9;
+    transform: translateY(4px);
+    transition: 0.3s ease-in-out;
+    box-shadow: none;
+  }
+}
