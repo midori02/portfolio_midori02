@@ -1,0 +1,14 @@
+@import 'styles/variables.scss';
+@import 'styles/utility.scss';
+
+.about_background {
+  @include flex-column-flex-start;
+  width: 100%;
+  ul {
+    padding: 0;
+  }
+  &__toggle {
+    @include font-decoration($grey700, 12px, mic-32-new-web, 400, 2px);
+    position: relative;
+  }
+}

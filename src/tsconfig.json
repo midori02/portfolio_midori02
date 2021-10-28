@@ -20,7 +20,11 @@
     "**/*.ts",
     "**/*.tsx",
     "components/molecules/Validation/validateInfo.js",
-    "components/validateInfo.js"
+    "components/validateInfo.js",
+    "index.js",
+    "components/List.js",
+    "components/App.js",
+    "mui/createEmotionCache.js"
   ],
   "exclude": ["node_modules"]
 }

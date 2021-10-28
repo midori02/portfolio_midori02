@@ -1,0 +1,17 @@
+@import 'styles/variables.scss';
+@import 'styles/utility.scss';
+
+.text_content {
+  @include flex-column-aligncenter-center;
+  width: 100vw;
+  list-style: none;
+  padding: 0;
+  &__period {
+    @include flex-row-flex-start;
+    gap: 20px;
+    p {
+      @include font-decoration($grey700, 14px, mic-32-new-web, 400, 2px);
+      margin: 4px;
+    }
+  }
+}

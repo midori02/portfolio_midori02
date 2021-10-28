@@ -1,0 +1,23 @@
+@import 'styles/variables.scss';
+@import 'styles/utility.scss';
+
+.about_template {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20%;
+  width: 100vw;
+  height: 100vh;
+
+  &__title {
+    margin-bottom: 100px;
+  }
+  &__content {
+    @include flex-row-flex-start;
+
+    gap: 16%;
+    img {
+      border: 2px solid $black;
+    }
+  }
+}
