@@ -1,0 +1,18 @@
+@import 'styles/variables.scss';
+@import 'styles/utility.scss';
+
+.profile {
+  @include flex-column-aligncenter-center;
+  text-align: center;
+  h1 {
+    @include font-decoration($black, 32px, mic-32-new-web, 500, 4px);
+  }
+  p {
+    @include font-decoration($black, 14px, mic-32-new-web, 400, 2px);
+  }
+  @include mq('md') {
+    @include flex-column-flex-start;
+    width: 90%;
+    text-align: left;
+  }
+}

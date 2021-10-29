@@ -1,0 +1,48 @@
+@import 'styles/variables.scss';
+@import 'styles/utility.scss';
+
+.about_template {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10%;
+
+  width: 100vw;
+  height: 100vh;
+
+  &__title {
+    margin-bottom: 100px;
+  }
+  &__content {
+    @include flex-column-aligncenter-center;
+
+    img {
+      border: 2px solid $black;
+      margin-bottom: 40px;
+    }
+  }
+  @include mq('md') {
+    &__title {
+      img {
+        width: 400px;
+        height: 72px;
+      }
+    }
+    &__content {
+      @include flex-row-flex-start;
+      gap: 12%;
+      margin: 0 5%;
+      img {
+        margin-top: 56px;
+      }
+    }
+  }
+  @include mq('lg') {
+    &__title {
+      img {
+        width: 504px;
+        height: 88px;
+      }
+    }
+  }
+}

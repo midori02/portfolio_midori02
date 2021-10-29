@@ -1,0 +1,23 @@
+@import 'styles/variables.scss';
+@import 'styles/utility.scss';
+
+.about_background {
+  @include flex-column-aligncenter-center;
+  width: 90%;
+  ul {
+    padding: 0;
+    width: 100%;
+  }
+  &__toggle {
+    @include font-decoration($grey700, 12px, mic-32-new-web, 400, 2px);
+    position: relative;
+    cursor: pointer;
+    &:hover {
+      border-bottom: 1px solid $grey700;
+    }
+  }
+  @include mq('md') {
+    @include flex-column-flex-start;
+    width: 100%;
+  }
+}

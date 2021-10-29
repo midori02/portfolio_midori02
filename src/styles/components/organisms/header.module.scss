@@ -7,13 +7,13 @@
   left: 0;
   right: 0;
   padding: 16px;
+  background-color: $header-background;
+  backdrop-filter: opacity(20%);
+  backdrop-filter: blur(8px);
   width: 100vw;
   height: 80px;
   position: fixed;
-  background-color: $white;
-  // box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  backdrop-filter: opacity(20%);
-  backdrop-filter: blur(10px);
+  z-index: 10;
   @include mq('md') {
     padding: 40px;
     div[class='logo_logo__3KYf7'] {

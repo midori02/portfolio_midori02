@@ -1,0 +1,32 @@
+@import 'styles/variables.scss';
+@import 'styles/utility.scss';
+
+.text_content {
+  @include flex-row-flex-start;
+  align-items: center;
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  &__period {
+    @include flex-row-flex-start;
+    width: 30%;
+    padding: 0;
+    p {
+      @include font-decoration($black, 14px, mic-32-new-web, 400, 2px);
+      margin: 0;
+    }
+  }
+  &__event {
+    width: 100%;
+    p {
+      @include font-decoration($black, 14px, mic-32-new-web, 400, 2px);
+      margin: 4px;
+    }
+  }
+  @include mq('md') {
+    width: 50vw;
+    &__period {
+      width: 120px;
+    }
+  }
+}
