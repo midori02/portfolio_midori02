@@ -10,12 +10,14 @@ type Props = {
 const TextContent: FC<Props> = (props) => {
   const { history } = props
   return (
-    <li key={history.history_id} className={styles.text_content__period}>
+    <li key={history.history_id} className={styles.text_content}>
       <div className={styles.text_content__period}>
-        <p>{history.year}</p>
-        <p>{history.month}</p>
+        <p>{history.year}年</p>
+        <p>{history.month}月</p>
       </div>
-      <p>{history.event}</p>
+      <div className={styles.text_content__event}>
+        <p>{history.event}</p>
+      </div>
     </li>
   )
 }

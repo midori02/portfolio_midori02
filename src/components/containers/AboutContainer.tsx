@@ -6,7 +6,7 @@ import { AboutTemplate } from 'components/templates'
 import { fetchHistories, fetchProfile } from 'lib/background'
 
 const AboutContainer: FC = () => {
-  const uid = 'OJqbIkJta9a9YJsCmNbutJOOJn22'
+  const uid = 'mTLZenxmFraMwlT5FMjbfPpCCaf2'
   const histories = useQuery('histories', () => fetchHistories(uid))
   const profile = useQuery('profile', () => fetchProfile(uid))
   // const profile = useQuery('')

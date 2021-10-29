@@ -45,6 +45,7 @@ export const fetchHistories = (id: string): Promise<HistoryType[] | undefined> =
     adminsRef
       .doc(id)
       .collection('histories')
+      .orderBy('role', 'asc')
       .get()
       .then((snapshots) => {
         const historyData = []
