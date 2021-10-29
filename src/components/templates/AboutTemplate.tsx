@@ -19,7 +19,7 @@ const AboutTemplate: FC<Props> = (props) => {
   return (
     <div className={styles.about_template}>
       <div className={styles.about_template__title}>
-        <IconArea path={'title-about.svg'} width={400} height={72} />
+        <IconArea path={'title-about.svg'} width={320} height={56} />
       </div>
       <div className={styles.about_template__content}>
         <ImageArea path={profile ? profile.image[0].path : '/icon_me.svg'} width={160} height={160} />
