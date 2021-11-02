@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import { NextPage } from 'next'
 
 import { AboutContainer, WorksContainer } from 'components/containers'
 import { ContactForm } from 'components/molecules/ContactForm'

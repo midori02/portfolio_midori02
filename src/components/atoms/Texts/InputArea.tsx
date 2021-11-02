@@ -23,7 +23,7 @@ const InputArea: VFC<Props> = (props) => {
     value,
     onChange,
     text,
-    type = 'text',
+    type,
     placeholder = '',
     disabled = false,
     required = false,
