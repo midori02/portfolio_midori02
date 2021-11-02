@@ -1,0 +1,36 @@
+@import 'styles/variables.scss';
+@import 'styles/utility.scss';
+
+.works_template {
+  width: 100vw;
+  height: 100vh;
+  &__title {
+    @include flex-column-aligncenter-center;
+  }
+  &__menu {
+    @include flex-column-aligncenter-center;
+    margin-left: 320px;
+  }
+  @include mq('md') {
+    &__title {
+      img {
+        width: 504px;
+        height: 88px;
+      }
+    }
+    &__menu {
+      margin-left: 400px;
+    }
+  }
+  @include mq('lg') {
+    &__title {
+      img {
+        width: 504px;
+        height: 88px;
+      }
+    }
+    &__menu {
+      margin-left: 560px;
+    }
+  }
+}

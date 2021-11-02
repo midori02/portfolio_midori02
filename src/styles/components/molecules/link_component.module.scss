@@ -130,4 +130,32 @@
       }
     }
   }
+  &__works {
+    @include font-decoration($black, 14px, mic-32-new-web, 400, 4px);
+    ul {
+      list-style: none;
+      li {
+        padding-left: calc(var(--indent) * 24px);
+      }
+    }
+    li {
+      width: fit-content;
+      padding: 4px;
+    }
+    li:hover {
+      color: $pale_red;
+      cursor: pointer;
+    }
+    @include mq('md') {
+      font-size: 16px;
+      li {
+        padding: 6px;
+      }
+    }
+    @include mq('lg') {
+      li {
+        padding: 8px;
+      }
+    }
+  }
 }
