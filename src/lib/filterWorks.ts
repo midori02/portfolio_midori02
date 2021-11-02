@@ -3,9 +3,10 @@ import { ImageType } from 'types/utility'
 
 export const filterData = (genre: string, allWorks: ContentType[]) => {
   const images: ImageType[][] = []
+  const result = []
   const filterData = allWorks.filter((work) => work.genre === genre)
   filterData.map((content) => {
-    images.push(content.image)
+    result.push({ id: content.content_id, image: content.image })
   })
-  return images
+  return result
 }

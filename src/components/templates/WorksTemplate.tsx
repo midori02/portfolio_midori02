@@ -28,7 +28,7 @@ const WorksTemplate: FC<Props> = (props) => {
           {workContents.map((content, index) => (
             <AutoSlideAnimation
               title={content.title}
-              images={filterData(content.genre, contents)}
+              contents={filterData(content.genre, contents)}
               position={index % 2 === 0 ? 'right' : 'left'}
             />
           ))}

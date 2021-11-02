@@ -72,6 +72,7 @@ const ContactForm: FC = () => {
 
   return (
     <form
+      id={'contact'}
       className={styles.contact_form}
       onSubmit={(e) => {
         handleClick(e, { name: name, furigana: furigana, email: email, telephone: telephone, textbox: textbox })
@@ -102,6 +103,7 @@ const ContactForm: FC = () => {
         value={email}
         isRequired
         text={'メールアドレス'}
+        type={'email'}
         onChange={useStringChangeEvent(setEmail)}
         isError={error === 'email' || error === 'emailValidation' ? true : false}
         errorMessage={
@@ -112,6 +114,7 @@ const ContactForm: FC = () => {
       <InputArea
         value={telephone}
         text={'お電話番号'}
+        type={'tel'}
         onChange={useStringChangeEvent(setTelephone)}
         isError={error === 'telephoneValidation' ? true : false}
         errorMessage={'※正しい形式で電話番号を入力してください'}

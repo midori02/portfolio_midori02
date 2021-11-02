@@ -1,15 +1,25 @@
-import { AboutContainer } from 'components/containers'
-import { AboutTemplate } from 'components/templates'
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import { NextPage } from 'next'
+
+import { AboutContainer, WorksContainer } from 'components/containers'
+import { ContactForm } from 'components/molecules/ContactForm'
+import { Layout } from 'components/layout'
+import { Spacer } from 'components/atoms/Spacer'
+import { TopImage } from 'components/molecules/Top'
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <Layout pageTitle={'/'}>
+      <TopImage />
+      <Spacer size={'lg_h'} />
+      <Spacer size={'lg_h'} />
+      <WorksContainer />
+      <Spacer size={'lg_h'} />
       <AboutContainer />
-    </div>
+      <Spacer size={'lg_h'} />
+      <Spacer size={'lg_h'} />
+      <ContactForm />
+      <Spacer size={'md_h'} />
+    </Layout>
   )
 }
 
