@@ -3,7 +3,6 @@
 
 .works_template {
   width: 100vw;
-  height: 100vh;
   &__title {
     @include flex-column-aligncenter-center;
   }

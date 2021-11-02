@@ -4,12 +4,14 @@
 .auto_slide {
   width: 100vw;
   height: 100vh;
+
   &__container {
     display: flex;
     margin-top: 40px;
     position: relative;
     &_title {
       @include font-decoration($black, 24px, mic-32-new-web, 400, 6px);
+      cursor: pointer;
     }
 
     &_animation {

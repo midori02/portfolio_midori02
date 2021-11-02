@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { useRouter } from 'next/dist/client/router'
+import { useRouter } from 'next/router'
 
 import { LogoArea } from 'components/atoms/Images'
 import { MenuLinkComponent } from 'components/molecules/Link'

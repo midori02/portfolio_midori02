@@ -16,7 +16,7 @@ const AboutTemplate: FC<Props> = (props) => {
   const { histories, profile } = props
 
   return (
-    <div className={styles.about_template}>
+    <div id={'about'} className={styles.about_template}>
       <div className={styles.about_template__title}>
         <IconArea path={'title-about.svg'} width={320} height={56} />
       </div>
