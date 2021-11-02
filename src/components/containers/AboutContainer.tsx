@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { useRouter } from 'next/router'
-import { useQuery, useQueryClient } from 'react-query'
+import { useQuery } from 'react-query'
 
 import { AboutTemplate } from 'components/templates'
 import { fetchHistories, fetchProfile } from 'lib/background'

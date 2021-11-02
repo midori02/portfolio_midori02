@@ -1,4 +1,3 @@
-import { profile } from 'console'
 import { FC } from 'react'
 
 import { ProfileType } from 'types/content'

@@ -24,3 +24,26 @@ export const menu_list = [
     list: 'others',
   },
 ]
+
+export const workContents = [
+  {
+    title: 'websites',
+    genre: 'web',
+  },
+  {
+    title: 'graphics',
+    genre: 'graphic',
+  },
+  {
+    title: 'editorials',
+    genre: 'editorial',
+  },
+  {
+    title: 'packages',
+    genre: 'package',
+  },
+  {
+    title: 'others',
+    genre: 'others',
+  },
+]

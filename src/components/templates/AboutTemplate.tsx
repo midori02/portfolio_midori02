@@ -14,7 +14,6 @@ type Props = {
 
 const AboutTemplate: FC<Props> = (props) => {
   const { histories, profile } = props
-  const [open, setOpen] = useState<boolean>(false)
 
   return (
     <div className={styles.about_template}>
