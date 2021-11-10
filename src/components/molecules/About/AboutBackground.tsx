@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 
 import { TextContent } from '../Texts'
 import { HistoryType, ProfileType } from 'types/content'
-import Profile from '../Texts/Profile'
+import { Profile } from '../Texts'
 import styles from 'styles/components/molecules/about_background.module.scss'
 
 type Props = {

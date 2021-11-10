@@ -1,4 +1,5 @@
 import { VFC } from 'react'
+import Image from 'next/image'
 
 type Props = {
   onClick?: () => void
@@ -9,7 +10,7 @@ type Props = {
 const ImageArea: VFC<Props> = (props) => {
   const { onClick, path, width, height } = props
 
-  return <img onClick={onClick} src={path} width={width} height={height} />
+  return <Image src={path} width={width} height={height} />
 }
 
 export default ImageArea

@@ -14,10 +14,9 @@
   }
   &__content {
     @include flex-column-aligncenter-center;
-
-    img {
+    &_image {
+      margin-bottom: 32px;
       border: 2px solid $black;
-      margin-bottom: 40px;
     }
   }
   @include mq('md') {
@@ -29,8 +28,10 @@
     }
     &__content {
       @include flex-row-flex-start;
-      gap: 12%;
-      margin: 0 5%;
+      gap: 8%;
+      &_image {
+        margin-top: 8px;
+      }
     }
   }
   @include mq('lg') {

@@ -11,7 +11,9 @@ const MenuLinkComponent: FC = () => {
   return (
     <div className={styles.link_component__menu}>
       <ul className={styles.link_component__menu_pc}>
-        <li onClick={() => router.push('/')}>works</li>
+        <Link to={'works'} smooth={'easeInOutQuart'} duration={1600} offset={-100}>
+          <li>works</li>
+        </Link>
         <Link to={'about'} smooth={'easeInOutQuart'} duration={1600} offset={12}>
           <li>about</li>
         </Link>
