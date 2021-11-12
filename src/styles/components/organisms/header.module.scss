@@ -8,8 +8,8 @@
   right: 0;
   padding: 16px;
   background-color: $header-background;
-  backdrop-filter: opacity(20%);
-  backdrop-filter: blur(8px);
+  backdrop-filter: opacity(20%) blur(8px);
+  -webkit-backdrop-filter: opacity(20%) blur(8px);
   width: 100vw;
   height: 80px;
   position: fixed;
