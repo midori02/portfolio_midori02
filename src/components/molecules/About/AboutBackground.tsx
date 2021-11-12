@@ -1,5 +1,5 @@
 import { FC, useState, useCallback } from 'react'
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 
 import { TextContent } from '../Texts'
 import { HistoryType, ProfileType } from 'types/content'

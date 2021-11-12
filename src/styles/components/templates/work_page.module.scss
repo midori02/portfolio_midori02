@@ -9,7 +9,8 @@
     top: 2%;
   }
   &__menu {
-    display: none;
+    @include flex-row-aligncenter;
+    margin-top: 16px;
   }
   &__container {
     @include flex-column-aligncenter-center;
@@ -26,9 +27,6 @@
     }
   }
   @include mq('md') {
-    &__menu {
-      display: none;
-    }
     &__container {
       &_list {
         width: 90vw;
@@ -37,7 +35,6 @@
   }
   @include mq('lg') {
     &__menu {
-      @include flex-row-aligncenter;
       margin-top: 80px;
     }
     &__container {

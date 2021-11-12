@@ -14,7 +14,7 @@
     cursor: pointer;
   }
   label {
-    @include font-decoration($grey700, 14px, mic-32-new-web, 400, 2px);
+    @include font-decoration($grey500, 14px, mic-32-new-web, 400, 2px);
   }
   &__after_sent {
     margin-top: 8px;
