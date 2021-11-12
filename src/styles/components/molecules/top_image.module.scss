@@ -26,6 +26,7 @@
       rotate: Y(0deg);
       transition: all 0.5s ease 0.4s;
       animation: float 1s ease-in-out infinite alternate;
+      -webkit-animation: float 1s ease-in-out infinite alternate;
       &.inactive {
         transform: perspective(60px);
         rotate: Y(-90deg);
@@ -39,6 +40,7 @@
       border-radius: 50%;
       background-color: $black;
       animation: shadow 1s ease-in-out infinite alternate;
+      -webkit-animation: shadow 1s ease-in-out infinite alternate;
     }
   }
   &__clicked1 {
@@ -62,6 +64,7 @@
     height: 120px;
     cursor: pointer;
     animation: slide-up 1s cubic-bezier(0.1, 1.4, 0.49, 0.96) forwards alternate;
+    -webkit-animation: slide-up 1s cubic-bezier(0.1, 1.4, 0.49, 0.96) forwards alternate;
     svg {
       position: absolute;
       top: 0;
@@ -90,6 +93,7 @@
       &:hover {
         top: -2%;
         animation: move 0.8s ease-in-out infinite;
+        -webkit-animation: move 0.8s ease-in-out infinite;
       }
     }
   }
@@ -101,6 +105,7 @@
     &:hover {
       svg {
         animation: move 0.8s ease-in-out infinite alternate;
+        -webkit-animation: move 0.8s ease-in-out infinite alternate;
       }
     }
   }
@@ -130,9 +135,11 @@
   @keyframes shadow {
     from {
       transform: scale(1.5) translate3d(0, 0, 0);
+      -webkit-transform: scale(1.5) translate3d(0, 0, 0);
     }
     to {
       transform: tscale(1) ranslate3d(0, 0, 0);
+      -webkit-transform: tscale(1) ranslate3d(0, 0, 0);
     }
   }
   @keyframes lamp {
@@ -147,24 +154,29 @@
     0% {
       opacity: 0;
       transform: translateY(-320px);
+      -webkit-transform: translateY(-320px);
     }
     100% {
       opacity: 1;
       transform: translateY(-450px);
+      -webkit-transform: translateY(-450px);
     }
   }
   @keyframes move {
     0% {
       opacity: 1;
       transform: translateY(0);
+      -webkit-transform: translateY(0);
     }
     50% {
       opacity: 1;
       transform: translateY(-10px);
+      -webkit-transform: translateY(-10px);
     }
     100% {
       opacity: 1;
       transform: translateY(0);
+      -webkit-transform: translateY(0);
     }
   }
 }
