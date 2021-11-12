@@ -22,17 +22,21 @@ const Layout: FC<Props> = (props) => {
         description="This Page is midori02's portfolio..."
         openGraph={{
           type: 'website',
-          url: 'https://www.facebook.com',
+          url: 'https://www.facebook.com/',
           title: 'midori02',
           description: "This Page is midori02's portfolio...",
           images: [
             {
-              url: '/top-page-image.png',
+              url: 'https://i.imgur.com/eIFttvZ.png',
               width: 800,
               height: 600,
               alt: 'Og Image Alt',
             },
           ],
+          profile: {
+            firstName: 'midori02',
+            username: 'midori02',
+          },
         }}
       />
       <Header />
