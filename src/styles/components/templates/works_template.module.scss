@@ -8,7 +8,6 @@
   }
   &__menu {
     @include flex-column-aligncenter-center;
-    margin-left: 320px;
   }
   @include mq('md') {
     &__title {
