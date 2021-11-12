@@ -4,7 +4,16 @@
   svg {
     width: 160px;
     height: 32px;
+    g[id='text'] {
+      mask: url(#mask_ani);
+    }
+    path[id='mask_line'] {
+      stroke: #fff;
+      stroke-dasharray: 1000;
+      animation: draw-line 10s cubic-bezier(0.08, 0.91, 0.5, 1) forwards;
+    }
   }
+
   @include mq('md') {
     svg {
       width: 200px;
@@ -13,5 +22,17 @@
   }
   @include mq('lg') {
     cursor: pointer;
+  }
+
+  @keyframes draw-line {
+    0% {
+      stroke-width: 7;
+      stroke-dashoffset: 1000px;
+    }
+
+    100% {
+      stroke-width: 7;
+      stroke-dashoffset: 0px;
+    }
   }
 }
