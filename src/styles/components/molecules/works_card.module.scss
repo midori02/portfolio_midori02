@@ -26,6 +26,7 @@
       @include font-decoration($grey500, 10px, Noto Sans JP, 500, 2px);
       width: 100%;
       white-space: nowrap;
+      -webkit-white-space: nowrap;
     }
   }
 }
@@ -57,6 +58,7 @@
         height: 2px;
         background-color: $white;
         transform: translateY(50%) rotate(45deg);
+        -webkit-transform: translateY(50%) rotate(45deg);
       }
       &:last-child {
         content: '';
@@ -64,6 +66,7 @@
         height: 2px;
         background-color: $white;
         transform: translateY(-50%) rotate(-45deg);
+        -webkit-transform: translateY(-50%) rotate(-45deg);
       }
     }
   }
@@ -72,10 +75,12 @@
     display: block;
     margin: 0 auto;
     transform: translateY(100%);
+    -webkit-transform: translate(100%);
     width: 90%;
     height: 30%;
     div {
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
       width: 100%;
       height: 100%;
       cursor: pointer;
@@ -92,12 +97,14 @@
       @include font-decoration($white, 10px, Noto Sans JP, 500, 2px);
       width: 100%;
       white-space: wrap;
+      -webkit-whitespace: wrap;
       margin: 8px 0;
     }
   }
   @include mq('md') {
     &__inner {
       transform: translateY(100%);
+      -webkit-transform: translate(100%);
       width: 70%;
       height: 30%;
     }
@@ -105,6 +112,7 @@
   @include mq('lg') {
     &__inner {
       transform: translateY(50%);
+      -webkit-transform: translate(50%);
       width: 50%;
       height: 50%;
     }
