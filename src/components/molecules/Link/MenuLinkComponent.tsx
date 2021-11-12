@@ -32,7 +32,7 @@ const MenuLinkComponent: FC = () => {
           <span></span>
           <span></span>
           <div className={active ? styles.link_component__menu_tb_list_active : styles.link_component__menu_tb_list}>
-            <MenuList />
+            <MenuList setIsActive={setActive} />
           </div>
         </div>
       </div>

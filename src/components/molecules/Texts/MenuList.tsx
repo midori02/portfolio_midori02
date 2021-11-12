@@ -1,24 +1,47 @@
-import { FC } from 'react'
+import { FC, SetStateAction, Dispatch } from 'react'
 import { useRouter } from 'next/dist/client/router'
+import { Link } from 'react-scroll'
 
 import { TextArea } from 'components/atoms/Texts'
 import { menu_list } from 'lib/data'
 import styles from 'styles/components/molecules/menu_list.module.scss'
 
-const MenuList: FC = () => {
+type Props = {
+  setIsActive: Dispatch<SetStateAction<boolean>>
+}
+
+const MenuList: FC<Props> = (props) => {
+  const { setIsActive } = props
   const router = useRouter()
   return (
     <div className={styles.menu_list}>
       <ul>
-        <li onClick={() => router.push('/')}>works</li>
-        <li onClick={() => router.push('/')}>about</li>
-        <li onClick={() => router.push('/')}>contact</li>
+        <Link to={'works'} smooth={'easeInOutQuart'} duration={1600} offset={-100}>
+          <li onClick={() => setIsActive(false)}>works</li>
+        </Link>
+        <Link to={'about'} smooth={'easeInOutQuart'} duration={1600} offset={12}>
+          <li onClick={() => setIsActive(false)}>about</li>
+        </Link>
+        <Link to={'contact'} smooth={'easeInOutQuart'} duration={1600} offset={-100}>
+          <li onClick={() => setIsActive(false)}>contact</li>
+        </Link>
       </ul>
-
       <ul>
-        {menu_list.map((item) => (
-          <li key={item.urlPath}>{item.list}</li>
-        ))}
+        <li style={{ ['--indent' as any]: 1 }} onClick={() => router.push('/websites')}>
+          websites
+        </li>
+        <li style={{ ['--indent' as any]: 2 }} onClick={() => router.push('/graphics')}>
+          graphics
+        </li>
+        <li style={{ ['--indent' as any]: 3 }} onClick={() => router.push('/packages')}>
+          packages
+        </li>
+        <li style={{ ['--indent' as any]: 4 }} onClick={() => router.push('/editorials')}>
+          editorials
+        </li>
+        <li style={{ ['--indent' as any]: 5 }} onClick={() => router.push('/others')}>
+          others
+        </li>
       </ul>
     </div>
   )

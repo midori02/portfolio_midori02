@@ -8,7 +8,12 @@ const SNSLinkComponent: FC = () => {
   const router = useRouter()
   return (
     <div className={styles.link_component__sns}>
-      <IconArea onClick={() => router.push('')} path={'/github_black.png'} width={32} height={32} />
+      <IconArea
+        onClick={() => router.push('https://github.com/midori02')}
+        path={'/github_black.png'}
+        width={32}
+        height={32}
+      />
       <IconArea onClick={() => router.push('')} path={'/facebook_black.png'} width={32} height={32} />
       <IconArea onClick={() => router.push('')} path={'/twitter_black.png'} width={32} height={32} />
     </div>

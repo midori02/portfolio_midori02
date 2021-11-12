@@ -16,9 +16,7 @@ const Home: NextPage = () => {
       <Spacer size={'lg_h'} />
       <AboutContainer />
       <Spacer size={'lg_h'} />
-      <Spacer size={'lg_h'} />
       <ContactForm />
-      <Spacer size={'md_h'} />
     </Layout>
   )
 }
