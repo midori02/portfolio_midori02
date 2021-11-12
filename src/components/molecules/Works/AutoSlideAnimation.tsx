@@ -14,11 +14,10 @@ type Props = {
     genre: string
   }[]
   position?: 'left' | 'right'
-  works: string
 }
 
 const AutoSlideAnimation: FC<Props> = (props) => {
-  const { title, contents, position, works } = props
+  const { title, contents, position } = props
   const router = useRouter()
   const className = 'auto_slide__' + position
 
