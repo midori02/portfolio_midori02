@@ -18,9 +18,11 @@ const Layout: FC<Props> = (props) => {
         <title>{pageTitle}</title>
       </Head>
       <NextSeo
+        title="midori02--portfolio"
+        description="This Page is midori02's portfolio..."
         openGraph={{
           type: 'website',
-          url: 'https://portfolio-midori02-bbzgoecva-midori02.vercel.app/',
+          url: 'https://www.facebook.com',
           title: 'midori02',
           description: "This Page is midori02's portfolio...",
           images: [
