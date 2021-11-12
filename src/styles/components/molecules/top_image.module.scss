@@ -29,6 +29,7 @@
       -webkit-animation: float 1s ease-in-out infinite alternate;
       &.inactive {
         transform: perspective(60px);
+        -webkit-transform: perspective(60px);
         rotate: Y(-90deg);
         opacity: 0;
         transition: all 0.5s ease;
@@ -53,6 +54,7 @@
       height: 2px;
       background-color: $black;
       transform: rotate(30deg);
+      -webkit-transform: rotate(30deg);
       top: 160px;
       left: 160px;
     }
@@ -88,6 +90,7 @@
       width: 56px;
       height: 56px;
       animation: lamp 2s ease-in-out infinite alternate;
+      -webkit-animation: lamp 2s ease-in-out infinite alternate;
       background-color: $pale_yellow;
       filter: blur(16px);
       &:hover {

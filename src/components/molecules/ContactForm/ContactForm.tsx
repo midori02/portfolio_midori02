@@ -78,7 +78,7 @@ const ContactForm: FC = () => {
         handleClick(e, { name: name, furigana: furigana, email: email, telephone: telephone, textbox: textbox })
       }}
     >
-      <IconArea path={'title-contact.svg'} width={320} height={56} />
+      <IconArea path={'title-contact.svg'} width={280} height={48} />
       <InputArea
         value={name}
         isRequired
