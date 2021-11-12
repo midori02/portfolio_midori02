@@ -27,7 +27,7 @@ const Layout: FC<Props> = (props) => {
           description: "This Page is midori02's portfolio...",
           images: [
             {
-              url: 'top-page-image.png',
+              url: '/top-page-image.png',
               width: 800,
               height: 600,
               alt: 'Og Image Alt',
