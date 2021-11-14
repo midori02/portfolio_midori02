@@ -36,18 +36,20 @@ const WorksCard: FC<Props> = (props) => {
           </div>
           <div className={styles.modal__inner}>
             <ImageArea path={content.image[0].path} width={200} height={200} />
-            <h1>{content.title}</h1>
-            <p>
-              {content.period.start_year}.{content.period.start_month} ~ {content.period.end_year}.
-              {content.period.end_month}
-            </p>
-            {content.skills.map((skill) => (
-              <span>
-                {skill}
-                {content.skills.length > 1 && skill !== content.skills[content.skills.length - 1] && '/'}
-              </span>
-            ))}
-            <p>{content.description}</p>
+            <div className={styles.modal__inner_contents}>
+              <h1>{content.title}</h1>
+              <p>
+                {content.period.start_year}.{content.period.start_month} ~ {content.period.end_year}.
+                {content.period.end_month}
+              </p>
+              {content.skills.map((skill) => (
+                <span>
+                  {skill}
+                  {content.skills.length > 1 && skill !== content.skills[content.skills.length - 1] && '/'}
+                </span>
+              ))}
+              <p>{content.description}</p>
+            </div>
           </div>
         </div>
       )}

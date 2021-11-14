@@ -18,28 +18,31 @@
       }
     }
     h1 {
-      @include font-decoration($black, 20px, Noto Sans JP, 500, 2px);
+      @include font-decoration($black, 20px, Noto Sans JP, 400, 2px);
       margin-top: 16px;
     }
     p,
     span {
-      @include font-decoration($grey500, 10px, Noto Sans JP, 500, 2px);
+      @include font-decoration($grey500, 10px, Noto Sans JP, 400, 2px);
       width: 100%;
-      line-break: strict;
+      white-space: normal;
     }
   }
 }
 .modal {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
+  position: fixed;
+  overflow-y: auto;
   background-color: $modal-background;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  position: fixed;
-  overflow: scroll;
+
   left: 0;
   top: 0;
   z-index: 10;
+  display: flex;
+  align-items: center;
 
   &__close {
     position: absolute;
@@ -71,9 +74,11 @@
   &__inner {
     display: block;
     margin: 0 auto;
-    transform: translateY(100%);
+    // transform: translateY(100%);
     width: 90%;
-    height: 30%;
+    overflow: scroll;
+
+    // height: 30%;
     div {
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
       -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
@@ -98,16 +103,22 @@
   }
   @include mq('md') {
     &__inner {
-      transform: translateY(100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 70%;
-      height: 30%;
+      div:not([class='works_card_modal__inner_contents__hT3mX']) {
+        width: 100%;
+        height: 400px;
+      }
+      &_contents {
+        width: 50%;
+      }
     }
   }
   @include mq('lg') {
     &__inner {
-      transform: translateY(50%);
       width: 50%;
-      height: 50%;
     }
   }
 }
