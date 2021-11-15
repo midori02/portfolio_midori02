@@ -30,25 +30,27 @@ const WorksCard: FC<Props> = (props) => {
       </div>
       {modal && (
         <div className={styles.modal}>
-          <div className={styles.modal__close} onClick={() => setModal(false)}>
-            <div className={styles.modal__close_bar}></div>
-            <div className={styles.modal__close_bar}></div>
-          </div>
-          <div className={styles.modal__inner}>
-            <ImageArea path={content.image[0].path} width={200} height={200} />
-            <div className={styles.modal__inner_contents}>
-              <h1>{content.title}</h1>
-              <p>
-                {content.period.start_year}.{content.period.start_month} ~ {content.period.end_year}.
-                {content.period.end_month}
-              </p>
-              {content.skills.map((skill) => (
-                <span>
-                  {skill}
-                  {content.skills.length > 1 && skill !== content.skills[content.skills.length - 1] && '/'}
-                </span>
-              ))}
-              <p>{content.description}</p>
+          <div className={styles.modal__container}>
+            <div className={styles.modal__close} onClick={() => setModal(false)}>
+              <div className={styles.modal__close_bar}></div>
+              <div className={styles.modal__close_bar}></div>
+            </div>
+            <div className={styles.modal__inner}>
+              <ImageArea path={content.image[0].path} width={200} height={200} />
+              <div className={styles.modal__inner_contents}>
+                <h1>{content.title}</h1>
+                <p>
+                  {content.period.start_year}.{content.period.start_month} ~ {content.period.end_year}.
+                  {content.period.end_month}
+                </p>
+                {content.skills.map((skill) => (
+                  <span>
+                    {skill}
+                    {content.skills.length > 1 && skill !== content.skills[content.skills.length - 1] && '/'}
+                  </span>
+                ))}
+                <p>{content.description}</p>
+              </div>
             </div>
           </div>
         </div>
