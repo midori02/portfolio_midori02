@@ -31,23 +31,23 @@ export const menu_list = [
 
 export const workContents = [
   {
-    title: 'websites',
+    title: 'website',
     genre: 'web',
   },
   {
-    title: 'lps',
+    title: 'lLP',
     genre: 'lp',
   },
   {
-    title: 'apps',
+    title: 'App',
     genre: 'app',
   },
   {
-    title: 'graphics',
+    title: 'graphic',
     genre: 'graphic',
   },
   {
-    title: 'banners',
+    title: 'banner',
     genre: 'banner',
   },
   {
