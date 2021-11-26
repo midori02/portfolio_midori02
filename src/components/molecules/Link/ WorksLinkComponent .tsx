@@ -14,16 +14,16 @@ const WorksLinkComponent: FC = () => {
         <li style={{ ['--indent' as any]: 2 }} onClick={() => router.push('/lps')}>
           LP
         </li>
-        <li style={{ ['--indent' as any]: 2 }} onClick={() => router.push('/apps')}>
+        <li style={{ ['--indent' as any]: 3 }} onClick={() => router.push('/apps')}>
           App
         </li>
-        <li style={{ ['--indent' as any]: 3 }} onClick={() => router.push('/graphics')}>
+        <li style={{ ['--indent' as any]: 4 }} onClick={() => router.push('/graphics')}>
           graphic
         </li>
-        <li style={{ ['--indent' as any]: 4 }} onClick={() => router.push('/banners')}>
+        <li style={{ ['--indent' as any]: 5 }} onClick={() => router.push('/banners')}>
           banner
         </li>
-        <li style={{ ['--indent' as any]: 5 }} onClick={() => router.push('/others')}>
+        <li style={{ ['--indent' as any]: 6 }} onClick={() => router.push('/others')}>
           others
         </li>
       </ul>

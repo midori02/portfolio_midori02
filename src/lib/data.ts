@@ -5,7 +5,7 @@ export const menu_list = [
   },
   {
     urlPath: 'web_site',
-    list: 'website',
+    list: 'web site',
   },
   {
     urlPath: 'lp',
@@ -35,7 +35,7 @@ export const workContents = [
     genre: 'web',
   },
   {
-    title: 'lLP',
+    title: 'LP',
     genre: 'lp',
   },
   {
