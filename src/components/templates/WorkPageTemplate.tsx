@@ -17,9 +17,10 @@ const WorkPageTemplate: FC<Props> = (props) => {
   const transformData = (data: string) => {
     const result = {
       websites: 'web',
+      lps: 'LP',
+      apps: 'App',
       graphics: 'graphic',
-      packages: 'package',
-      editorials: 'editorial',
+      banners: 'banner',
       others: 'others',
     }
     return result[data]
@@ -36,7 +37,7 @@ const WorkPageTemplate: FC<Props> = (props) => {
       </div>
       <div className={styles.work_page__container}>
         <div className={styles.work_page__container_title}>
-          <h1>{works}</h1>
+          <h1>{transformData(works)}</h1>
         </div>
         <div className={styles.work_page__container_list}>
           {useFilterGenre.map((content) => (
