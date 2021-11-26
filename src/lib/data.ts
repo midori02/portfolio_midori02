@@ -5,19 +5,23 @@ export const menu_list = [
   },
   {
     urlPath: 'web_site',
-    list: 'web site',
+    list: 'website',
   },
   {
-    urlPath: 'graphic _design',
-    list: 'graphic design',
+    urlPath: 'lp',
+    list: 'lp',
   },
   {
-    urlPath: 'editorial',
-    list: 'editorial',
+    urlPath: 'app',
+    list: 'app',
   },
   {
-    urlPath: 'package',
-    list: 'package',
+    urlPath: 'graphic',
+    list: 'graphic',
+  },
+  {
+    urlPath: 'banner',
+    list: 'banner',
   },
   {
     urlPath: 'others',
@@ -31,16 +35,20 @@ export const workContents = [
     genre: 'web',
   },
   {
+    title: 'lps',
+    genre: 'lp',
+  },
+  {
+    title: 'apps',
+    genre: 'app',
+  },
+  {
     title: 'graphics',
     genre: 'graphic',
   },
   {
-    title: 'editorials',
-    genre: 'editorial',
-  },
-  {
-    title: 'packages',
-    genre: 'package',
+    title: 'banners',
+    genre: 'banner',
   },
   {
     title: 'others',
