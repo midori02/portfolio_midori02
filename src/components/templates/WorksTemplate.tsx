@@ -1,9 +1,8 @@
-import { FC, useCallback } from 'react'
+import { FC } from 'react'
 
 import { ImageArea } from 'components/atoms/Images'
 import { WorksLinkComponent } from 'components/molecules/Link'
 import { AutoSlideAnimation } from 'components/molecules/Works'
-import { ImageType } from 'types/utility'
 import { ContentType } from 'types/content'
 import { workContents } from 'lib/data'
 import { filterData } from 'lib/filterWorks'
@@ -16,9 +15,9 @@ const WorksTemplate: FC<Props> = (props) => {
   const { contents } = props
 
   return (
-    <div className={styles.works_template}>
+    <div id={'works'} className={styles.works_template}>
       <div className={styles.works_template__title}>
-        <ImageArea path={'title-works.svg'} width={320} height={56} />
+        <ImageArea path={'/title-works.svg'} width={320} height={56} />
       </div>
       <div className={styles.works_template__menu}>
         <WorksLinkComponent />

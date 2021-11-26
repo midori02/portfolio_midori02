@@ -18,10 +18,12 @@ const AboutTemplate: FC<Props> = (props) => {
   return (
     <div id={'about'} className={styles.about_template}>
       <div className={styles.about_template__title}>
-        <IconArea path={'title-about.svg'} width={320} height={56} />
+        <IconArea path={'/title-about.svg'} width={320} height={56} />
       </div>
       <div className={styles.about_template__content}>
-        <ImageArea path={profile ? profile.image[0].path : '/icon_me.svg'} width={160} height={160} />
+        <div className={styles.about_template__content_image}>
+          <ImageArea path={profile ? profile.image[0].path : '/icon_me.svg'} width={240} height={240} />
+        </div>
         <AboutBackground histories={histories} profile={profile} />
       </div>
     </div>

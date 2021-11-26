@@ -1,11 +1,11 @@
-const path = require("path");
+const path = require('path')
 module.exports = {
   reactStrictMode: true,
-  distDir: "../.next",
+  distDir: '../.next',
   sassOptions: {
-    includePaths: [path.join(__dirname, "styles")],
+    includePaths: [path.join(__dirname, 'styles')],
   },
   images: {
-    domains: ["firebasestorage.googleapis.com"],
+    domains: ['firebasestorage.googleapis.com', 'midori02.com'],
   },
-};
+}

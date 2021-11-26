@@ -5,10 +5,10 @@
   width: 100vw;
   &__title {
     @include flex-column-aligncenter-center;
+    margin-bottom: 16px;
   }
   &__menu {
     @include flex-column-aligncenter-center;
-    margin-left: 320px;
   }
   @include mq('md') {
     &__title {

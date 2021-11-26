@@ -2,13 +2,13 @@
 @import 'styles/utility.scss';
 
 .text_content {
-  @include flex-row-flex-start;
+  @include flex-column-aligncenter-center;
   align-items: center;
   list-style: none;
   width: 100%;
   padding: 0;
   &__period {
-    @include flex-row-flex-start;
+    @include flex-row-aligncenter;
     width: 30%;
     padding: 0;
     p {
@@ -21,12 +21,20 @@
     p {
       @include font-decoration($black, 14px, mic-32-new-web, 400, 2px);
       margin: 4px;
+      text-align: center;
     }
   }
   @include mq('md') {
+    @include flex-row-flex-start;
     width: 50vw;
     &__period {
+      @include flex-row-flex-start;
       width: 120px;
+    }
+    &__event {
+      p {
+        text-align: left;
+      }
     }
   }
 }

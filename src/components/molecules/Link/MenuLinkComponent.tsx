@@ -11,7 +11,9 @@ const MenuLinkComponent: FC = () => {
   return (
     <div className={styles.link_component__menu}>
       <ul className={styles.link_component__menu_pc}>
-        <li onClick={() => router.push('/')}>works</li>
+        <Link to={'works'} smooth={'easeInOutQuart'} duration={1600} offset={-100}>
+          <li>works</li>
+        </Link>
         <Link to={'about'} smooth={'easeInOutQuart'} duration={1600} offset={12}>
           <li>about</li>
         </Link>
@@ -30,7 +32,7 @@ const MenuLinkComponent: FC = () => {
           <span></span>
           <span></span>
           <div className={active ? styles.link_component__menu_tb_list_active : styles.link_component__menu_tb_list}>
-            <MenuList />
+            <MenuList setIsActive={setActive} />
           </div>
         </div>
       </div>

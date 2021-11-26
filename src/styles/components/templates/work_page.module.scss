@@ -1,0 +1,49 @@
+@import 'styles/variables.scss';
+@import 'styles/utility.scss';
+
+.work_page {
+  width: 100vw;
+  &__logo {
+    position: absolute;
+    right: 3%;
+    top: 2%;
+  }
+  &__menu {
+    @include flex-row-aligncenter;
+    margin-top: 16px;
+  }
+  &__container {
+    @include flex-column-aligncenter-center;
+    &_title {
+      margin: 120px 0;
+      h1 {
+        @include font-decoration($black, 40px, mic-32-new-web, 400, 6px);
+      }
+    }
+    &_list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 80px 24px;
+    }
+  }
+  @include mq('md') {
+    &__container {
+      &_list {
+        width: 90vw;
+      }
+    }
+  }
+  @include mq('lg') {
+    &__menu {
+      margin-top: 80px;
+    }
+    &__container {
+      &_title {
+        margin: 0 0 80px 0;
+      }
+      &_list {
+        width: 75vw;
+      }
+    }
+  }
+}
