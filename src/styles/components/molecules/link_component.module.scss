@@ -144,21 +144,21 @@
     }
     li {
       width: fit-content;
-      padding: 2px;
+      padding: 6px;
     }
     li:hover {
       color: $pale_red;
       cursor: pointer;
     }
+    &_active {
+      color: $pale_red;
+    }
     @include mq('md') {
       font-size: 16px;
-      li {
-        padding: 6px;
-      }
     }
     @include mq('lg') {
-      li {
-        padding: 8px;
+      ul {
+        padding-left: 8px;
       }
     }
   }

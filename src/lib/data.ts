@@ -4,23 +4,23 @@ export const menu_list = [
     list: 'all',
   },
   {
-    urlPath: 'web_site',
+    urlPath: 'website',
     list: 'web site',
   },
   {
-    urlPath: 'lp',
+    urlPath: 'lps',
     list: 'lp',
   },
   {
-    urlPath: 'app',
+    urlPath: 'apps',
     list: 'app',
   },
   {
-    urlPath: 'graphic',
+    urlPath: 'graphics',
     list: 'graphic',
   },
   {
-    urlPath: 'banner',
+    urlPath: 'banners',
     list: 'banner',
   },
   {
@@ -32,7 +32,7 @@ export const menu_list = [
 export const workContents = [
   {
     title: 'website',
-    genre: 'web',
+    genre: 'website',
   },
   {
     title: 'LP',

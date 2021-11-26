@@ -37,7 +37,7 @@ const WorkPageTemplate: FC<Props> = (props) => {
       </div>
       <div className={styles.work_page__container}>
         <div className={styles.work_page__container_title}>
-          <h1>{works}</h1>
+          <h1>{transformData(works)}</h1>
         </div>
         <div className={styles.work_page__container_list}>
           {useFilterGenre.map((content) => (
