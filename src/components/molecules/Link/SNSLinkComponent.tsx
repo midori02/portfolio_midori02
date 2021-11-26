@@ -14,7 +14,12 @@ const SNSLinkComponent: FC = () => {
         width={32}
         height={32}
       />
-      <IconArea onClick={() => router.push('')} path={'/facebook_black.png'} width={32} height={32} />
+      <IconArea
+        onClick={() => router.push('https://www.instagram.com/tamag.0.0/?hl=ja')}
+        path={'/instagram_black.png'}
+        width={32}
+        height={32}
+      />
       <IconArea onClick={() => router.push('')} path={'/twitter_black.png'} width={32} height={32} />
     </div>
   )

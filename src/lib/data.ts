@@ -32,7 +32,7 @@ export const menu_list = [
 export const workContents = [
   {
     title: 'website',
-    genre: 'website',
+    genre: 'web',
   },
   {
     title: 'LP',
