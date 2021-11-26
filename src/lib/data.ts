@@ -8,16 +8,20 @@ export const menu_list = [
     list: 'web site',
   },
   {
-    urlPath: 'graphic _design',
-    list: 'graphic design',
+    urlPath: 'LP',
+    list: 'LP',
   },
   {
-    urlPath: 'editorial',
-    list: 'editorial',
+    urlPath: 'App',
+    list: 'App',
   },
   {
-    urlPath: 'package',
-    list: 'package',
+    urlPath: 'graphic',
+    list: 'graphic',
+  },
+  {
+    urlPath: 'banner',
+    list: 'banner',
   },
   {
     urlPath: 'others',
@@ -31,16 +35,20 @@ export const workContents = [
     genre: 'web',
   },
   {
+    title: 'lps',
+    genre: 'lp',
+  },
+  {
+    title: 'apps',
+    genre: 'app',
+  },
+  {
     title: 'graphics',
     genre: 'graphic',
   },
   {
-    title: 'editorials',
-    genre: 'editorial',
-  },
-  {
-    title: 'packages',
-    genre: 'package',
+    urlPath: 'banners',
+    list: 'banner',
   },
   {
     title: 'others',
