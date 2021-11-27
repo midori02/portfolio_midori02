@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
 import { ImageArea } from 'components/atoms/Images'
+import { Wave } from 'components/atoms/Animation'
 import { WorksLinkComponent } from 'components/molecules/Link'
 import { AutoSlideAnimation } from 'components/molecules/Works'
 import { ContentType } from 'types/content'

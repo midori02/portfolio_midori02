@@ -2,8 +2,7 @@ import { FC, SetStateAction, Dispatch } from 'react'
 import { useRouter } from 'next/dist/client/router'
 import { Link } from 'react-scroll'
 
-import { TextArea } from 'components/atoms/Texts'
-import { menu_list } from 'lib/data'
+// import { menu_list } from 'lib/data'
 import styles from 'styles/components/molecules/menu_list.module.scss'
 
 type Props = {
@@ -28,19 +27,19 @@ const MenuList: FC<Props> = (props) => {
       </ul>
       <ul>
         <li style={{ ['--indent' as any]: 1 }} onClick={() => router.push('/websites')}>
-          website
+          websites
         </li>
         <li style={{ ['--indent' as any]: 2 }} onClick={() => router.push('/lps')}>
-          LP
+          lps
         </li>
         <li style={{ ['--indent' as any]: 2 }} onClick={() => router.push('/apps')}>
-          App
+          apps
         </li>
         <li style={{ ['--indent' as any]: 2 }} onClick={() => router.push('/graphics')}>
-          graphic
+          graphics
         </li>
         <li style={{ ['--indent' as any]: 4 }} onClick={() => router.push('/banners')}>
-          banner
+          banners
         </li>
         <li style={{ ['--indent' as any]: 5 }} onClick={() => router.push('/others')}>
           others

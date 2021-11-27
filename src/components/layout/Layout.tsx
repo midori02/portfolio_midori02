@@ -15,6 +15,7 @@ const Layout: FC<Props> = (props) => {
   return (
     <>
       <Head>
+        <link rel="icon" href="/favicon.png" />
         <title>{pageTitle}</title>
       </Head>
       <NextSeo
@@ -22,7 +23,7 @@ const Layout: FC<Props> = (props) => {
         description="This Page is midori02's portfolio..."
         openGraph={{
           type: 'website',
-          url: 'https://www.facebook.com/',
+          url: 'https://www.midori02.com/',
           title: 'midori02',
           description: "This Page is midori02's portfolio...",
           images: [

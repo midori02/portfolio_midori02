@@ -4,7 +4,7 @@ export const menu_list = [
     list: 'all',
   },
   {
-    urlPath: 'website',
+    urlPath: 'websites',
     list: 'web site',
   },
   {
@@ -31,23 +31,23 @@ export const menu_list = [
 
 export const workContents = [
   {
-    title: 'website',
+    title: 'websites',
     genre: 'web',
   },
   {
-    title: 'LP',
+    title: 'lps',
     genre: 'lp',
   },
   {
-    title: 'App',
+    title: 'apps',
     genre: 'app',
   },
   {
-    title: 'graphic',
+    title: 'graphics',
     genre: 'graphic',
   },
   {
-    title: 'banner',
+    title: 'banners',
     genre: 'banner',
   },
   {

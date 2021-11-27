@@ -10,6 +10,12 @@
   &__menu {
     @include flex-column-aligncenter-center;
   }
+  div[class='wave_animation_wave_animation__3QcPn'] {
+    svg:nth-child(2) {
+      align-items: center;
+      margin-left: 24px;
+    }
+  }
   @include mq('md') {
     &__title {
       img {
@@ -22,6 +28,7 @@
     }
   }
   @include mq('lg') {
+    margin-top: 80px;
     &__title {
       img {
         width: 504px;
