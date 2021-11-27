@@ -14,35 +14,35 @@ const WorksLinkComponent: FC = () => {
           style={{ ['--indent' as any]: 1 }}
           onClick={() => router.push('/websites')}
         >
-          website
+          websites
         </li>
         <li
           className={(router.query.works as String) === 'lps' && styles.link_component__works_active}
           style={{ ['--indent' as any]: 2 }}
           onClick={() => router.push('/lps')}
         >
-          LP
+          lps
         </li>
         <li
           className={(router.query.works as String) === 'apps' && styles.link_component__works_active}
           style={{ ['--indent' as any]: 3 }}
           onClick={() => router.push('/apps')}
         >
-          App
+          apps
         </li>
         <li
           className={(router.query.works as String) === 'graphics' && styles.link_component__works_active}
           style={{ ['--indent' as any]: 4 }}
           onClick={() => router.push('/graphics')}
         >
-          graphic
+          graphics
         </li>
         <li
           className={(router.query.works as String) === 'benners' && styles.link_component__works_active}
           style={{ ['--indent' as any]: 5 }}
           onClick={() => router.push('/banners')}
         >
-          banner
+          banners
         </li>
         <li
           className={(router.query.works as String) === 'others' && styles.link_component__works_active}

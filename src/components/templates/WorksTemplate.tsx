@@ -23,8 +23,6 @@ const WorksTemplate: FC<Props> = (props) => {
       <div className={styles.works_template__menu}>
         <WorksLinkComponent />
       </div>
-      <Wave />
-
       <div className={styles.works_template__contents}>
         <div className={styles.works_template__contents_hidden}>
           {workContents.map((content, index) => (

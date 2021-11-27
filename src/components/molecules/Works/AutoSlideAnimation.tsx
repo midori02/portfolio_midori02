@@ -2,6 +2,7 @@ import { FC } from 'react'
 import Slider from 'react-slick'
 import { useRouter } from 'next/router'
 
+import { Wave } from 'components/atoms/Animation'
 import { ImageArea } from 'components/atoms/Images'
 import { ImageType } from 'types/utility'
 import styles from 'styles/components/molecules/auto_slide.module.scss'
@@ -39,6 +40,7 @@ const AutoSlideAnimation: FC<Props> = (props) => {
       <div className={styles.auto_slide__container_title} onClick={() => router.push(`/${title}`)}>
         {title}
       </div>
+
       <div className={styles.auto_slide__container_animation}>
         <Slider {...settings}>
           {contents ? (

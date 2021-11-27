@@ -4,15 +4,10 @@
 .wave_animation {
   max-height: 300px;
   margin: 0px auto;
-  text-align: left;
+  text-align: center;
   &__line {
     animation: moveTheWave 2400ms linear infinite;
     stroke-dasharray: 0 16 101 16;
-  }
-  div[class='wave_animation_wave_animation__3QcPn'] {
-    svg:nth-child(2) {
-      margin-left: 2%;
-    }
   }
 
   @keyframes moveTheWave {
