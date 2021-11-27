@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
 import { ImageArea } from 'components/atoms/Images'
+import { Wave } from 'components/atoms/Animation'
 import { WorksLinkComponent } from 'components/molecules/Link'
 import { AutoSlideAnimation } from 'components/molecules/Works'
 import { ContentType } from 'types/content'
@@ -22,6 +23,8 @@ const WorksTemplate: FC<Props> = (props) => {
       <div className={styles.works_template__menu}>
         <WorksLinkComponent />
       </div>
+      <Wave />
+
       <div className={styles.works_template__contents}>
         <div className={styles.works_template__contents_hidden}>
           {workContents.map((content, index) => (

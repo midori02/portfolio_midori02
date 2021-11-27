@@ -41,15 +41,19 @@ const AutoSlideAnimation: FC<Props> = (props) => {
       </div>
       <div className={styles.auto_slide__container_animation}>
         <Slider {...settings}>
-          {contents.map((content) => (
-            <div
-              className={styles.auto_slide__container_animation_image}
-              onClick={() => console.log(content.id)}
-              key={content.id}
-            >
-              <ImageArea path={content.image[0].path} width={400} height={400} />
-            </div>
-          ))}
+          {contents ? (
+            contents.map((content) => (
+              <div
+                className={styles.auto_slide__container_animation_image}
+                onClick={() => console.log(content.id)}
+                key={content.id}
+              >
+                <ImageArea path={content.image[0].path} width={400} height={400} />
+              </div>
+            ))
+          ) : (
+            <div>準備中</div>
+          )}
         </Slider>
       </div>
     </div>

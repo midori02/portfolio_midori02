@@ -47,7 +47,7 @@
   }
   &__clicked1 {
     @extend .circle;
-    bottom: 2%;
+    bottom: 20px;
     left: 24%;
     &_bar {
       position: absolute;
@@ -215,7 +215,7 @@
   }
   @include mq('lg') {
     &__clicked1 {
-      bottom: 48%;
+      top: 240px;
       left: 20%;
       &_bar {
         width: 100px;
@@ -228,17 +228,17 @@
     }
     &__clicked3 {
       display: block;
-      bottom: 8%;
+      top: 480px;
       right: 8%;
     }
     &__clicked4 {
       display: block;
-      top: 20%;
+      top: 160px;
       right: 20%;
     }
     &__clicked5 {
       display: block;
-      bottom: 8%;
+      top: 520px;
       left: 10%;
     }
   }
