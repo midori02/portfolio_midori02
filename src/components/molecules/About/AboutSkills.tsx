@@ -10,13 +10,13 @@ const AboutSkills: FC = () => {
     return skills.filter((skill) => skill.category === category)
   }
   return (
-    <div className={styles.about_skills__category}>
+    <div className={styles.about_skills}>
       {categories.map((category) => {
         const skills = filter(category)
         return (
           <>
             <h5>{category}</h5>
-            <div className={styles.about_skills__category_btn}>
+            <div className={styles.about_skills__category}>
               {skills.map((skill) => (
                 <SkillButton key={skill.skill} skill={skill.skill} level={skill.level} />
               ))}

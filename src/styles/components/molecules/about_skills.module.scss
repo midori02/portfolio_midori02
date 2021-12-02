@@ -2,14 +2,21 @@
 @import 'styles/utility.scss';
 
 .about_skills {
+  @include flex-column-aligncenter-center;
+  h5 {
+    margin-top: 32px;
+  }
   &__category {
+    @include flex-row-flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @include mq('md') {
     @include flex-column-flex-start;
-    h5 {
-      margin-top: 8px;
-    }
-    &_btn {
-      @include flex-row-aligncenter;
-      flex-wrap: wrap;
+    &__category {
+      @include flex-row-flex-start;
+      justify-content: flex-start;
     }
   }
 }

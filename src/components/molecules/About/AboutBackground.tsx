@@ -6,7 +6,6 @@ import { HistoryType, ProfileType } from 'types/content'
 import { Profile } from '../Texts'
 import { AboutSkills } from '.'
 import styles from 'styles/components/molecules/about_background.module.scss'
-import { skills } from 'lib/data'
 
 type Props = {
   histories: HistoryType[]

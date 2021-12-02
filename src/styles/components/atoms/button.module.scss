@@ -63,8 +63,8 @@
   &__skill {
     @include flex-column-aligncenter-center;
     width: 160px;
-    height: 40px;
-    margin: 12px;
+    height: 32px;
+    margin: 8px;
     border: 2px solid $black;
     background-color: $white;
     position: relative;
@@ -103,6 +103,13 @@
           transform: translateX(-50%) rotate(-90deg);
         }
       }
+    }
+  }
+  @include mq('lg') {
+    &__skill {
+      width: 160px;
+      height: 40px;
+      margin: 12px;
     }
   }
 }
