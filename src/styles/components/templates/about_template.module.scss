@@ -2,19 +2,29 @@
 @import 'styles/utility.scss';
 
 .about_template {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: block;
+  margin: 0 auto;
   padding: 10%;
   width: 100vw;
   &__title {
     margin-bottom: 100px;
+    text-align: center;
   }
   &__content {
     @include flex-column-aligncenter-center;
     &_image {
       margin-bottom: 32px;
       border: 2px solid $black;
+      div {
+        img {
+          transition: transform ease-in-out 0.3s;
+          &:hover {
+            transform: scale(1.02);
+            transition: transform ease-in-out 0.3s;
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
   @include mq('md') {
@@ -33,6 +43,7 @@
     }
   }
   @include mq('lg') {
+    width: 80vw;
     &__title {
       img {
         width: 504px;

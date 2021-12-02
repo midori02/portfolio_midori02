@@ -50,6 +50,7 @@ const WorksCard: FC<Props> = (props) => {
                   </span>
                 ))}
                 <p>{content.description}</p>
+                <a>{content.url}</a>
               </div>
             </div>
           </div>

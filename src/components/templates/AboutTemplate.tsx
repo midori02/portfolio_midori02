@@ -15,6 +15,8 @@ type Props = {
 const AboutTemplate: FC<Props> = (props) => {
   const { histories, profile } = props
 
+  const [active, setActive] = useState<boolean>(false)
+
   return (
     <div id={'about'} className={styles.about_template}>
       <div className={styles.about_template__title}>
@@ -22,7 +24,17 @@ const AboutTemplate: FC<Props> = (props) => {
       </div>
       <div className={styles.about_template__content}>
         <div className={styles.about_template__content_image}>
-          <ImageArea path={profile ? profile.image[0].path : '/icon_me.svg'} width={240} height={240} />
+          <ImageArea
+            path={profile ? profile.image[0].path : '/icon_me.svg'}
+            width={240}
+            height={240}
+            onClick={() => setActive(true)}
+          />
+          {active && (
+            <div className={styles.icon_animation}>
+              <img src="/personal_history.png" alt="#" />
+            </div>
+          )}
         </div>
         <AboutBackground histories={histories} profile={profile} />
       </div>

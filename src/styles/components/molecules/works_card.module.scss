@@ -112,6 +112,12 @@
       white-space: wrap;
       margin: 8px 0;
     }
+    a {
+      text-decoration: none;
+      font-size: 10px;
+      color: $white;
+      border-bottom: 1px solid $white;
+    }
   }
   @include mq('md') {
     &__inner {

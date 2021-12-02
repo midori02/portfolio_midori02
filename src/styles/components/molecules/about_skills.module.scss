@@ -1,0 +1,15 @@
+@import 'styles/variables.scss';
+@import 'styles/utility.scss';
+
+.about_skills {
+  &__category {
+    @include flex-column-flex-start;
+    h5 {
+      margin-top: 8px;
+    }
+    &_btn {
+      @include flex-row-aligncenter;
+      flex-wrap: wrap;
+    }
+  }
+}

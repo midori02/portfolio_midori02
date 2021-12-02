@@ -32,7 +32,7 @@ export const menu_list = [
 export const workContents = [
   {
     title: 'websites',
-    genre: 'web',
+    genre: 'website',
   },
   {
     title: 'lps',
@@ -53,5 +53,73 @@ export const workContents = [
   {
     title: 'others',
     genre: 'others',
+  },
+]
+
+export const skills = [
+  {
+    category: 'software',
+    skill: 'Adobe Ps',
+    level: '☆☆☆☆',
+  },
+  {
+    category: 'software',
+    skill: 'Adobe Ai',
+    level: '☆☆☆☆',
+  },
+  {
+    category: 'software',
+    skill: 'Adobe XD',
+    level: '☆☆☆☆',
+  },
+  {
+    category: 'software',
+    skill: 'Adobe Pr',
+    level: '☆☆',
+  },
+  {
+    category: 'software',
+    skill: 'Figma',
+    level: '☆☆☆☆',
+  },
+  {
+    category: 'software',
+    skill: 'Sketchup',
+    level: '☆',
+  },
+  {
+    category: 'programming',
+    skill: 'HTML',
+    level: '☆☆☆',
+  },
+  {
+    category: 'programming',
+    skill: 'CSS',
+    level: '☆☆☆',
+  },
+  {
+    category: 'programming',
+    skill: 'Javascrips',
+    level: '☆☆',
+  },
+  {
+    category: 'programming',
+    skill: 'React',
+    level: '☆☆',
+  },
+  {
+    category: 'others',
+    skill: 'French',
+    level: 'fluent',
+  },
+  {
+    category: 'others',
+    skill: 'English',
+    level: 'fluent',
+  },
+  {
+    category: 'others',
+    skill: 'curator',
+    level: 'certified',
   },
 ]

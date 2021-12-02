@@ -7,6 +7,9 @@
   list-style: none;
   width: 100%;
   padding: 0;
+  &:last-child {
+    padding-bottom: 32px;
+  }
   &__period {
     @include flex-row-aligncenter;
     width: 30%;
