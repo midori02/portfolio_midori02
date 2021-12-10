@@ -21,7 +21,7 @@ const WorksLinkComponent: FC = () => {
           style={{ ['--indent' as any]: 2 }}
           onClick={() => router.push('/lps')}
         >
-          lps
+          lps(ランディングページ)
         </li>
         <li
           className={(router.query.works as String) === 'apps' && styles.link_component__works_active}

@@ -5,19 +5,70 @@
   @include flex-column-aligncenter-center;
   width: 90%;
   ul {
-    padding: 32px 0 0 0;
-    width: 100%;
+    padding-top: 32px;
+    width: 90vw;
+  }
+  &__propfile {
+    width: 90vw;
   }
   &__toggle {
-    @include font-decoration($grey700, 12px, mic-32-new-web, 400, 2px);
+    @include font-decoration($black, 12px, mic-32-new-web, 400, 2px);
     position: relative;
     cursor: pointer;
-    &:hover {
-      border-bottom: 1px solid $grey700;
+    margin-top: 32px;
+  }
+  &__skills {
+    @include flex-column-aligncenter-center;
+    width: 95vw;
+    h2 {
+      @include font-decoration($black, 28px, mic-32-new-web, 400, 2px);
+      transition: letter-spacing 0.3s ease-in-out;
+      cursor: default;
+      border-bottom: 2px solid $black;
+      &:hover {
+        letter-spacing: 3px;
+        color: $yellow;
+      }
     }
   }
   @include mq('md') {
     @include flex-column-flex-start;
-    width: 100%;
+    width: 70%;
+    ul {
+      width: 50vw;
+    }
+    &__propfile {
+      width: 50vw;
+    }
+    &__skills {
+      @include flex-column-flex-start;
+      width: 100%;
+    }
+  }
+}
+.personal_history {
+  @include flex-row-flex-start;
+  p {
+    border: 2px solid $black;
+    border-radius: 32px;
+    padding: 8px 24px;
+    font-size: 20px;
+    margin-left: 8px;
+    transition: background-color 0.5s, border-radius 0.5s, padding 0.5s;
+    &:hover {
+      background-color: $yellow;
+      color: $white;
+      border-radius: 0;
+      transition: background-color 1s, border-radius 0.5s, padding 0.5s ease-out;
+    }
+  }
+  @include mq('md') {
+    margin-left: -16px;
+    p {
+      &:hover {
+        padding: 8px 64px 8px 24px;
+        transition: padding 0.5s ease-out;
+      }
+    }
   }
 }

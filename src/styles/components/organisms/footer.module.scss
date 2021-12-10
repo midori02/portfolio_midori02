@@ -7,8 +7,6 @@
   gap: 40px;
   padding-top: 100px;
   &__copywrite {
-    p {
-      @include font-decoration($black, 12px, mic-32-new-web, 400, 2px);
-    }
+    @include font-decoration($black, 12px, mic-32-new-web, 300, 2px);
   }
 }

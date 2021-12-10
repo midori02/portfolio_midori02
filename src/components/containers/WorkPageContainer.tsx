@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import dynamic from 'next/dynamic'
 import { useQuery } from 'react-query'
 import { useRouter } from 'next/router'
 

@@ -1,18 +1,19 @@
-import { FC, useState, createContext } from 'react'
+import { FC, useState, ReactElement } from 'react'
 
 import { IconArea, ImageArea } from 'components/atoms/Images'
+import { TextAnimation } from '../Texts'
 import styles from 'styles/components/molecules/top_image.module.scss'
 
 type Props = {
   onClick?: () => void
 }
-const TopImage: FC<Props> = (props) => {
+const TopImage: FC<Props> = (props): ReactElement => {
   const { onClick } = props
   const [count, setCount] = useState(0)
   const [active, setActive] = useState<boolean>(false)
 
   const handleClick = () => {
-    setCount((prevCount) => Math.min(prevCount + 1, 5))
+    setCount((prevCount) => Math.min(prevCount + 1, 3))
   }
 
   console.log(active)
@@ -20,6 +21,10 @@ const TopImage: FC<Props> = (props) => {
   return (
     <>
       <div className={styles.top_image}>
+        <div onClick={() => handleClick()} className={styles.top_image__hand}>
+          <ImageArea path={'/hand.svg'} width={80} height={80} />
+          <p>click here.</p>
+        </div>
         <div onClick={() => handleClick()} className={styles.top_image__icon}>
           <ImageArea path={'/icon_me.svg'} width={320} height={320} />
           <div className={styles.top_image__icon_shadow}></div>
@@ -40,27 +45,22 @@ const TopImage: FC<Props> = (props) => {
             </div>
           )}
         </div>
+
         {count >= 1 && (
           <div className={styles.top_image__clicked1}>
-            <div className={styles.top_image__clicked1_bar}></div>
-            <p>Hello !</p>
-            <p>I'm a web designer</p>
+            <div className={styles.top_image__clicked1_txt}>
+              <p>Hello !</p>
+              <p>I'm a web designer</p>
+            </div>
           </div>
         )}
 
         {count >= 3 && (
           <div className={styles.top_image__clicked3}>
-            <p></p>
-          </div>
-        )}
-        {count >= 4 && (
-          <div className={styles.top_image__clicked4}>
-            <p></p>
-          </div>
-        )}
-        {count >= 5 && (
-          <div className={styles.top_image__clicked5}>
-            <p></p>
+            <TextAnimation />
+            <div className={styles.top_image__clicked3_scrolldown}>
+              <span>Scroll</span>
+            </div>
           </div>
         )}
       </div>

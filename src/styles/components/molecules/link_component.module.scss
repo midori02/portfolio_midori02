@@ -138,10 +138,11 @@
   }
   &__works {
     @include font-decoration($black, 14px, mic-32-new-web, 400, 4px);
+    margin-top: 32px;
     ul {
       list-style: none;
       li {
-        padding-left: calc(var(--indent) * 24px);
+        padding-left: calc(var(--indent) * 12px);
       }
     }
     li {
@@ -157,6 +158,12 @@
     }
     @include mq('md') {
       font-size: 16px;
+      margin-top: 0;
+      ul {
+        li {
+          padding-left: calc(var(--indent) * 24px);
+        }
+      }
     }
     @include mq('lg') {
       ul {

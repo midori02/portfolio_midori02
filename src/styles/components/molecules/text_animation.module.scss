@@ -1,0 +1,6 @@
+@import 'styles/variables.scss';
+@import 'styles/utility.scss';
+
+.text_animation {
+  @include font-decoration($black, 18px, mic-32-new-web, 400, 2px);
+}

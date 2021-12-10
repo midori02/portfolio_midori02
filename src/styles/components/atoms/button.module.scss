@@ -3,15 +3,15 @@
 
 .button {
   &__sm {
-    @include font-decoration($white, 16px, Noto Sans JP, 400, 20px);
+    @include font-decoration($white, 20px, mic-32-new-web, 400, 4px);
     width: 144px;
-    min-height: 32px;
+    min-height: 40px;
     background-color: $yellow;
     border: none;
-    border-radius: 10px;
+    border-radius: 16px;
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(0);
-    padding-left: 24px;
+    padding-left: 12px;
     transition: 0.3s ease-in-out;
     &:hover {
       opacity: 0.9;
@@ -59,5 +59,57 @@
     transform: translateY(4px);
     transition: 0.3s ease-in-out;
     box-shadow: none;
+  }
+  &__skill {
+    @include flex-column-aligncenter-center;
+    width: 160px;
+    height: 32px;
+    margin: 8px;
+    border: 2px solid $black;
+    background-color: $white;
+    position: relative;
+    box-shadow: 4px 4px;
+    transition: transform 0.5s;
+    &_tooltip {
+      position: absolute;
+      top: 0;
+      transform: translateY(0px);
+      text-align: center;
+      width: fit-content;
+      padding: 8px 16px;
+      border-radius: 32px;
+      background-color: $black;
+      color: $white;
+      display: none;
+      transition: all 0.3s ease-in-out;
+    }
+    &:hover {
+      transform: translateX(1px) translateY(1px);
+      transition: transform 0.5s;
+      box-shadow: 3px 3px;
+      cursor: default;
+      .button__skill_tooltip {
+        display: block;
+        transform: translateY(-40px);
+        &::after {
+          content: '\A';
+          z-index: -2;
+          border-style: solid;
+          border-width: 10px 15px 10px 0;
+          border-color: transparent $black transparent transparent;
+          position: absolute;
+          margin-top: 12px;
+          left: 50%;
+          transform: translateX(-50%) rotate(-90deg);
+        }
+      }
+    }
+  }
+  @include mq('lg') {
+    &__skill {
+      width: 160px;
+      height: 40px;
+      margin: 12px;
+    }
   }
 }

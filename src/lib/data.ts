@@ -32,16 +32,16 @@ export const menu_list = [
 export const workContents = [
   {
     title: 'websites',
-    genre: 'web',
+    genre: 'website',
   },
   {
     title: 'lps',
     genre: 'lp',
   },
-  {
-    title: 'apps',
-    genre: 'app',
-  },
+  // {
+  //   title: 'apps',
+  //   genre: 'app',
+  // },
   {
     title: 'graphics',
     genre: 'graphic',
@@ -53,5 +53,93 @@ export const workContents = [
   {
     title: 'others',
     genre: 'others',
+  },
+]
+
+export const skills = [
+  {
+    category: 'software',
+    skill: 'Adobe Ps',
+    level: '☆☆☆☆',
+  },
+  {
+    category: 'software',
+    skill: 'Adobe Ai',
+    level: '☆☆☆☆',
+  },
+  {
+    category: 'software',
+    skill: 'Adobe XD',
+    level: '☆☆☆☆',
+  },
+  {
+    category: 'software',
+    skill: 'Adobe Pr',
+    level: '☆☆',
+  },
+  {
+    category: 'software',
+    skill: 'Adobe Ae',
+    level: '☆☆',
+  },
+  {
+    category: 'software',
+    skill: 'Figma',
+    level: '☆☆☆☆',
+  },
+  {
+    category: 'software',
+    skill: 'Sketchup',
+    level: '☆',
+  },
+  {
+    category: 'programming',
+    skill: 'HTML',
+    level: '☆☆☆',
+  },
+  {
+    category: 'programming',
+    skill: 'CSS',
+    level: '☆☆☆',
+  },
+  {
+    category: 'programming',
+    skill: 'SASS',
+    level: '☆☆☆',
+  },
+  {
+    category: 'programming',
+    skill: 'JavaScript',
+    level: '☆☆',
+  },
+  {
+    category: 'programming',
+    skill: 'TypeScript',
+    level: '☆☆',
+  },
+  {
+    category: 'programming',
+    skill: 'WordPress',
+    level: '☆☆',
+  },
+  {
+    category: 'programming',
+    skill: 'React',
+    level: '☆☆',
+  },
+  {
+    category: 'others',
+    skill: 'French',
+    level: 'fluent',
+  },
+  {
+    category: 'others',
+    skill: 'English',
+    level: 'fluent',
+  },
+  {
+    category: 'others',
+    skill: 'curator',
+    level: 'certified',
   },
 ]

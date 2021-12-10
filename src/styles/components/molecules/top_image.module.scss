@@ -17,6 +17,11 @@
 }
 
 .top_image {
+  &__hand {
+    position: absolute;
+    top: 112px;
+    right: 32px;
+  }
   &__icon {
     @include flex-column-aligncenter-center;
     margin-top: -56px;
@@ -94,25 +99,78 @@
     @extend .top_image__clicked2;
     svg {
       fill: $yellow;
-    }
-    &:hover {
-      svg {
-        animation: move 0.8s ease-in-out infinite alternate;
-        -webkit-animation: move 0.8s ease-in-out infinite alternate;
-      }
+      animation: move 0.8s ease-in-out infinite alternate;
+      -webkit-animation: move 0.8s ease-in-out infinite alternate;
     }
   }
   &__clicked3 {
-    @extend.circle;
-    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 400px;
+    height: 320px;
+    position: relative;
+    margin-top: -80px;
+    p {
+      text-align: center;
+      width: 80vw;
+    }
+    &_scrolldown {
+      position: absolute;
+      right: 50%;
+      /*矢印の動き1秒かけて永遠にループ*/
+      animation: arrowmove 1s ease-in-out infinite;
+      span {
+        /*描画位置*/
+        position: absolute;
+        left: -20px;
+        bottom: 10px;
+        /*テキストの形状*/
+        color: $black;
+        font-size: 0.7rem;
+        letter-spacing: 0.05em;
+        /*縦書き設定*/
+        -ms-writing-mode: tb-rl;
+        -webkit-writing-mode: vertical-rl;
+        writing-mode: vertical-rl;
+      }
+      &::before {
+        content: '';
+        /*描画位置*/
+        position: absolute;
+        bottom: 0;
+        right: -6px;
+        /*矢印の形状*/
+        width: 2px;
+        height: 20px;
+        background: $black;
+        transform: skewX(-31deg);
+      }
+
+      &::after {
+        content: '';
+        /*描画位置*/
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        /*矢印の形状*/
+        width: 2px;
+        height: 50px;
+        background: $black;
+      }
+    }
   }
-  &__clicked4 {
-    @extend.circle;
-    display: none;
-  }
-  &__clicked5 {
-    @extend.circle;
-    display: none;
+  @keyframes arrowmove {
+    0% {
+      bottom: 20%;
+    }
+    50% {
+      bottom: 22%;
+    }
+    100% {
+      bottom: 20%;
+    }
   }
   @keyframes float {
     from {
@@ -171,43 +229,31 @@
   }
   @include mq('md') {
     @include flex-column-aligncenter-center;
+    &__hand {
+      right: 120px;
+    }
     &__clicked1 {
       @extend.circle;
       display: block;
       top: 240px;
-      left: 10%;
-      &_bar {
-        width: 56px;
-        height: 2px;
-        transform: rotate(30deg);
-        -webkit-transform: rotate(30deg);
-        top: 160px;
-        left: 160px;
+      left: 6%;
+      &_txt {
+        margin-top: 32px;
       }
     }
     &__clicked3 {
-      @extend.circle;
-      display: block;
-      bottom: 15%;
-      right: 15%;
-    }
-    &__clicked4 {
-      @extend.circle;
-      display: block;
-      top: 20%;
-      right: 5%;
-    }
-    &__clicked5 {
-      @extend.circle;
-      display: block;
-      bottom: 25%;
-      left: 10%;
+      p {
+        width: 70vw;
+      }
     }
   }
   @include mq('lg') {
+    &__hand {
+      right: 240px;
+    }
     &__clicked1 {
-      top: 240px;
-      left: 20%;
+      top: 280px;
+      left: 12%;
       &_bar {
         width: 100px;
         height: 2px;
@@ -217,20 +263,23 @@
         left: 160px;
       }
     }
+  }
+  @include mq('xl') {
+    &__hand {
+      right: 440px;
+    }
+    &__icon {
+      margin-left: -120px;
+    }
     &__clicked3 {
+      position: absolute;
       display: block;
-      top: 480px;
+      top: 360px;
       right: 8%;
-    }
-    &__clicked4 {
-      display: block;
-      top: 160px;
-      right: 20%;
-    }
-    &__clicked5 {
-      display: block;
-      top: 520px;
-      left: 10%;
+      p {
+        text-align: left;
+        width: 25vw;
+      }
     }
   }
 }
