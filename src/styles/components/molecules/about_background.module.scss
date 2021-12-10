@@ -21,8 +21,10 @@
     @include flex-column-aligncenter-center;
     width: 95vw;
     h2 {
-      @include font-decoration($black, 24px, mic-32-new-web, 400, 2px);
+      @include font-decoration($black, 28px, mic-32-new-web, 400, 2px);
       transition: letter-spacing 0.3s ease-in-out;
+      cursor: default;
+      border-bottom: 2px solid $black;
       &:hover {
         letter-spacing: 3px;
         color: $yellow;
@@ -47,7 +49,7 @@
 .personal_history {
   @include flex-row-flex-start;
   p {
-    border: 1px solid $black;
+    border: 2px solid $black;
     border-radius: 32px;
     padding: 8px 24px;
     font-size: 20px;
@@ -61,6 +63,7 @@
     }
   }
   @include mq('md') {
+    margin-left: -16px;
     p {
       &:hover {
         padding: 8px 64px 8px 24px;

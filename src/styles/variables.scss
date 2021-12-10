@@ -1,5 +1,6 @@
 @import url('https://use.typekit.net/phb0zlb.css');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500&family=Open+Sans:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 
 $header-background: rgba(255, 255, 255, 0.4);
 $modal-background: rgba(0, 0, 0, 0.5);
@@ -32,7 +33,7 @@ $breakpoints: (
   'sm': 'screen and (min-width: 600px)',
   'md': 'screen and (min-width: 768px)',
   'lg': 'screen and (min-width: 1024px)',
-  'xl': 'screen and (min-width: 1440px)',
+  'xl': 'screen and (min-width: 1200px)',
 ) !default;
 
 // 初期値はlg(tablet screen size)

@@ -43,9 +43,30 @@ const WorkPageTemplate: FC<Props> = (props) => {
         </div>
 
         <div className={styles.work_page__container_list}>
-          {useFilterGenre.map((content) => (
-            <WorksCard key={content.content_id} content={content} />
-          ))}
+          {works === 'apps' ? (
+            <div className={styles.work_page__container_list_comming_soon}>
+              <div className={styles.work_page__container_list_comming_soon_txt}>
+                <span>c</span>
+                <span>o</span>
+                <span>m</span>
+                <span>m</span>
+                <span>i</span>
+                <span>n</span>
+                <span>g</span>
+              </div>
+              <div className={styles.work_page__container_list_comming_soon_txt}>
+                <span>s</span>
+                <span>o</span>
+                <span>o</span>
+                <span>n</span>
+                <span>.</span>
+                <span>.</span>
+                <span>.</span>
+              </div>
+            </div>
+          ) : (
+            useFilterGenre.map((content) => <WorksCard key={content.content_id} content={content} />)
+          )}
         </div>
       </div>
     </div>

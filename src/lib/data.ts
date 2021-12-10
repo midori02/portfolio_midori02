@@ -38,10 +38,10 @@ export const workContents = [
     title: 'lps',
     genre: 'lp',
   },
-  {
-    title: 'apps',
-    genre: 'app',
-  },
+  // {
+  //   title: 'apps',
+  //   genre: 'app',
+  // },
   {
     title: 'graphics',
     genre: 'graphic',
@@ -79,6 +79,11 @@ export const skills = [
   },
   {
     category: 'software',
+    skill: 'Adobe Ae',
+    level: '☆☆',
+  },
+  {
+    category: 'software',
     skill: 'Figma',
     level: '☆☆☆☆',
   },
@@ -99,7 +104,22 @@ export const skills = [
   },
   {
     category: 'programming',
-    skill: 'Javascrips',
+    skill: 'SASS',
+    level: '☆☆☆',
+  },
+  {
+    category: 'programming',
+    skill: 'JavaScript',
+    level: '☆☆',
+  },
+  {
+    category: 'programming',
+    skill: 'TypeScript',
+    level: '☆☆',
+  },
+  {
+    category: 'programming',
+    skill: 'WordPress',
     level: '☆☆',
   },
   {

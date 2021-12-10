@@ -6,7 +6,7 @@ import { WorkPageContainer } from 'components/containers'
 const Works: FC = () => {
   return (
     <>
-      {/* <WorkPageContainer /> */}
+      <WorkPageContainer />
       <Spacer size={'lg_h'} />
     </>
   )

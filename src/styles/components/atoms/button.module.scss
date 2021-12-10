@@ -87,7 +87,7 @@
       transform: translateX(1px) translateY(1px);
       transition: transform 0.5s;
       box-shadow: 3px 3px;
-      cursor: pointer;
+      cursor: default;
       .button__skill_tooltip {
         display: block;
         transform: translateY(-40px);

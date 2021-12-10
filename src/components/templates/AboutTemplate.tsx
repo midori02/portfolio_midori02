@@ -26,8 +26,8 @@ const AboutTemplate: FC<Props> = (props) => {
         <div className={styles.about_template__content_image}>
           <ImageArea
             path={profile ? profile.image[0].path : '/icon_me.svg'}
-            width={120}
-            height={120}
+            width={160}
+            height={160}
             onClick={() => setActive(true)}
           />
           {active && (

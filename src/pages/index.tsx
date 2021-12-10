@@ -10,7 +10,7 @@ const Home: NextPage = () => {
   return (
     <Layout pageTitle={'/'}>
       <TopImage />
-      <Spacer size={'md_h'} />
+      <Spacer size={'sm_h'} />
       <WorksContainer />
       <Spacer size={'lg_h'} />
       <AboutContainer />

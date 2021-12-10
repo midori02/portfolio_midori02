@@ -14,7 +14,7 @@ const WorksCard: FC<Props> = (props) => {
   return (
     <div className={styles.works_card}>
       <div className={styles.works_card__content} onClick={() => setModal(true)}>
-        <ImageArea path={content.image[0].path} width={200} height={200} />
+        <ImageArea path={content.image[0].path} width={336} height={204} />
         <h1>{content.title}</h1>
         <p>
           {content.period.start_year}.{content.period.start_month} ~ {content.period.end_year}.
@@ -36,7 +36,7 @@ const WorksCard: FC<Props> = (props) => {
               <div className={styles.modal__close_bar}></div>
             </div>
             <div className={styles.modal__inner}>
-              <ImageArea path={content.image[0].path} width={200} height={200} />
+              <ImageArea path={content.image[0].path} width={786} height={400} />
               <div className={styles.modal__inner_contents}>
                 <h1>{content.title}</h1>
                 <p>

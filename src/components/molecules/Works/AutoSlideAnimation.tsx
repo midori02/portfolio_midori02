@@ -37,12 +37,12 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
     speed: 4000,
     pauseOnHover: false,
   }
-  useEffect(() => {
-    if (process.browser) {
-      gsap.registerPlugin(ScrollTrigger)
-      // setAnimation()
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (process.browser) {
+  //     gsap.registerPlugin(ScrollTrigger)
+  //     // setAnimation()
+  //   }
+  // }, [])
 
   useEffect(() => {
     const animate = async () => {
@@ -54,29 +54,29 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
           duration: 1000,
           opacity: 0,
           origin: 'bottom',
-          distance: '200px',
+          distance: '120px',
         })
       }
     }
     animate()
   }, [slideRef])
 
-  gsap.utils.toArray('.auto_slide__container_title').forEach((ttl) => {
-    const tl = gsap.timeline({
-      rotateX: 360,
-      duration: 1,
-      scrollTrigger: {
-        trigger: ttl,
-        start: 'center 50%',
-        end: 'bottom -50%',
-        markers: true,
-      },
-    })
-    tl.to(ttl, {
-      duration: 3,
-      opacity: 0.1,
-    })
-  })
+  // gsap.utils.toArray('.auto_slide__container_title').forEach((ttl) => {
+  //   const tl = gsap.timeline({
+  //     rotateX: 360,
+  //     duration: 1,
+  //     scrollTrigger: {
+  //       trigger: ttl,
+  //       start: 'center 50%',
+  //       end: 'bottom -50%',
+  //       markers: true,
+  //     },
+  //   })
+  //   tl.to(ttl, {
+  //     duration: 3,
+  //     opacity: 0.1,
+  //   })
+  // })
 
   return (
     <div className={position ? styles[className] : styles.auto_slide__container}>
@@ -87,19 +87,15 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
 
       <div ref={slideRef} className={styles.auto_slide__container_animation}>
         <Slider {...settings}>
-          {contents ? (
-            contents.map((content) => (
-              <div
-                className={styles.auto_slide__container_animation_image}
-                onClick={() => console.log(content.id)}
-                key={content.id}
-              >
-                <ImageArea path={content.image[0].path} width={400} height={400} />
-              </div>
-            ))
-          ) : (
-            <div>準備中</div>
-          )}
+          {contents.map((content) => (
+            <div
+              className={styles.auto_slide__container_animation_image}
+              onClick={() => console.log(content.id)}
+              key={content.id}
+            >
+              <ImageArea path={content.image[0].path} width={400} height={400} />
+            </div>
+          ))}
         </Slider>
       </div>
     </div>
