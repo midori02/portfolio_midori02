@@ -50,7 +50,9 @@ const WorksCard: FC<Props> = (props) => {
                   </span>
                 ))}
                 <p>{content.description}</p>
-                <a>{content.url}</a>
+                <a href={content.url} target="_blank" rel="noopener noreferrer">
+                  {content.url}
+                </a>
               </div>
             </div>
           </div>

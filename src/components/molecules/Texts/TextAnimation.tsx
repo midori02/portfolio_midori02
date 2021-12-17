@@ -8,15 +8,11 @@ const TextAnimation: FC = () => {
 
     gsap.to(`#animation-text`, {
       duration: 5,
-      text: ` Lorem ipsum dolor,sit amet consectetur adipisicing elit.
-         \n
-      Perferendis deserunt quas placeat asperioresculpa officiis,
-        \n
-      iusto officia veniam vitae quae maxime distinctio nobis.
-        \n
-      Quidem neque eius corrupti
-        \n
-      pariatur temporibus similique.`,
+      text: ` My name is midori02, I was born in 1993, in the face of the Internet. 
+          \n\
+         At the beginning of May in 2021, I started to design websites. I gambled and lost, but I learned a lot from it.
+          \n\
+          This site to share my experiences, learnings and hopes with the online world.`,
       ease: 'none',
     })
   }, [])

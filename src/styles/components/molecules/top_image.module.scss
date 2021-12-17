@@ -109,7 +109,7 @@
     align-items: center;
     justify-content: flex-start;
     max-width: 400px;
-    height: 320px;
+    height: 240px;
     position: relative;
     margin-top: -80px;
     p {
@@ -163,13 +163,13 @@
   }
   @keyframes arrowmove {
     0% {
-      bottom: 20%;
+      bottom: 0%;
     }
     50% {
-      bottom: 22%;
+      bottom: 2%;
     }
     100% {
-      bottom: 20%;
+      bottom: 0%;
     }
   }
   @keyframes float {
@@ -242,9 +242,7 @@
       }
     }
     &__clicked3 {
-      p {
-        width: 70vw;
-      }
+      height: 200px;
     }
   }
   @include mq('lg') {
@@ -263,6 +261,9 @@
         left: 160px;
       }
     }
+    &__clicked3 {
+      height: 160px;
+    }
   }
   @include mq('xl') {
     &__hand {
@@ -273,6 +274,7 @@
     }
     &__clicked3 {
       position: absolute;
+      height: 320px;
       display: block;
       top: 360px;
       right: 8%;

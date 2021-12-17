@@ -2,6 +2,7 @@
 @import 'styles/utility.scss';
 
 .work_page {
+  @include flex-column-aligncenter-center;
   width: 100vw;
   &__logo {
     position: absolute;
@@ -9,11 +10,12 @@
     top: 2%;
   }
   &__menu {
-    @include flex-row-aligncenter;
-    margin: 16px 0 80px 0;
+    position: absolute;
+    left: 0%;
+    top: 2%;
   }
   &__container {
-    @include flex-column-aligncenter-center;
+    margin-top: 400px;
     &_title {
       position: absolute;
       right: 4%;
@@ -31,10 +33,11 @@
     &_list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      justify-content: center;
       gap: 80px 24px;
       &_comming_soon {
         @include flex-column-aligncenter-center;
-        justify-content: center;
+        justify-content: flex-start;
         margin-top: 50%;
         &_txt {
           @include flex-row-aligncenter;
@@ -91,6 +94,18 @@
       }
       &_list {
         width: 75vw;
+        &_comming_soon {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  @include mq('xl') {
+    &container {
+      &_list {
+        &_comming_soon {
+          margin-top: 0;
+        }
       }
     }
   }
