@@ -19,7 +19,7 @@ const WorkPageTemplate: FC<Props> = (props) => {
   const transformData = (data: string) => {
     const result = {
       websites: 'website',
-      lps: 'LP',
+      lps: 'lp',
       apps: 'App',
       graphics: 'graphic',
       banners: 'banner',

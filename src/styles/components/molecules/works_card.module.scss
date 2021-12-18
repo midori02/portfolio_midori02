@@ -30,7 +30,7 @@
       }
     }
     h1 {
-      @include font-decoration($black, 18px, Open Sans, 600, 2px);
+      @include font-decoration($black, 16px, Open Sans, 600, 2px);
       line-height: 20px;
       margin: 16px 0 8px 0;
     }
@@ -39,6 +39,11 @@
       @include font-decoration($grey500, 10px, Noto Sans JP, 400, 2px);
       width: 100%;
       white-space: normal;
+    }
+  }
+  @include mq('md') {
+    &__content {
+      width: 300px;
     }
   }
 }
