@@ -21,7 +21,7 @@
     }
   }
   &__md {
-    @include font-decoration($white, 20px, Noto Sans JP, 400, 12px);
+    @include font-decoration($white, 20px, Noto Sans JP, 400, 8px);
     width: 184px;
     min-height: 40px;
     background-color: $yellow;
