@@ -9,18 +9,23 @@ const SNSLinkComponent: FC = () => {
   return (
     <div className={styles.link_component__sns}>
       <IconArea
-        onClick={() => router.push('https://github.com/midori02')}
+        onClick={() => window.open('https://github.com/midori02', '_blank', 'noopener noreferrer')}
         path={'/github_black.png'}
         width={32}
         height={32}
       />
       <IconArea
-        onClick={() => router.push('https://www.instagram.com/tamag.0.0/?hl=ja')}
+        onClick={() => window.open('https://www.instagram.com/tamag.0.0/?hl=ja', '_blank', 'noopener noreferrer')}
         path={'/instagram_black.png'}
         width={32}
         height={32}
       />
-      <IconArea onClick={() => router.push('')} path={'/twitter_black.png'} width={32} height={32} />
+      <IconArea
+        onClick={() => window.open('https://dribbble.com/midori02', '_blank', 'noopener noreferrer')}
+        path={'/dribbble.png'}
+        width={24}
+        height={24}
+      />
     </div>
   )
 }

@@ -131,7 +131,7 @@ const ContactForm: FC = () => {
         errorMessage={'※ 内容を入力してください。'}
       />
       <br />
-      <Button type={'submit'} text={'send'} size={'sm'} value={'submit'} disabled={sent === true} />
+      <Button type={'submit'} text={'send messege'} size={'lg'} value={'submit'} disabled={sent === true} />
       {sent && <p className={styles.contact_form__after_sent}>送信されました !</p>}
     </form>
   )
