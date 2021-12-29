@@ -12,7 +12,7 @@
     width: 90vw;
   }
   &__toggle {
-    @include font-decoration($black, 12px, mic-32-new-web, 400, 0px);
+    @include font-decoration($black, 12px, mic-32-new-web, 400, 2px);
     position: relative;
     cursor: pointer;
     margin-top: 32px;

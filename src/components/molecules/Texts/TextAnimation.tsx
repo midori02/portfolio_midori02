@@ -12,7 +12,7 @@ const TextAnimation: FC = () => {
           \n\
          At the beginning of May in 2021, I started to design websites. I gambled and lost, but I learned a lot from it.
           \n\
-          This site to share my experiences, learnings and hopes with the online world.`,
+          This site to share my experiences, learnings.`,
       ease: 'none',
     })
   }, [])
