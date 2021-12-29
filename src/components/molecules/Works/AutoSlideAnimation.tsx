@@ -1,8 +1,6 @@
 import { FC, useEffect, ReactElement, useRef } from 'react'
 import Slider from 'react-slick'
 import { useRouter } from 'next/router'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 import { ImageArea } from 'components/atoms/Images'
 import { ImageType } from 'types/utility'
@@ -24,6 +22,8 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
   const className = 'auto_slide__' + position
   const ttlRef = useRef(null)
   const slideRef = useRef(null)
+  // const sliderRef = useRef(null)
+  // const isVisible = useIsVisible(slideRef)
 
   const settings = {
     autoplaySpeed: 2000,
@@ -37,46 +37,23 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
     speed: 4000,
     pauseOnHover: false,
   }
-  // useEffect(() => {
-  //   if (process.browser) {
-  //     gsap.registerPlugin(ScrollTrigger)
-  //     // setAnimation()
-  //   }
-  // }, [])
 
   useEffect(() => {
     const animate = async () => {
       if (slideRef.current) {
         const sr = (await import('scrollreveal')).default
         sr().reveal(slideRef.current, {
-          reset: true,
-          delay: 400,
-          duration: 1000,
+          // reset: false,
+          // delay: -400,
+          duration: 2000,
           opacity: 0,
           origin: 'bottom',
-          distance: '120px',
+          distance: '160px',
         })
       }
     }
     animate()
   }, [slideRef])
-
-  // gsap.utils.toArray('.auto_slide__container_title').forEach((ttl) => {
-  //   const tl = gsap.timeline({
-  //     rotateX: 360,
-  //     duration: 1,
-  //     scrollTrigger: {
-  //       trigger: ttl,
-  //       start: 'center 50%',
-  //       end: 'bottom -50%',
-  //       markers: true,
-  //     },
-  //   })
-  //   tl.to(ttl, {
-  //     duration: 3,
-  //     opacity: 0.1,
-  //   })
-  // })
 
   return (
     <div className={position ? styles[className] : styles.auto_slide__container}>
