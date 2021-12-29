@@ -21,7 +21,7 @@
     }
   }
   &__md {
-    @include font-decoration($white, 20px, Noto Sans JP, 400, 12px);
+    @include font-decoration($white, 20px, Noto Sans JP, 400, 8px);
     width: 184px;
     min-height: 40px;
     background-color: $yellow;
@@ -99,7 +99,7 @@
           border-width: 10px 15px 10px 0;
           border-color: transparent $black transparent transparent;
           position: absolute;
-          margin-top: 12px;
+          margin-top: 14px;
           left: 50%;
           transform: translateX(-50%) rotate(-90deg);
         }

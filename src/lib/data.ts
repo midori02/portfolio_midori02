@@ -104,7 +104,7 @@ export const skills = [
   },
   {
     category: 'programming',
-    skill: 'SASS',
+    skill: 'SASS/SCSS',
     level: '☆☆☆',
   },
   {

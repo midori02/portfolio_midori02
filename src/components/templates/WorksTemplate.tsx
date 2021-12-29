@@ -17,21 +17,21 @@ const WorksTemplate: FC<Props> = (props) => {
   const { contents, move = 'left' } = props
   const slideRef = useRef()
 
-  useEffect(() => {
-    const animate = async () => {
-      if (slideRef.current) {
-        const sr = (await import('scrollreveal')).default
-        sr().reveal(slideRef.current, {
-          reset: true,
-          delay: 400,
-          opacity: 0,
-          origin: move === 'left' ? 'left' : move === 'right' ? 'right' : move === 'top' ? 'top' : 'bottom',
-          distance: '40px',
-        })
-      }
-    }
-    animate()
-  }, [slideRef])
+  // useEffect(() => {
+  //   const animate = async () => {
+  //     if (slideRef.current) {
+  //       const sr = (await import('scrollreveal')).default
+  //       sr().reveal(slideRef.current, {
+  //         reset: true,
+  //         delay: 400,
+  //         opacity: 0,
+  //         origin: move === 'left' ? 'left' : move === 'right' ? 'right' : move === 'top' ? 'top' : 'bottom',
+  //         distance: '40px',
+  //       })
+  //     }
+  //   }
+  //   animate()
+  // }, [slideRef])
 
   return (
     <div id={'works'} className={styles.works_template}>

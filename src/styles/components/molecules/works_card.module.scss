@@ -97,21 +97,20 @@
 
   &__inner {
     display: block;
-    margin: 0 auto;
+    margin: 120px auto 0 auto;
     width: 90%;
     overflow: scroll;
     height: clamp(600px, 100%, 100%);
     div {
       width: 100%;
       height: 100%;
-      cursor: pointer;
       img {
-        object-fit: contain;
+        object-fit: cover;
       }
     }
     h1 {
       @include font-decoration($white, 20px, Noto Sans JP, 500, 2px);
-      margin-top: 16px;
+      margin-top: 32px;
     }
     p,
     span {
@@ -126,16 +125,26 @@
       color: $white;
       border-bottom: 1px solid $white;
     }
+    &_contents {
+      &_link {
+        @include flex-row-flex-start;
+        cursor: pointer;
+        margin-top: 16px;
+        p {
+          margin: 2px 0 0 16px;
+        }
+      }
+    }
   }
   @include mq('md') {
     &__inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       width: 70%;
       div:not([class='works_card_modal__inner_contents__hT3mX']) {
         width: 100%;
-        height: 400px;
+        height: auto;
+        img {
+          object-fit: contain;
+        }
       }
       &_contents {
         width: 50%;

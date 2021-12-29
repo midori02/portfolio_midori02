@@ -23,8 +23,8 @@ const SNSLinkComponent: FC = () => {
       <IconArea
         onClick={() => window.open('https://dribbble.com/midori02', '_blank', 'noopener noreferrer')}
         path={'/dribbble.png'}
-        width={24}
-        height={24}
+        width={32}
+        height={32}
       />
     </div>
   )

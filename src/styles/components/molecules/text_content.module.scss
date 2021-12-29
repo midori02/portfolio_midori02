@@ -22,7 +22,7 @@
   &__event {
     width: 100%;
     p {
-      @include font-decoration($black, 14px, mic-32-new-web, 400, 2px);
+      @include font-decoration($black, 14px, mic-32-new-web, 400, 0);
       margin: 4px;
       text-align: center;
     }

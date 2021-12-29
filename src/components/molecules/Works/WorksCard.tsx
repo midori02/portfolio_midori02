@@ -1,6 +1,6 @@
 import { FC, useState, memo } from 'react'
 
-import { ImageArea } from 'components/atoms/Images'
+import { ImageArea, IconArea } from 'components/atoms/Images'
 import { ContentType } from 'types/content'
 import styles from 'styles/components/molecules/works_card.module.scss'
 
@@ -36,7 +36,9 @@ const WorksCard: FC<Props> = (props) => {
               <div className={styles.modal__close_bar}></div>
             </div>
             <div className={styles.modal__inner}>
-              <ImageArea path={content.image[0].path} width={786} height={400} />
+              <div className={styles.modal__inner_banner}>
+                <ImageArea path={content.image[0].path} width={800} height={500} />
+              </div>
               <div className={styles.modal__inner_contents}>
                 <h1>{content.title}</h1>
                 <p>
@@ -50,9 +52,18 @@ const WorksCard: FC<Props> = (props) => {
                   </span>
                 ))}
                 <p>{content.description}</p>
-                <a href={content.url} target="_blank" rel="noopener noreferrer">
+                {/* <a href={content.url} target="_blank" rel="noopener noreferrer">
                   {content.url}
-                </a>
+                </a> */}
+                <div className={styles.modal__inner_contents_link}>
+                  <IconArea
+                    onClick={() => window.open(`${content.url}`, '_blank', 'noopener noreferrer')}
+                    path={'/open_in_new.svg'}
+                    width={24}
+                    height={24}
+                  />
+                  <p>go to link</p>
+                </div>
               </div>
             </div>
           </div>
