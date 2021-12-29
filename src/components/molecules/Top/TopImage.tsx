@@ -50,7 +50,7 @@ const TopImage: FC<Props> = (props): ReactElement => {
           <div className={styles.top_image__clicked1}>
             <div className={styles.top_image__clicked1_txt}>
               <p>Hello !</p>
-              <p>I'm a web designer</p>
+              <p>Welcome to my web site !</p>
             </div>
           </div>
         )}
