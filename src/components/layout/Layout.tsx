@@ -20,7 +20,7 @@ const Layout: FC<Props> = (props) => {
         <meta name="keywords" content="midori02, midori yabu, portfolio, design site" />
         <meta
           name="description"
-          content="My name is midori02, I was born in 1993, in the face of the Internet. At the beginning of May in 2021, I started to design websites..."
+          content="My name is midori02. At the beginning of May in 2021, I started to design websites..."
         />
       </Head>
       <NextSeo
