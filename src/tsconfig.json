@@ -24,7 +24,8 @@
     "index.js",
     "components/List.js",
     "components/App.js",
-    "mui/createEmotionCache.js"
+    "mui/createEmotionCache.js",
+    "components/atoms/Stalker/Stalker.jsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -28,6 +28,8 @@ const WorkPageTemplate: FC<Props> = (props) => {
     return result[data]
   }
 
+  console.log(`works: ${works}, data: ${transformData(works)}`)
+
   const useFilterGenre: ContentType[] = contents && contents.filter((content) => content.genre === transformData(works))
   return (
     <div className={styles.work_page}>
@@ -65,7 +67,7 @@ const WorkPageTemplate: FC<Props> = (props) => {
               </div>
             </div>
           ) : (
-            useFilterGenre.map((content) => <WorksCard key={content.content_id} content={content} />)
+            useFilterGenre.map((content) => <WorksCard key={content.content_id} content={content} works={works} />)
           )}
         </div>
       </div>

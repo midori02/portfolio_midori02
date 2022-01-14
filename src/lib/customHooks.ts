@@ -1,4 +1,4 @@
-import React, { useCallback, SetStateAction, Dispatch } from 'react'
+import React, { useCallback, useState, SetStateAction, Dispatch } from 'react'
 
 //文字列に対するonChangeに使用
 export const useStringChangeEvent = (update: Dispatch<SetStateAction<string>>) => {

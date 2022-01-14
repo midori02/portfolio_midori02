@@ -21,6 +21,10 @@
     position: absolute;
     top: 112px;
     right: 32px;
+    &_null {
+      @extend .top_image__hand;
+      opacity: 0.4;
+    }
   }
   &__icon {
     @include flex-column-aligncenter-center;
@@ -66,6 +70,9 @@
       position: absolute;
       top: 0;
       left: 0;
+      fill: $yellow;
+      animation: move 0.8s ease-in-out infinite alternate;
+      -webkit-animation: move 0.8s ease-in-out infinite alternate;
     }
     &_base {
       position: absolute;
@@ -89,18 +96,9 @@
       background-color: $pale_yellow;
       filter: blur(16px);
       &:hover {
-        top: -2%;
         animation: move 0.8s ease-in-out infinite;
         -webkit-animation: move 0.8s ease-in-out infinite;
       }
-    }
-  }
-  &__active {
-    @extend .top_image__clicked2;
-    svg {
-      fill: $yellow;
-      animation: move 0.8s ease-in-out infinite alternate;
-      -webkit-animation: move 0.8s ease-in-out infinite alternate;
     }
   }
   &__clicked3 {

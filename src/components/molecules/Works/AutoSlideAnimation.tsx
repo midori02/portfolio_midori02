@@ -3,6 +3,7 @@ import Slider from 'react-slick'
 import { useRouter } from 'next/router'
 
 import { ImageArea } from 'components/atoms/Images'
+import { CommonLink } from 'components/atoms/Texts'
 import { ImageType } from 'types/utility'
 import styles from 'styles/components/molecules/auto_slide.module.scss'
 
@@ -57,11 +58,12 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
 
   return (
     <div className={position ? styles[className] : styles.auto_slide__container}>
-      <div ref={ttlRef} className={styles.auto_slide__container_title} onClick={() => router.push(`/${title}`)}>
-        {title}
-        {title === 'lps' && <p>(ランディングページ)</p>}
-      </div>
-
+      <CommonLink path={''}>
+        <div ref={ttlRef} className={styles.auto_slide__container_title} onClick={() => router.push(`/${title}`)}>
+          {title}
+          {title === 'lps' && <p>(ランディングページ)</p>}
+        </div>
+      </CommonLink>
       <div ref={slideRef} className={styles.auto_slide__container_animation}>
         <Slider {...settings}>
           {contents.map((content) => (

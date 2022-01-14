@@ -97,15 +97,20 @@
 
   &__inner {
     display: block;
-    margin: 120px auto 0 auto;
+    margin: 160px auto 0 auto;
     width: 90%;
-    overflow: scroll;
     height: clamp(600px, 100%, 100%);
-    div {
-      width: 100%;
-      height: 100%;
-      img {
-        object-fit: cover;
+    overflow: scroll;
+    &_banner {
+      div {
+        width: 100%;
+        height: 40vh;
+        img {
+          width: 100%;
+          height: 100%;
+          // background-color: $white;
+          object-fit: scale-down;
+        }
       }
     }
     h1 {
@@ -126,10 +131,15 @@
       border-bottom: 1px solid $white;
     }
     &_contents {
+      margin-bottom: 80px;
       &_link {
         @include flex-row-flex-start;
         cursor: pointer;
         margin-top: 16px;
+        img {
+          width: 24px;
+          height: 24px;
+        }
         p {
           margin: 2px 0 0 16px;
         }
@@ -138,22 +148,28 @@
   }
   @include mq('md') {
     &__inner {
-      width: 70%;
-      div:not([class='works_card_modal__inner_contents__hT3mX']) {
-        width: 100%;
-        height: auto;
-        img {
-          object-fit: contain;
-        }
-      }
+      width: 80%;
       &_contents {
-        width: 50%;
+        padding: 0 80px;
       }
     }
   }
   @include mq('lg') {
     &__inner {
-      width: 50%;
+      width: 60%;
+      margin: 80px auto 0 auto;
+      &_banner {
+        div {
+          width: 100%;
+          height: 100%;
+          img {
+            object-fit: contain;
+          }
+        }
+      }
+      &_contents {
+        padding: 0;
+      }
     }
   }
 }

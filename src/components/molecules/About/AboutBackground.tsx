@@ -2,9 +2,14 @@ import { FC, useState, useCallback } from 'react'
 // import { useRouter } from 'next/router'
 
 import { TextContent } from '../Texts'
+import { CommonLink } from 'components/atoms/Texts'
 import { HistoryType, ProfileType } from 'types/content'
 import { Profile } from '../Texts'
 import { AboutSkills } from '.'
+
+import { useAtom } from 'jotai'
+import { cursorActive } from 'contexts/CursorContext'
+
 import styles from 'styles/components/molecules/about_background.module.scss'
 
 type Props = {
@@ -15,6 +20,7 @@ type Props = {
 const AboutBackground: FC<Props> = (props) => {
   const { histories, profile } = props
   const [display, setDisplay] = useState(false)
+  const [_, setCursorHover] = useAtom(cursorActive)
 
   const displayData = display ? histories : histories.slice(0, 0)
 
@@ -29,11 +35,19 @@ const AboutBackground: FC<Props> = (props) => {
       </div>
       <div className={styles.about_background__toggle} onClick={toggleDisplay}>
         {display ? (
-          <div className={styles.personal_history}>
+          <div
+            className={styles.personal_history}
+            onMouseEnter={() => setCursorHover(true)}
+            onMouseLeave={() => setCursorHover(false)}
+          >
             <p>personal history</p>
           </div>
         ) : (
-          <div className={styles.personal_history}>
+          <div
+            className={styles.personal_history}
+            onMouseEnter={() => setCursorHover(true)}
+            onMouseLeave={() => setCursorHover(false)}
+          >
             <p>personal history</p>
           </div>
         )}
