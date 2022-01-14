@@ -6,6 +6,8 @@ import styles from 'styles/components/atoms/logo.module.scss'
 
 type Props = {
   onClick?: () => void
+  width: number
+  height: number
 }
 const LogoArea: VFC<Props> = (props) => {
   const { onClick } = props
