@@ -1,0 +1,42 @@
+@import 'styles/variables.scss';
+@import 'styles/utility.scss';
+
+.cursor,
+.follower {
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.cursor {
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  z-index: 1001;
+}
+
+.follower {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba($green, 0.8);
+  z-index: 1000;
+  transition: transform ease 0.1s;
+  text-align: center;
+  span {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    transform: scale(0);
+  }
+  &__active {
+    @extend .follower;
+    transform: scale(2);
+    opacity: 0.7;
+    transition-duration: 0.3s;
+  }
+}

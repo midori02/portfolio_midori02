@@ -7,7 +7,7 @@
 
   &__container {
     display: flex;
-    margin-top: 40px;
+    margin-top: 56px;
     position: relative;
     &_title {
       @include font-decoration($black, 24px, mic-32-new-web, 400, 6px);
@@ -17,7 +17,7 @@
     &_animation {
       width: 60%;
       height: 60%;
-      margin-top: 40px;
+      margin-top: 56px;
       div[class='slick-slide'],
       div[class='slick-slider slick-initialized'],
       div[class='slick-slide slick-active'],
@@ -77,7 +77,7 @@
         font-size: 28px;
       }
       &_animation {
-        margin-top: 56px;
+        margin-top: 64px;
         div[class='slick-slide'],
         div[class='slick-slider slick-initialized'],
         div[class='slick-slide slick-active'],
@@ -108,7 +108,7 @@
         font-size: 36px;
       }
       &_animation {
-        margin-top: 80px;
+        margin-top: 92px;
         div[class='slick-slide'],
         div[class='slick-slider slick-initialized'],
         div[class='slick-slide slick-active'],

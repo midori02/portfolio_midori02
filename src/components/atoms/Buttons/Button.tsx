@@ -1,4 +1,6 @@
 import { VFC } from 'react'
+
+import { CommonLink } from 'components/atoms/Texts'
 import styles from 'styles/components/atoms/button.module.scss'
 
 type Props = {
@@ -14,15 +16,19 @@ const Button: VFC<Props> = (props) => {
   const { onClick, text, size, value, type, disabled } = props
   const className = 'button__' + size
   return (
-    <button
-      disabled={disabled}
-      type={type}
-      onClick={onClick}
-      value={value}
-      className={disabled ? `${styles[className]} ${styles.button__disabled}` : `${styles[className]} ${styles.button}`}
-    >
-      {text}
-    </button>
+    <CommonLink path={''}>
+      <button
+        disabled={disabled}
+        type={type}
+        onClick={onClick}
+        value={value}
+        className={
+          disabled ? `${styles[className]} ${styles.button__disabled}` : `${styles[className]} ${styles.button}`
+        }
+      >
+        {text}
+      </button>
+    </CommonLink>
   )
 }
 
