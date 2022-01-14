@@ -1,11 +1,10 @@
-import { Wave } from 'components/atoms/Animation'
-import { AboutSkills } from 'components/molecules/About'
+import { Metaballs, Wave } from 'components/atoms/Animation'
 import { NextPage } from 'next'
 
 const Sample: NextPage = () => {
   return (
     <>
-      <AboutSkills />
+      <Metaballs />
     </>
   )
 }
