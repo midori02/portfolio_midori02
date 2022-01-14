@@ -19,6 +19,8 @@ const Layout: FC<Props> = (props) => {
       <Head>
         <link rel="icon" href="/favicon.png" />
         <title>{pageTitle}</title>
+        <meta name="robots" content="noindex" />
+        <meta name="googlebot" content="noindex" />
         <meta name="keywords" content="midori02, midori yabu, portfolio, design site" />
         <meta
           name="description"
