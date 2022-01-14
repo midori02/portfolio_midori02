@@ -1,6 +1,7 @@
 import { VFC } from 'react'
 
-import { CommonLink } from 'components/atoms/Texts'
+import { useAtom } from 'jotai'
+import { cursorActive } from 'contexts/CursorContext'
 import styles from 'styles/components/atoms/button.module.scss'
 
 type Props = {
@@ -15,20 +16,19 @@ type Props = {
 const Button: VFC<Props> = (props) => {
   const { onClick, text, size, value, type, disabled } = props
   const className = 'button__' + size
+  const [_, setCursorHover] = useAtom(cursorActive)
   return (
-    <CommonLink path={''}>
-      <button
-        disabled={disabled}
-        type={type}
-        onClick={onClick}
-        value={value}
-        className={
-          disabled ? `${styles[className]} ${styles.button__disabled}` : `${styles[className]} ${styles.button}`
-        }
-      >
-        {text}
-      </button>
-    </CommonLink>
+    <button
+      disabled={disabled}
+      type={type}
+      onClick={onClick}
+      value={value}
+      className={disabled ? `${styles[className]} ${styles.button__disabled}` : `${styles[className]} ${styles.button}`}
+      onMouseEnter={() => setCursorHover(true)}
+      onMouseLeave={() => setCursorHover(false)}
+    >
+      {text}
+    </button>
   )
 }
 
