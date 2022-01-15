@@ -1,33 +1,44 @@
-import { VFC, useEffect } from 'react'
+import { FC, useEffect, useRef } from 'react'
 
-import styles from 'styles/components/atoms/metaballs.module.scss'
+import { gsap } from 'gsap'
 
-const Metaballs: VFC = () => {
-  //   useEffect(() => {
-  //     let element = document.getElementById('ball')
-  //     for (let i = 1; i < 8; i++) {
-  //       //add div tag
-  //       const new_element_bulbb = document.createElement('div')
-  //       const div_element = document.getElementById('sparkle_0')
-  //       new_element_bulbb.className = 'blubb_' + i
-  //       element.insertBefore(new_element_bulbb, div_element)
-  //     }
-  //     for (let i = 1; i < 10; i++) {
-  //       //add div tag
-  //       const new_element_sparkle = document.createElement('div')
-  //       new_element_sparkle.className = 'sparkle_' + i
-  //       element.appendChild(new_element_sparkle)
-  //     }
-  //   })
+import styles from 'styles/components/atoms/frame.module.scss'
+
+const Metaballs: FC = () => {
+  const frameRef = useRef(null)
+  useEffect(() => {
+    gsap.to(frameRef.current, {
+      opacity: 0,
+      duration: 1,
+      delay: 5,
+    })
+  }, [])
 
   return (
-    <div className={styles.frame}>
-      {/* <div id="center">
-        <div id="ball">
-          <div className={styles.blubb}></div>
-          <div id="sparkle_0" className={styles.sparkle}></div>
-        </div>
-      </div> */}
+    <div ref={frameRef} id="loading" className={styles.frame}>
+      <div className={styles.frame__center}>
+        <div className={styles.frame__center_ball}></div>
+        <div className={styles.frame__center_bulbb_1}></div>
+        <div className={styles.frame__center_bulbb_2}></div>
+        <div className={styles.frame__center_bulbb_3}></div>
+        <div className={styles.frame__center_bulbb_4}></div>
+        <div className={styles.frame__center_bulbb_5}></div>
+        <div className={styles.frame__center_bulbb_6}></div>
+        <div className={styles.frame__center_bulbb_7}></div>
+        <div className={styles.frame__center_bulbb_8}></div>
+        <div className={styles.frame__center_bulbb_9}></div>
+        <div className={styles.frame__center_bulbb_10}></div>
+        <div className={styles.frame__center_sparkle_1}></div>
+        <div className={styles.frame__center_sparkle_2}></div>
+        <div className={styles.frame__center_sparkle_3}></div>
+        <div className={styles.frame__center_sparkle_4}></div>
+        <div className={styles.frame__center_sparkle_5}></div>
+        <div className={styles.frame__center_sparkle_6}></div>
+        <div className={styles.frame__center_sparkle_7}></div>
+        <div className={styles.frame__center_sparkle_8}></div>
+        <div className={styles.frame__center_sparkle_9}></div>
+        <div className={styles.frame__center_sparkle_10}></div>
+      </div>
     </div>
   )
 }
