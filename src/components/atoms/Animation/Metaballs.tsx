@@ -3,19 +3,20 @@ import { FC, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
 import styles from 'styles/components/atoms/frame.module.scss'
+import { Button } from '../Buttons'
 
 const Metaballs: FC = () => {
-  const frameRef = useRef(null)
+  const frameRef = useRef()
   useEffect(() => {
     gsap.to(frameRef.current, {
       opacity: 0,
       duration: 1,
       delay: 5,
     })
-  }, [])
+  }, [frameRef])
 
   return (
-    <div ref={frameRef} id="loading" className={styles.frame}>
+    <div ref={frameRef} className={styles.frame}>
       <div className={styles.frame__center}>
         <div className={styles.frame__center_ball}></div>
         <div className={styles.frame__center_bulbb_1}></div>

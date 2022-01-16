@@ -12,6 +12,12 @@
   animation: sTransition 5s infinite alternate-reverse;
   filter: contrast(25);
   z-index: 9999;
+  button {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   &__center {
     position: absolute;
     top: 50%;
