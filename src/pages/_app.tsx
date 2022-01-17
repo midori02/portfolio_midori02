@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react'
+import '../styles/globals.scss'
+import { useEffect } from 'react'
 import type { AppProps } from 'next/app'
-import { BrowserRouter, Route } from 'react-router-dom'
-import axios from 'axios'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { NextSeo } from 'next-seo'
-import '../styles/globals.scss'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { LoadingContainer } from 'components/containers'
 
 const queryClient = new QueryClient({
   defaultOptions: {

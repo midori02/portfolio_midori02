@@ -3,7 +3,6 @@ import { FC, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
 import styles from 'styles/components/atoms/frame.module.scss'
-import { Button } from '../Buttons'
 
 const Metaballs: FC = () => {
   const frameRef = useRef()

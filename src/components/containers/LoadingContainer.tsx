@@ -5,25 +5,22 @@ import { Metaballs } from 'components/atoms/Animation'
 
 const LoadingContainer: FC = ({ children }) => {
   const [loading, setLoading] = useState(undefined)
-  const LoadingRef = useRef()
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(true)
     }, 6000)
-  }, [LoadingRef])
+  }, [])
 
-  return (
-    <>
-      {!loading ? (
-        <div ref={LoadingRef}>
-          <Metaballs />
-        </div>
-      ) : (
-        <>{children}</>
-      )}
-    </>
-  )
+  useEffect(() => {
+    if (sessionStorage.getItem('loading')) {
+      setLoading(sessionStorage.getItem('loading'))
+    } else {
+      sessionStorage.setItem('loading', 'true')
+    }
+  }, [])
+
+  return <>{!loading ? <Metaballs /> : <>{children}</>}</>
 }
 
 export default LoadingContainer

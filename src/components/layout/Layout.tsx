@@ -50,7 +50,6 @@ const Layout: FC<Props> = (props) => {
       />
       <Stalker />
       <Header />
-      <Spacer size={'lg_h'} />
       <main className={styles.layout}>{children}</main>
       <Footer />
       <Spacer size={'sm_h'} />

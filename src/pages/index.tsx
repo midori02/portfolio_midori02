@@ -9,17 +9,19 @@ import { LoadingContainer } from 'components/containers'
 
 const Home: NextPage = () => {
   return (
-    <LoadingContainer>
-      <Layout pageTitle={'/'}>
-        <TopImage />
-        <Spacer size={'sm_h'} />
-        <WorksContainer />
-        <Spacer size={'lg_h'} />
-        <AboutContainer />
-        <Spacer size={'lg_h'} />
-        <ContactForm />
-      </Layout>
-    </LoadingContainer>
+    <>
+      <LoadingContainer>
+        <Layout pageTitle={'/'}>
+          <TopImage />
+          <Spacer size={'sm_h'} />
+          <WorksContainer />
+          <Spacer size={'lg_h'} />
+          <AboutContainer />
+          <Spacer size={'lg_h'} />
+          <ContactForm />
+        </Layout>
+      </LoadingContainer>
+    </>
   )
 }
 
