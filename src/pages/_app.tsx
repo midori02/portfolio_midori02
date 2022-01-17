@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { NextSeo } from 'next-seo'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { LoadingContainer } from 'components/containers'
 
 const queryClient = new QueryClient({
   defaultOptions: {

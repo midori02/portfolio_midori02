@@ -1,11 +1,12 @@
-import { Wave } from 'components/atoms/Animation'
-import { AboutSkills } from 'components/molecules/About'
+import { Metaballs } from 'components/atoms/Animation'
+import { LoadingContainer } from 'components/containers'
 import { NextPage } from 'next'
 
 const Sample: NextPage = () => {
   return (
     <>
-      <AboutSkills />
+      {/* <Metaballs /> */}
+      <LoadingContainer />
     </>
   )
 }

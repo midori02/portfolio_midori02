@@ -1,0 +1,104 @@
+@import '../../utility.scss';
+@import '../../variables.scss';
+
+.frame {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url(https://wallpaperaccess.com/full/623055.jpg);
+  background-size: 80%;
+  animation: sTransition 5s infinite alternate-reverse;
+  filter: contrast(25);
+  z-index: 9999;
+  button {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &_ball {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      background: #fff;
+      border-radius: 50%;
+      filter: blur(1rem);
+      animation-name: startLoading;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      animation-timing-function: linear;
+      animation-duration: 4s;
+    }
+  }
+  @for $i from 1 through 10 {
+    .frame {
+      &__center {
+        &_blubb_#{$i} {
+          position: absolute;
+          top: 4rem;
+          left: 4rem;
+          width: 6rem;
+          height: 6rem;
+          transform: rotate((random(300)) + deg);
+
+          &:after {
+            position: absolute;
+            display: block;
+            content: '';
+            width: 6rem;
+            height: 6rem;
+            background: #fff;
+            border-radius: 50%;
+            transform-origin: (40 - $i * 4) + px (40 - $i * 4) + px;
+            animation: rotate (3.5 + $i / 5) + s ease-in ($i / 5) + s infinite;
+            filter: blur(5px);
+          }
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through 10 {
+    .frame {
+      &__center {
+        &_sparkle_#{$i} {
+          position: absolute;
+          top: 6rem;
+          left: 6rem;
+          width: (40 + $i) + px;
+          height: (40 + $i) + px;
+          transform: rotate((random(300)) + deg);
+
+          &:after {
+            position: absolute;
+            display: block;
+            content: '';
+            width: (16 + $i) + px;
+            height: (16 + $i) + px;
+            background-color: white;
+            border-radius: 50%;
+            transform-origin: (60 - $i * 2) + px (60 - $i * 2) + px;
+            animation: rotate (3.5 + $i / 5) + s ease-in ($i / 5) + s infinite;
+            filter: blur(4px);
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

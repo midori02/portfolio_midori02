@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import Head from 'next/head'
 import { Header, Footer } from 'components/organisms'
 import { Spacer } from 'components/atoms/Spacer'
@@ -12,7 +12,6 @@ type Props = {
 
 const Layout: FC<Props> = (props) => {
   const { pageTitle, children } = props
-  const [hovFlag, setHovFlag] = useState<boolean>(false)
 
   return (
     <>
@@ -51,7 +50,6 @@ const Layout: FC<Props> = (props) => {
       />
       <Stalker />
       <Header />
-      <Spacer size={'lg_h'} />
       <main className={styles.layout}>{children}</main>
       <Footer />
       <Spacer size={'sm_h'} />

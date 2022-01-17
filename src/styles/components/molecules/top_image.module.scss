@@ -1,36 +1,36 @@
 @import 'styles/variables.scss';
 @import 'styles/utility.scss';
 
-.circle {
-  @include flex-column-aligncenter-center;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  border: 2px solid $black;
-  position: absolute;
-  text-align: center;
-  cursor: pointer;
-  animation: float 1.2s ease-in-out infinite alternate;
-  p {
-    @include font-decoration($black, 24px, mic-32-new-web, 400, 2px);
-  }
-}
-
 .top_image {
-  &__hand {
-    position: absolute;
-    top: 112px;
-    right: 32px;
-    &_null {
-      @extend .top_image__hand;
-      opacity: 0.4;
+  width: 100vw;
+  margin: 0;
+  top: 0;
+  left: 0;
+  &__heading {
+    margin-left: 40px;
+    span {
+      @include font-decoration($black, 56px, mic-32-new-web, 500, 6px);
+      @include flex-column-aligncenter-center;
+    }
+    &_change {
+      margin-left: 40px;
+      span {
+        @include font-decoration($yellow, 56px, mic-32-new-web, 500, 6px);
+        @include flex-column-aligncenter-center;
+      }
+      span:first-child {
+        transform: translateY(10px) ease-in;
+      }
+      span:last-child {
+        transform: translateY(-10px) ease-in;
+      }
     }
   }
   &__icon {
     @include flex-column-aligncenter-center;
-    margin-top: -56px;
     position: relative;
     cursor: pointer;
+    margin-top: 20px;
     img {
       transform: perspective(600px);
       rotate: Y(0deg);
@@ -54,111 +54,115 @@
       -webkit-animation: shadow 1s ease-in-out infinite alternate;
     }
   }
-  &__clicked1 {
-    @extend.circle;
-    display: none;
-  }
-  &__clicked2 {
-    @include flex-column-aligncenter-center;
-    position: relative;
-    width: 58px;
-    height: 120px;
-    cursor: pointer;
-    animation: slide-up 1s cubic-bezier(0.1, 1.4, 0.49, 0.96) forwards alternate;
-    -webkit-animation: slide-up 1s cubic-bezier(0.1, 1.4, 0.49, 0.96) forwards alternate;
-    svg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      fill: $yellow;
-      animation: move 0.8s ease-in-out infinite alternate;
-      -webkit-animation: move 0.8s ease-in-out infinite alternate;
-    }
-    &_base {
-      position: absolute;
-      bottom: 0;
-      width: 64px;
-      height: 48px;
-      img {
-        animation: none;
-        padding: 0 1px;
-        max-width: 100%;
-        max-height: 100%;
-      }
-    }
-    &_glow {
-      position: absolute;
-      top: 0;
-      width: 56px;
-      height: 56px;
-      animation: lamp 2s ease-in-out infinite alternate;
-      -webkit-animation: lamp 2s ease-in-out infinite alternate;
-      background-color: $pale_yellow;
-      filter: blur(16px);
-      &:hover {
-        animation: move 0.8s ease-in-out infinite;
-        -webkit-animation: move 0.8s ease-in-out infinite;
-      }
-    }
-  }
-  &__clicked3 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    max-width: 400px;
-    height: 240px;
-    position: relative;
-    margin-top: -80px;
-    p {
-      text-align: center;
-      width: 80vw;
-    }
-    &_scrolldown {
-      position: absolute;
-      right: 50%;
-      /*矢印の動き1秒かけて永遠にループ*/
-      animation: arrowmove 1s ease-in-out infinite;
-      span {
-        /*描画位置*/
-        position: absolute;
-        left: -20px;
-        bottom: 10px;
-        /*テキストの形状*/
-        color: $black;
-        font-size: 0.7rem;
-        letter-spacing: 0.05em;
-        /*縦書き設定*/
-        -ms-writing-mode: tb-rl;
-        -webkit-writing-mode: vertical-rl;
-        writing-mode: vertical-rl;
-      }
-      &::before {
-        content: '';
-        /*描画位置*/
-        position: absolute;
-        bottom: 0;
-        right: -6px;
-        /*矢印の形状*/
-        width: 2px;
-        height: 20px;
-        background: $black;
-        transform: skewX(-31deg);
-      }
 
-      &::after {
-        content: '';
-        /*描画位置*/
+  &__clicked {
+    position: relative;
+    &_lamp {
+      position: absolute;
+      width: 56px;
+      height: 100px;
+      top: 65%;
+      left: 44%;
+      animation: slide-up 1s cubic-bezier(0.1, 1.4, 0.49, 0.96) forwards alternate;
+      -webkit-animation: slide-up 1s cubic-bezier(0.1, 1.4, 0.49, 0.96) forwards alternate;
+      svg {
         position: absolute;
-        bottom: 0;
-        right: 0;
-        /*矢印の形状*/
-        width: 2px;
-        height: 50px;
-        background: $black;
+        top: 8px;
+        left: 0;
+        fill: $yellow;
+        animation: move 0.8s ease-in-out infinite alternate;
+        -webkit-animation: move 0.8s ease-in-out infinite alternate;
+      }
+      &_base {
+        position: absolute;
+        bottom: -8px;
+        right: 5px;
+        width: 56px;
+        height: 40px;
+        img {
+          animation: none;
+          padding: 0 1px;
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+      &_glow {
+        position: absolute;
+        top: 0;
+        width: 56px;
+        height: 56px;
+        animation: lamp 2s ease-in-out infinite alternate;
+        -webkit-animation: lamp 2s ease-in-out infinite alternate;
+        background-color: $pale_yellow;
+        filter: blur(20px);
+        &:hover {
+          animation: move 0.8s ease-in-out infinite;
+          -webkit-animation: move 0.8s ease-in-out infinite;
+        }
+      }
+    }
+    &_text {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      max-width: 400px;
+      height: 240px;
+      position: relative;
+      margin-top: 20px;
+      p {
+        text-align: center;
+        width: 80vw;
+      }
+      &_scrolldown {
+        position: absolute;
+        right: 50%;
+        height: fit-content;
+        /*矢印の動き1秒かけて永遠にループ*/
+        animation: arrowmove 1s ease-in-out infinite;
+        span {
+          /*描画位置*/
+          position: absolute;
+          left: -20px;
+          bottom: 10px;
+          /*テキストの形状*/
+          color: $black;
+          font-size: 0.7rem;
+          letter-spacing: 0.05em;
+          /*縦書き設定*/
+          -ms-writing-mode: tb-rl;
+          -webkit-writing-mode: vertical-rl;
+          writing-mode: vertical-rl;
+        }
+        &::before {
+          content: '';
+          /*描画位置*/
+          position: absolute;
+          bottom: 0;
+          right: -6px;
+          /*矢印の形状*/
+          width: 2px;
+          height: 20px;
+          background: $black;
+          transform: skewX(-31deg);
+        }
+
+        &::after {
+          content: '';
+          /*描画位置*/
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          /*矢印の形状*/
+          width: 2px;
+          height: 50px;
+          background: $black;
+        }
       }
     }
   }
+
   @keyframes arrowmove {
     0% {
       bottom: 0%;
@@ -204,8 +208,8 @@
     }
     100% {
       opacity: 1;
-      transform: translateY(-450px);
-      -webkit-transform: translateY(-450px);
+      transform: translateY(-550px);
+      -webkit-transform: translateY(-550px);
     }
   }
   @keyframes move {
@@ -216,8 +220,8 @@
     }
     50% {
       opacity: 1;
-      transform: translateY(-10px);
-      -webkit-transform: translateY(-10px);
+      transform: translateY(-4px);
+      -webkit-transform: translateY(-4px);
     }
     100% {
       opacity: 1;
@@ -227,58 +231,43 @@
   }
   @include mq('md') {
     @include flex-column-aligncenter-center;
-    &__hand {
-      right: 120px;
-    }
-    &__clicked1 {
-      @extend.circle;
-      display: block;
-      top: 240px;
-      left: 6%;
-      &_txt {
-        margin-top: 32px;
+    &__heading {
+      span {
+        @include font-decoration($black, 88px, mic-32-new-web, 500, 6px);
+      }
+      &_change {
+        span {
+          font-size: 88px;
+        }
       }
     }
-    &__clicked3 {
-      height: 200px;
+    &__clicked {
+      &_lamp {
+        top: 50%;
+      }
     }
   }
   @include mq('lg') {
-    &__hand {
-      right: 240px;
-    }
-    &__clicked1 {
-      top: 280px;
-      left: 12%;
-      &_bar {
-        width: 100px;
-        height: 2px;
-        transform: rotate(30deg);
-        -webkit-transform: rotate(30deg);
-        top: 160px;
-        left: 160px;
-      }
-    }
-    &__clicked3 {
-      height: 160px;
-    }
-  }
-  @include mq('xl') {
-    &__hand {
-      right: 440px;
-    }
     &__icon {
-      margin-left: -120px;
+      margin-right: 480px;
     }
-    &__clicked3 {
-      position: absolute;
-      height: 320px;
-      display: block;
-      top: 360px;
-      right: 8%;
-      p {
-        text-align: left;
-        width: 25vw;
+    &__clicked {
+      position: relative;
+      width: 100vw;
+      height: fit-content;
+      &_lamp {
+        top: 130px;
+      }
+      &_text {
+        width: 100vw;
+        height: 300px;
+        position: absolute;
+        top: -220px;
+        left: 65%;
+        p {
+          width: 35vw;
+          text-align: left;
+        }
       }
     }
   }
