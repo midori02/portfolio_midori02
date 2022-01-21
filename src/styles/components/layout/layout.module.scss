@@ -3,5 +3,8 @@
 
 .layout {
   padding: 120px 0;
-  cursor: none;
+  cursor: pointer !important;
+  @include mq('lg') {
+    cursor: none;
+  }
 }

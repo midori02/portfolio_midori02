@@ -2,12 +2,41 @@
 @import '../../variables.scss';
 
 .footer {
-  @include flex-column-aligncenter-center;
-  justify-content: center;
+  display: grid;
+  place-content: center;
+  justify-items: center;
   gap: 40px;
   padding-top: 100px;
   cursor: none;
+  position: relative;
+  &__text {
+    margin-bottom: 40px;
+    p {
+      @include font-decoration($black, 20px, mic-32-new-web, 500, 2px);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 24px;
+      height: 24px;
+      animation: footerArrow 2s ease-out infinite;
+    }
+  }
   &__copywrite {
     @include font-decoration($black, 12px, mic-32-new-web, 300, 2px);
+  }
+}
+
+@keyframes footerArrow {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

@@ -9,13 +9,13 @@
   &__heading {
     margin-left: 40px;
     span {
-      @include font-decoration($black, 56px, mic-32-new-web, 500, 6px);
+      @include font-decoration($black, 48px, mic-32-new-web, 500, 6px);
       @include flex-column-aligncenter-center;
     }
     &_change {
       margin-left: 40px;
       span {
-        @include font-decoration($yellow, 56px, mic-32-new-web, 500, 6px);
+        @include font-decoration($yellow, 48px, mic-32-new-web, 500, 6px);
         @include flex-column-aligncenter-center;
       }
       span:first-child {
@@ -165,13 +165,13 @@
 
   @keyframes arrowmove {
     0% {
-      bottom: 0%;
+      bottom: 20%;
     }
     50% {
-      bottom: 2%;
+      bottom: 22%;
     }
     100% {
-      bottom: 0%;
+      bottom: 20%;
     }
   }
   @keyframes float {
