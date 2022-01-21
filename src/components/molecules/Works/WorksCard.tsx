@@ -40,7 +40,12 @@ const WorksCard: FC<Props> = (props) => {
       {modal && (
         <div className={styles.modal}>
           <div className={styles.modal__container}>
-            <div className={styles.modal__close} onClick={() => setModal(false)}>
+            <div
+              className={styles.modal__close}
+              onClick={() => setModal(false)}
+              onMouseEnter={() => setCursorHover(true)}
+              onMouseLeave={() => setCursorHover(false)}
+            >
               <div className={styles.modal__close_bar}></div>
               <div className={styles.modal__close_bar}></div>
             </div>
@@ -62,7 +67,11 @@ const WorksCard: FC<Props> = (props) => {
                 ))}
                 <p>{content.description}</p>
                 {/(websites|apps|lps)/.test(works) && (
-                  <div className={styles.modal__inner_contents_link}>
+                  <div
+                    className={styles.modal__inner_contents_link}
+                    onMouseEnter={() => setCursorHover(true)}
+                    onMouseLeave={() => setCursorHover(false)}
+                  >
                     <IconArea
                       onClick={() => window.open(`${content.url}`, '_blank', 'noopener noreferrer')}
                       path={'/open_in_new.svg'}
