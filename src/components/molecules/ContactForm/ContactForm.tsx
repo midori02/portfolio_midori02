@@ -82,7 +82,7 @@ const ContactForm: FC = () => {
       <InputArea
         value={name}
         isRequired
-        text={'お名前'}
+        text={'name'}
         onChange={useStringChangeEvent(setName)}
         isError={error === 'name' ? true : false}
         errorMessage={'※ お名前を入力してください。'}
@@ -91,7 +91,7 @@ const ContactForm: FC = () => {
       <InputArea
         value={furigana}
         isRequired
-        text={'フリガナ'}
+        text={'furigana'}
         onChange={useStringChangeEvent(setFurigana)}
         isError={error === 'furigana' || error === 'furiganaValidation' ? true : false}
         errorMessage={
@@ -102,7 +102,7 @@ const ContactForm: FC = () => {
       <InputArea
         value={email}
         isRequired
-        text={'メールアドレス'}
+        text={'email'}
         type={'email'}
         onChange={useStringChangeEvent(setEmail)}
         isError={error === 'email' || error === 'emailValidation' ? true : false}
@@ -113,7 +113,7 @@ const ContactForm: FC = () => {
       <br />
       <InputArea
         value={telephone}
-        text={'お電話番号'}
+        text={'telephone'}
         type={'tel'}
         onChange={useStringChangeEvent(setTelephone)}
         isError={error === 'telephoneValidation' ? true : false}
@@ -122,7 +122,7 @@ const ContactForm: FC = () => {
       <br />
       <InputArea
         value={textbox}
-        text={'お問い合わせ内容'}
+        text={'textbox'}
         multiLine
         rows={10}
         isRequired

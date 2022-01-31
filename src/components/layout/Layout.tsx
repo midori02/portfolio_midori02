@@ -48,7 +48,9 @@ const Layout: FC<Props> = (props) => {
           },
         }}
       />
-      <Stalker />
+      <div className={styles.stalker_pc}>
+        <Stalker />
+      </div>
       <Header />
       <main className={styles.layout}>{children}</main>
       <Footer />

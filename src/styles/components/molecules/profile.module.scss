@@ -11,6 +11,28 @@
   p {
     @include font-decoration($black, 14px, mic-32-new-web, 400, 2px);
   }
+  &__link {
+    @include flex-row-aligncenter;
+    margin: 20px 0;
+    p {
+      transition: all 0.2s ease-in;
+    }
+
+    img {
+      margin-right: 8px;
+      transition: all 0.3s ease-in;
+    }
+    &:hover {
+      img {
+        transform: scale(1.1);
+        transition: all 0.4s ease-in;
+      }
+      p {
+        transition: all 0.2s ease-in;
+        color: #ff8e8e;
+      }
+    }
+  }
   @include mq('md') {
     @include flex-column-flex-start;
     width: 90%;

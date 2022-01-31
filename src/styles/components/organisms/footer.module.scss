@@ -10,9 +10,9 @@
   cursor: none;
   position: relative;
   &__text {
-    margin-bottom: 40px;
+    margin-bottom: 16px;
     p {
-      @include font-decoration($black, 20px, mic-32-new-web, 500, 2px);
+      @include font-decoration($black, 16px, mic-32-new-web, 500, 2px);
       margin-bottom: 24px;
       text-align: center;
     }
@@ -26,6 +26,11 @@
   }
   &__copywrite {
     @include font-decoration($black, 12px, mic-32-new-web, 300, 2px);
+  }
+  @include mq('md') {
+    p {
+      font-size: 20px;
+    }
   }
 }
 
