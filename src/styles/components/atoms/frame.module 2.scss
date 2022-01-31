@@ -7,7 +7,8 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: black;
+  background: url(https://wallpaperaccess.com/full/623055.jpg);
+  background-size: 80%;
   animation: sTransition 5s infinite alternate-reverse;
   filter: contrast(25);
   z-index: 9999;
@@ -101,7 +102,6 @@
     }
   }
   @include mq('md') {
-    background: url('https://wallpaperaccess.com/full/623055.jpg');
-    background-size: 80%;
+    background-size: 100%;
   }
 }

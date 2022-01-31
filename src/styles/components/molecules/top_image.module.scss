@@ -7,13 +7,12 @@
   top: 0;
   left: 0;
   &__heading {
-    margin-left: 40px;
     span {
       @include font-decoration($black, 48px, mic-32-new-web, 500, 6px);
       @include flex-column-aligncenter-center;
     }
     &_change {
-      margin-left: 40px;
+      // margin-left: 40px;
       span {
         @include font-decoration($yellow, 48px, mic-32-new-web, 500, 6px);
         @include flex-column-aligncenter-center;
@@ -76,7 +75,7 @@
       &_base {
         position: absolute;
         bottom: -8px;
-        right: 5px;
+        right: 5.7px;
         width: 56px;
         height: 40px;
         img {

@@ -2,7 +2,7 @@ import { FC, useState, useCallback } from 'react'
 // import { useRouter } from 'next/router'
 
 import { TextContent } from '../Texts'
-import { CommonLink } from 'components/atoms/Texts'
+// import { CommonLink } from 'components/atoms/Texts'
 import { HistoryType, ProfileType } from 'types/content'
 import { Profile } from '../Texts'
 import { AboutSkills } from '.'

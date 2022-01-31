@@ -9,6 +9,7 @@
     width: 90vw;
   }
   &__propfile {
+    @include flex-column-aligncenter-center;
     width: 90vw;
   }
   &__toggle {

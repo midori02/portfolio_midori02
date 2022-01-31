@@ -2,9 +2,15 @@
 @import 'styles/utility.scss';
 
 .layout {
-  padding: 120px 0;
+  padding: 120px 0 40px 0;
   cursor: pointer !important;
   @include mq('lg') {
     cursor: none;
+  }
+}
+.stalker_pc {
+  display: none;
+  @include mq('lg') {
+    display: inline-flex;
   }
 }
