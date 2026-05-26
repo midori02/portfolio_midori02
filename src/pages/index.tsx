@@ -17,7 +17,7 @@ const Home: NextPage = () => {
           <WorksContainer />
           <Spacer size={'lg_h'} />
           <AboutContainer />
-          <Spacer size={'lg_h'} />
+          <Spacer size={'md_h'} />
           <ContactForm />
         </Layout>
       </LoadingContainer>

@@ -4,7 +4,7 @@ import { IconArea } from 'components/atoms/Images'
 import { InputArea } from 'components/atoms/Texts'
 import { Button } from 'components/atoms/Buttons'
 import { useStringChangeEvent } from 'lib/customHooks'
-import { handleSubmit } from 'lib/slack'
+import { handleSubmit, ContactSubmitError } from 'lib/contact'
 import { isValidEmail, isValidFurigana, isValidTelephone } from 'lib/validation'
 import styles from 'styles/components/molecules/contact_form.module.scss'
 
@@ -16,6 +16,8 @@ const ContactForm: FC = () => {
   const [telephone, setTelephone] = useState('')
   const [textbox, setTextbox] = useState('')
   const [error, setError] = useState('')
+  const [sendError, setSendError] = useState('')
+  const [sending, setSending] = useState(false)
 
   useEffect(() => {
     if (sent) {
@@ -34,10 +36,7 @@ const ContactForm: FC = () => {
       setError('name')
       return false
     }
-    if (!furigana) {
-      setError('furigana')
-      return false
-    } else if (!isValidFurigana(furigana)) {
+    if (furigana && !isValidFurigana(furigana)) {
       setError('furiganaValidation')
       return false
     }
@@ -60,13 +59,20 @@ const ContactForm: FC = () => {
       return false
     }
 
+    setSending(true)
+    setSendError('')
+
     handleSubmit(content)
       .then(() => {
         setError('')
         setSent(true)
       })
-      .catch((error) => {
-        console.error(error)
+      .catch((err: ContactSubmitError) => {
+        console.error(err)
+        setSendError(err.message || '送信に失敗しました。しばらくしてから再度お試しください。')
+      })
+      .finally(() => {
+        setSending(false)
       })
   }
 
@@ -90,13 +96,10 @@ const ContactForm: FC = () => {
       <br />
       <InputArea
         value={furigana}
-        isRequired
         text={'furigana'}
         onChange={useStringChangeEvent(setFurigana)}
-        isError={error === 'furigana' || error === 'furiganaValidation' ? true : false}
-        errorMessage={
-          error === 'furigana' ? '※ フリガナを入力してください。' : '※ 正しい形式でフリガナを入力してください。'
-        }
+        isError={error === 'furiganaValidation' ? true : false}
+        errorMessage={'※ 正しい形式でフリガナを入力してください。'}
       />
       <br />
       <InputArea
@@ -131,7 +134,8 @@ const ContactForm: FC = () => {
         errorMessage={'※ 内容を入力してください。'}
       />
       <br />
-      <Button type={'submit'} text={'send messege'} size={'lg'} value={'submit'} disabled={sent === true} />
+      <Button type={'submit'} text={'send messege'} size={'lg'} value={'submit'} disabled={sent || sending} />
+      {sendError && <p className={styles.contact_form__send_error}>{sendError}</p>}
       {sent && <p className={styles.contact_form__after_sent}>送信されました !</p>}
     </form>
   )

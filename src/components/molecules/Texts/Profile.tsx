@@ -6,6 +6,7 @@ import { ProfileType } from 'types/content'
 import { useAtom } from 'jotai'
 import { cursorActive } from 'contexts/CursorContext'
 
+import { ARTWORK_PORTFOLIO_URL } from 'lib/constants'
 import styles from 'styles/components/molecules/profile.module.scss'
 
 type Props = {
@@ -21,7 +22,7 @@ const Profile: FC<Props> = (props) => {
       <p>{profile.description}</p>
       <div
         className={styles.profile__link}
-        onClick={() => window.open('https://www.midoriyabu.com/', '_blank', 'noopener noreferrer')}
+        onClick={() => window.open(ARTWORK_PORTFOLIO_URL, '_blank', 'noopener noreferrer')}
         onMouseEnter={() => setCursorHover(true)}
         onMouseLeave={() => setCursorHover(false)}
       >

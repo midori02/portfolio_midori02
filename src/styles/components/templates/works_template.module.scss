@@ -6,6 +6,12 @@
   &__title {
     @include flex-column-aligncenter-center;
     margin-bottom: 16px;
+
+    img {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+    }
   }
   &__menu {
     @include flex-column-aligncenter-center;
@@ -20,7 +26,7 @@
     &__title {
       img {
         width: 504px;
-        height: 88px;
+        height: auto;
       }
     }
     &__menu {
@@ -32,7 +38,7 @@
     &__title {
       img {
         width: 504px;
-        height: 88px;
+        height: auto;
       }
     }
     &__menu {
