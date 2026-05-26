@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
+import { checkContactRateLimit, getClientIp } from 'lib/contactRateLimit'
 import { ContactMailError, sendContactMail } from 'lib/mail'
 
 type ContactBody = {
@@ -8,6 +9,8 @@ type ContactBody = {
   email?: string
   telephone?: string
   textbox?: string
+  /** ボット用ハニーポット（入力があれば送信しない） */
+  website?: string
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -16,7 +19,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const { name, furigana, email, telephone, textbox } = req.body as ContactBody
+  const { name, furigana, email, telephone, textbox, website } = req.body as ContactBody
+
+  if (website?.trim()) {
+    return res.status(200).json({ ok: true })
+  }
+
+  const ip = getClientIp(req.headers['x-forwarded-for'])
+  const rate = checkContactRateLimit(ip)
+  if (rate.allowed === false) {
+    res.setHeader('Retry-After', String(rate.retryAfterSec))
+    const message =
+      rate.reason === 'hourly_limit'
+        ? '送信回数の上限に達しました。しばらくしてから再度お試しください。'
+        : `送信が早すぎます。${rate.retryAfterSec}秒後に再度お試しください。`
+    return res.status(429).json({ error: 'rate_limited', message, retryAfterSec: rate.retryAfterSec })
+  }
+
   if (!name?.trim() || !email?.trim() || !textbox?.trim()) {
     return res.status(400).json({ error: 'Missing required fields' })
   }

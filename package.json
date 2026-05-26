@@ -15,7 +15,8 @@
     "verify:smoke": "bash scripts/smoke-test-routes.sh",
     "verify:chunks": "bash scripts/smoke-test-chunks.sh",
     "verify:dev": "bash scripts/restart-and-verify-dev.sh",
-    "verify:deploy": "bash scripts/verify-deploy.sh"
+    "verify:deploy": "bash scripts/verify-deploy.sh",
+    "sync:vercel-smtp": "bash scripts/sync-vercel-smtp-env.sh"
   },
   "dependencies": {
     "@slack/events-api": "^3.0.1",
