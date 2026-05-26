@@ -1,6 +1,5 @@
 import { FC, useEffect, ReactElement, useRef } from 'react'
 import Slider from 'react-slick'
-import { useRouter } from 'next/router'
 
 import { ImageArea } from 'components/atoms/Images'
 import { CommonLink } from 'components/atoms/Texts'
@@ -19,10 +18,10 @@ type Props = {
 
 const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
   const { title, contents, position } = props
-  const router = useRouter()
   const className = 'auto_slide__' + position
   const ttlRef = useRef(null)
   const slideRef = useRef(null)
+  const slideKey = contents.map((content) => content.id).join('-')
   // const sliderRef = useRef(null)
   // const isVisible = useIsVisible(slideRef)
 
@@ -44,8 +43,6 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
       if (slideRef.current) {
         const sr = (await import('scrollreveal')).default
         sr().reveal(slideRef.current, {
-          // reset: false,
-          // delay: -400,
           duration: 2000,
           opacity: 0,
           origin: 'bottom',
@@ -58,14 +55,14 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
 
   return (
     <div className={position ? styles[className] : styles.auto_slide__container}>
-      <CommonLink path={''}>
-        <div ref={ttlRef} className={styles.auto_slide__container_title} onClick={() => router.push(`/${title}`)}>
+      <CommonLink path={`/${title}`}>
+        <div ref={ttlRef} className={styles.auto_slide__container_title}>
           {title}
           {title === 'lps' && <p>(ランディングページ)</p>}
         </div>
       </CommonLink>
       <div ref={slideRef} className={styles.auto_slide__container_animation}>
-        <Slider {...settings}>
+        <Slider key={slideKey} {...settings}>
           {contents.map((content) => (
             <div
               className={styles.auto_slide__container_animation_image}

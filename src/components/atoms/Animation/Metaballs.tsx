@@ -4,15 +4,41 @@ import { gsap } from 'gsap'
 
 import styles from 'styles/components/atoms/frame.module.scss'
 
-const Metaballs: FC = () => {
-  const frameRef = useRef()
+type Props = {
+  onComplete?: () => void
+}
+
+const Metaballs: FC<Props> = ({ onComplete }) => {
+  const frameRef = useRef<HTMLDivElement>(null)
+  const finishedRef = useRef(false)
+
   useEffect(() => {
-    gsap.to(frameRef.current, {
-      opacity: 0,
-      duration: 1,
-      delay: 5,
-    })
-  }, [frameRef])
+    const finish = () => {
+      if (finishedRef.current) return
+      finishedRef.current = true
+      onComplete?.()
+    }
+
+    const fallbackTimer = window.setTimeout(finish, 6000)
+
+    if (!frameRef.current) {
+      finish()
+      return () => window.clearTimeout(fallbackTimer)
+    }
+
+    try {
+      gsap.to(frameRef.current, {
+        opacity: 0,
+        duration: 1,
+        delay: 5,
+        onComplete: finish,
+      })
+    } catch {
+      finish()
+    }
+
+    return () => window.clearTimeout(fallbackTimer)
+  }, [onComplete])
 
   return (
     <div ref={frameRef} className={styles.frame}>

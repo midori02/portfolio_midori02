@@ -5,7 +5,7 @@
   @include flex-column-aligncenter-center;
   width: 100vw;
   img {
-    margin-bottom: 100px;
+    margin-bottom: 40px;
     margin-right: 2%;
   }
 
@@ -14,11 +14,17 @@
     cursor: pointer;
   }
   label {
-    @include font-decoration($black, 10px, Noto Sans JP, 500, 2px);
+    @include font-decoration($grey700, 12px, Noto Sans, 300, 2px);
     margin-left: 8px;
+    margin-bottom: 4px;
   }
   &__after_sent {
     margin-top: 8px;
+  }
+  &__send_error {
+    @include font-decoration($grey700, 12px, Noto Sans, 300, 2px);
+    margin-top: 8px;
+    color: #c0392b;
   }
   @include mq('md') {
     img {

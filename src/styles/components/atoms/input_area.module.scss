@@ -8,7 +8,11 @@
     margin-bottom: 4px;
     span {
       color: $red;
-      padding-left: 24px;
+      font-size: inherit;
+      font-family: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      padding-left: 8px;
     }
   }
   input,

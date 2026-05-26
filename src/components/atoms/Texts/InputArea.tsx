@@ -26,7 +26,7 @@ const InputArea: VFC<Props> = (props) => {
     type,
     placeholder = '',
     disabled = false,
-    required = false,
+    isRequired = false,
     isError = false,
     errorMessage = '',
     multiLine = false,
@@ -35,7 +35,7 @@ const InputArea: VFC<Props> = (props) => {
   return (
     <div className={styles.input_area}>
       <label>
-        {text}　{required && <span>[必須]</span>}
+        {text}{isRequired && <span> [required]</span>}
       </label>
       {multiLine ? (
         <textarea value={value} onChange={onChange} placeholder={placeholder} disabled={disabled} rows={rows}>

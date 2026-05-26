@@ -1,16 +1,13 @@
 import { FC } from 'react'
-import { useRouter } from 'next/router'
 import { useQuery } from 'react-query'
 
+import { ADMIN_UID } from 'lib/constants'
 import { AboutTemplate } from 'components/templates'
 import { fetchHistories, fetchProfile } from 'lib/background'
 
 const AboutContainer: FC = () => {
-  const uid = 'mTLZenxmFraMwlT5FMjbfPpCCaf2'
-  const histories = useQuery('histories', () => fetchHistories(uid))
-  const profile = useQuery('profile', () => fetchProfile(uid))
-  // const profile = useQuery('')
-  console.log(profile.data)
+  const histories = useQuery('histories', () => fetchHistories(ADMIN_UID))
+  const profile = useQuery('profile', () => fetchProfile(ADMIN_UID))
   if (histories.isLoading || profile.isLoading) return <>Loading...</>
   return <AboutTemplate histories={histories.data} profile={profile.data} />
 }

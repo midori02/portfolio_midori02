@@ -1,26 +1,46 @@
-import { FC, useState, useEffect, useRef } from 'react'
+import { FC, useState, useEffect, useCallback } from 'react'
 
-import ReactLoading from 'react-loading'
 import { Metaballs } from 'components/atoms/Animation'
 
+const LOADING_KEY = 'portfolio_midori02_loaded'
+const MAX_WAIT_MS = 7000
+
 const LoadingContainer: FC = ({ children }) => {
-  const [loading, setLoading] = useState(undefined)
+  const [ready, setReady] = useState(false)
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(true)
-    }, 6000)
+  const finishLoading = useCallback(() => {
+    setReady(true)
   }, [])
 
   useEffect(() => {
-    if (sessionStorage.getItem('loading')) {
-      setLoading(sessionStorage.getItem('loading'))
-    } else {
-      sessionStorage.setItem('loading', 'true')
+    let skipped = false
+
+    try {
+      skipped =
+        window.sessionStorage.getItem(LOADING_KEY) === 'true' ||
+        window.sessionStorage.getItem('loading') === 'true'
+      if (!skipped) {
+        window.sessionStorage.setItem(LOADING_KEY, 'true')
+      }
+    } catch {
+      // sessionStorage 不可（プライベートブラウズ等）でも表示は続行
+      skipped = false
     }
-  }, [])
 
-  return <>{!loading ? <Metaballs /> : <>{children}</>}</>
+    if (skipped) {
+      finishLoading()
+      return
+    }
+
+    const forceTimer = window.setTimeout(finishLoading, MAX_WAIT_MS)
+    return () => window.clearTimeout(forceTimer)
+  }, [finishLoading])
+
+  if (!ready) {
+    return <Metaballs onComplete={finishLoading} />
+  }
+
+  return <>{children}</>
 }
 
 export default LoadingContainer

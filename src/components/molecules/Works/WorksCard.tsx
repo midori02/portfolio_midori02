@@ -1,4 +1,4 @@
-import { FC, useState, memo } from 'react'
+import { FC, useState, memo, useEffect } from 'react'
 
 import { ImageArea, IconArea } from 'components/atoms/Images'
 import { useAtom } from 'jotai'
@@ -14,6 +14,15 @@ const WorksCard: FC<Props> = (props) => {
   const { content, works } = props
   const [modal, setModal] = useState<boolean>(false)
   const [_, setCursorHover] = useAtom(cursorActive)
+
+  useEffect(() => {
+    if (!modal) return
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [modal])
 
   return (
     <div className={styles.works_card}>

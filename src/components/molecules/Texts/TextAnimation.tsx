@@ -8,11 +8,9 @@ const TextAnimation: FC = () => {
 
     gsap.to(`#animation-text`, {
       duration: 5,
-      text: ` My name is midori02, I was born in 1993, in the face of the Internet. 
-          \n\
-         At the beginning of May in 2021, I started to design websites. I gambled and lost, but I learned a lot from it.
-          \n\
-          This site to share my experiences, learnings.`,
+      text: ` My name is midori02, I studied art and design in France, then worked in design at an architectural office in Fukuoka.
+         \n\
+         Now working as a PM/PdM, bridging design, product, and user experience.`,
       ease: 'none',
     })
   }, [])

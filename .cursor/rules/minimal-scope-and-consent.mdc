@@ -1,0 +1,39 @@
+---
+description: 依頼範囲外の変更禁止・外部サービス/認証情報はユーザー操作を先に
+alwaysApply: true
+---
+
+# 最小スコープとユーザー確認（公開サイト）
+
+## 変更範囲
+
+- **依頼された箇所だけ**直す。TOP だけの依頼で Works / About / ImageArea / スライダー CSS 等を触らない。
+- レイアウト修正は **git HEAD の構造を維持**したうえで、必要最小限の diff のみ。
+- `react-slick` + Next.js `Image` の `div` ラッパー前提の CSS を、`<img>` 一括置換で壊さない。
+
+## 外部サービス・秘密情報
+
+- **FormSubmit 等の外部サービスを勝手に導入しない。** ユーザー明示のないアカウント作成・Webhook 登録は禁止。
+- **Gmail / `.env.local` / アプリパスワード**はユーザーに手順を示し、**ユーザーが設定してから**動作確認する。チャットに貼られた秘密はファイルに書かず、再発行を案内する。
+- コミットに `.env.local` や `SMTP_PASS` を含めない。テンプレは `.env.local.example` のみ。
+
+## 環境変数の場所
+
+- このリポジトリは `npm run dev src` のため、**.env.local は `src/.env.local`** に置く（プロジェクトルートでは読まれない）。
+
+## データ表示
+
+- TOP と一覧ページで **同じ Firebase データ・同じ genre フィルタ**を使う。スライダーは `key` でデータ変更時に再マウントする。
+- About のアイコン等、依頼外のセクションは **元の取得方法を維持**（TOP 同期だけが依頼のとき About を `getProfileIconPath` に変えない）。
+
+## push / デプロイ前の確認（必須）
+
+ユーザー報告や push の前に、**必ず**次を実行し PASS を確認してから次へ進む。
+
+1. **Node 24** で `NODE_OPTIONS=--openssl-legacy-provider npm run build`（Vercel と同条件）
+2. **Node 16** で `npm run dev -- -p 3001` を起動し、`curl -I http://localhost:3001/` が **200**
+3. 主要ルート（`/`, `/websites`）が 200 であること
+4. `npm ci` が成功すること（削除済みパッケージが lock に残っていないか）
+5. dev が 500 のときは `.next` 削除 + サーバー再起動してから再確認
+
+ローカル dev は **Node 16**、Vercel は **Node 24**。ブランチ切替後は `.next` を消してから dev 再起動する。
