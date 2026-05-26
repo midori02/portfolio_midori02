@@ -4,14 +4,17 @@ type ContactContent = {
   email: string
   telephone: string
   textbox: string
+  website?: string
 }
 
 export class ContactSubmitError extends Error {
   code?: string
+  retryAfterSec?: number
 
-  constructor(message: string, code?: string) {
+  constructor(message: string, code?: string, retryAfterSec?: number) {
     super(message)
     this.code = code
+    this.retryAfterSec = retryAfterSec
   }
 }
 
@@ -21,11 +24,16 @@ export const handleSubmit = (content: ContactContent): Promise<boolean> => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(content),
   }).then(async (response) => {
-    const data = (await response.json().catch(() => ({}))) as { error?: string; message?: string }
+    const data = (await response.json().catch(() => ({}))) as {
+      error?: string
+      message?: string
+      retryAfterSec?: number
+    }
     if (!response.ok) {
       throw new ContactSubmitError(
         data.message || '送信に失敗しました。しばらくしてから再度お試しください。',
-        data.error
+        data.error,
+        data.retryAfterSec
       )
     }
     return true
