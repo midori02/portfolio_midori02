@@ -9,7 +9,13 @@
     "dev": "next dev src",
     "build": "next build src",
     "start": "next start src",
-    "lint": "next lint"
+    "lint": "next lint",
+    "verify:exports": "node scripts/check-export-files.mjs",
+    "verify:build": "NODE_OPTIONS=--openssl-legacy-provider npm run build",
+    "verify:smoke": "bash scripts/smoke-test-routes.sh",
+    "verify:chunks": "bash scripts/smoke-test-chunks.sh",
+    "verify:dev": "bash scripts/restart-and-verify-dev.sh",
+    "verify:deploy": "bash scripts/verify-deploy.sh"
   },
   "dependencies": {
     "@slack/events-api": "^3.0.1",

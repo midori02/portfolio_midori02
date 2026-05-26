@@ -28,12 +28,19 @@ alwaysApply: true
 
 ## push / デプロイ前の確認（必須）
 
-ユーザー報告や push の前に、**必ず**次を実行し PASS を確認してから次へ進む。
+ユーザー報告や push / Vercel デプロイの前に、**必ず**次を実行し PASS を確認してから次へ進む。
 
-1. **Node 24** で `NODE_OPTIONS=--openssl-legacy-provider npm run build`（Vercel と同条件）
-2. **Node 16** で `npm run dev -- -p 3001` を起動し、`curl -I http://localhost:3001/` が **200**
-3. 主要ルート（`/`, `/websites`）が 200 であること
-4. `npm ci` が成功すること（削除済みパッケージが lock に残っていないか）
-5. dev が 500 のときは `.next` 削除 + サーバー再起動してから再確認
+```bash
+npm run verify:deploy
+```
 
-ローカル dev は **Node 16**、Vercel は **Node 24**。ブランチ切替後は `.next` を消してから dev 再起動する。
+個別実行: `verify:exports`（re-export 先ファイル） / `verify:build`（Node 24） / `verify:dev`（.next 削除 + ルート + JS チャンク）
+
+手動チェック項目:
+
+1. **Node 24** で `npm run verify:build`（Vercel と同条件、`NODE_OPTIONS=--openssl-legacy-provider`）
+2. **Node 16** で `npm run verify:dev`（ポート **3001**、`.next` 再生成、チャンク 404 検出）
+3. `npm ci` が成功すること
+4. Vercel Dashboard → Node.js **24.x**、SMTP 環境変数 6 項目
+
+ローカル dev は **Node 16**、Vercel は **Node 24**。ブランチ切替後は `verify:dev` が `.next` を消して再起動する。
