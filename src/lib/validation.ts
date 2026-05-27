@@ -1,3 +1,7 @@
+/** メールヘッダーインジェクション防止（改行・制御文字を除去） */
+export const stripHeaderUnsafe = (value: string): string =>
+  value.replace(/[\r\n\u0000-\u001F\u007F]/g, '').trim()
+
 export const isValidFurigana = (furigana: string): boolean => {
   const regex = /^[ア-ン゛゜ァ-ォャ-ョー]+$/u
   return regex.test(furigana)

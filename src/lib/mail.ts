@@ -39,10 +39,7 @@ export const isMailConfigured = (): boolean => getSmtpConfig() !== null
 export const sendContactMail = async (payload: ContactPayload): Promise<void> => {
   const config = getSmtpConfig()
   if (!config) {
-    throw new ContactMailError(
-      'not_configured',
-      'メール送信の設定（SMTP_PASS）が未設定です。'
-    )
+    throw new ContactMailError('not_configured', 'メール送信の設定が未完了です。')
   }
 
   const { host, port, user, pass, to, from } = config
@@ -77,9 +74,6 @@ export const sendContactMail = async (payload: ContactPayload): Promise<void> =>
     })
   } catch (error) {
     console.error('SMTP send failed:', error)
-    throw new ContactMailError(
-      'send_failed',
-      'メールの送信に失敗しました。SMTP_PASS が正しいか確認してください。'
-    )
+    throw new ContactMailError('send_failed', 'メールの送信に失敗しました。')
   }
 }

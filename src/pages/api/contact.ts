@@ -1,5 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
+import {
+  getContactRateLimitKey,
+  isJsonContentType,
+  validateContactFetchMetadata,
+  validateContactOrigin,
+  validateContactPayload,
+} from 'lib/contactSecurity'
 import { checkContactRateLimit, getClientIp } from 'lib/contactRateLimit'
 import { ContactMailError, sendContactMail } from 'lib/mail'
 
@@ -13,10 +20,30 @@ type ContactBody = {
   website?: string
 }
 
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '16kb',
+    },
+  },
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST')
     return res.status(405).json({ error: 'Method not allowed' })
+  }
+
+  if (!isJsonContentType(req)) {
+    return res.status(415).json({
+      error: 'unsupported_media_type',
+      message: 'Content-Type: application/json が必要です。',
+    })
+  }
+
+  const originError = validateContactOrigin(req) ?? validateContactFetchMetadata(req)
+  if (originError) {
+    return res.status(originError.status).json({ error: originError.code, message: originError.message })
   }
 
   const { name, furigana, email, telephone, textbox, website } = req.body as ContactBody
@@ -26,7 +53,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   const ip = getClientIp(req.headers['x-forwarded-for'])
-  const rate = checkContactRateLimit(ip)
+  const rateKey = getContactRateLimitKey(req, ip)
+  const rate = checkContactRateLimit(rateKey)
   if (rate.allowed === false) {
     res.setHeader('Retry-After', String(rate.retryAfterSec))
     const message =
@@ -36,18 +64,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(429).json({ error: 'rate_limited', message, retryAfterSec: rate.retryAfterSec })
   }
 
-  if (!name?.trim() || !email?.trim() || !textbox?.trim()) {
-    return res.status(400).json({ error: 'Missing required fields' })
+  const validated = validateContactPayload({ name, furigana, email, telephone, textbox })
+  if (validated.ok === false) {
+    return res.status(validated.error.status).json({
+      error: validated.error.code,
+      message: validated.error.message,
+    })
   }
 
   try {
-    await sendContactMail({
-      name: name.trim(),
-      furigana: furigana?.trim() ?? '',
-      email: email.trim(),
-      telephone: telephone?.trim() ?? '',
-      textbox: textbox.trim(),
-    })
+    await sendContactMail(validated.data)
     return res.status(200).json({ ok: true })
   } catch (error) {
     console.error(error)
