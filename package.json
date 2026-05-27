@@ -22,7 +22,7 @@
     "@types/nodemailer": "^8.0.0",
     "@types/scrollreveal": "^0.0.7",
     "dotenv": "^10.0.0",
-    "firebase": "^10.14.1",
+    "firebase": "^12.13.0",
     "gsap": "^3.8.0",
     "jotai": "^1.5.2",
     "next": "^14.2.35",
