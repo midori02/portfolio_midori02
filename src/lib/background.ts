@@ -1,5 +1,5 @@
 // education, work background data fetch function
-import { adminsRef, firebaseTimeStamp } from '../firebase/index'
+import { adminsRef } from '../firebase/index'
 import { HistoryType, ProfileType } from '../types/content'
 
 export const fetchHistories = (id: string): Promise<HistoryType[] | undefined> => {

@@ -2,16 +2,16 @@
 /**
  * Node バージョン確認
  *   node scripts/check-node-version.js build  → Vercel 同条件（Node 24+）
- *   node scripts/check-node-version.js dev    → ローカル dev（Node 16）
+ *   node scripts/check-node-version.js dev    → ローカル dev（Node 18+、Next.js 14 要件）
  */
 const mode = process.argv[2] || 'build'
 const major = Number(process.version.slice(1).split('.')[0])
 
 if (mode === 'dev') {
-  if (major !== 16) {
+  if (major < 18) {
     console.error(
-      `\n[ERROR] Node.js ${process.version} detected. Local dev requires Node 16.\n` +
-        'Run: nvm use 16\n'
+      `\n[ERROR] Node.js ${process.version} detected. Local dev requires Node 18+ (Next.js 14).\n` +
+        'Run: nvm use 18\n'
     )
     process.exit(1)
   }

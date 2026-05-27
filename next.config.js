@@ -9,6 +9,19 @@ module.exports = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   images: {
-    domains: ['firebasestorage.googleapis.com', 'midori02.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'firebasestorage.googleapis.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'midori02.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.midori02.com',
+      },
+    ],
   },
 }

@@ -1,4 +1,4 @@
-import { FirebaseTimestampType } from 'firebase'
+import { FirebaseTimestampType } from '../firebase'
 import { ImageType } from './utility'
 
 export type post = {
