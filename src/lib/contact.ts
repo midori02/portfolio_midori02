@@ -21,7 +21,11 @@ export class ContactSubmitError extends Error {
 export const handleSubmit = (content: ContactContent): Promise<boolean> => {
   return fetch('/api/contact', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    credentials: 'same-origin',
     body: JSON.stringify(content),
   }).then(async (response) => {
     const data = (await response.json().catch(() => ({}))) as {

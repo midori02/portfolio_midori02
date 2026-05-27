@@ -19,9 +19,6 @@
     "sync:vercel-smtp": "bash scripts/sync-vercel-smtp-env.sh"
   },
   "dependencies": {
-    "@slack/events-api": "^3.0.1",
-    "@slack/web-api": "^6.4.0",
-    "@slack/webhook": "^6.0.0",
     "@types/nodemailer": "^8.0.0",
     "@types/scrollreveal": "^0.0.7",
     "dotenv": "^10.0.0",

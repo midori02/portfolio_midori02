@@ -1,0 +1,26 @@
+rules_version = '2';
+
+// ポートフォリオ公開用: 未認証 read のみ許可、write は全面禁止
+// デプロイ: firebase deploy --only firestore:rules,storage --project portfolio-midori02
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /admin/{adminId} {
+      allow read: if true;
+      allow write: if false;
+
+      match /contents/{contentId} {
+        allow read: if true;
+        allow write: if false;
+      }
+
+      match /histories/{historyId} {
+        allow read: if true;
+        allow write: if false;
+      }
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+rules_version = '2';
+
+// 画像配信用: 未認証 read のみ許可、write は全面禁止
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}
