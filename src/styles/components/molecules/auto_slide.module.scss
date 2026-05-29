@@ -3,42 +3,45 @@
 
 .auto_slide {
   width: 100vw;
-  height: 100vh;
 
   &__container {
     display: flex;
+    flex-direction: column;
     margin-top: 56px;
     position: relative;
+    width: 100%;
     &_title {
       @include font-decoration($black, 24px, mic-32-new-web, 400, 6px);
       cursor: pointer;
+      position: static;
+      margin-bottom: 12px;
     }
 
     &_animation {
-      width: 60%;
-      height: 60%;
-      margin-top: 56px;
+      width: 100%;
+      margin-top: 0;
+
       div[class='slick-slide'],
-      div[class='slick-slider slick-initialized'],
       div[class='slick-slide slick-active'],
       div[class='slick-slide slick-cloned'],
       div[class='slick-slide slick-active slick-current'],
       div[class='slick-slide slick-active slick-cloned'] {
         margin: 0 8px;
-        div {
-          height: 160px;
-          overflow: hidden;
-          position: relative;
-        }
       }
 
       div[class='slick-list'] {
         margin: 0 -8px;
       }
+
+      div[class='slick-track'] {
+        display: flex;
+        align-items: stretch;
+      }
+
       &_image {
         border: 1px solid $black;
         box-sizing: border-box;
-        height: 100%;
+        width: 100%;
         overflow: hidden;
       }
     }
@@ -46,43 +49,30 @@
 
   &__right {
     @extend .auto_slide__container;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    .auto_slide__container_title {
-      position: absolute;
-      left: 24%;
-    }
+    align-items: flex-start;
   }
   &__left {
     @extend .auto_slide__container;
-    .auto_slide__container_title {
-      position: absolute;
-      right: 24%;
-    }
+    align-items: flex-start;
   }
 
   @include mq('md') {
     &__container {
+      flex-direction: row;
       margin-top: 80px;
       &_title {
         font-size: 28px;
+        position: absolute;
+        margin-bottom: 0;
       }
       &_animation {
+        width: 60%;
         margin-top: 64px;
-        div[class='slick-slide'],
-        div[class='slick-slider slick-initialized'],
-        div[class='slick-slide slick-active'],
-        div[class='slick-slide slick-cloned'],
-        div[class='slick-slide slick-active slick-current'],
-        div[class='slick-slide slick-active slick-cloned'] {
-          div {
-            height: 160px;
-          }
-        }
       }
     }
     &__right {
+      flex-direction: column;
+      align-items: flex-end;
       .auto_slide__container_title {
         left: 28%;
       }
@@ -101,16 +91,6 @@
       }
       &_animation {
         margin-top: 92px;
-        div[class='slick-slide'],
-        div[class='slick-slider slick-initialized'],
-        div[class='slick-slide slick-active'],
-        div[class='slick-slide slick-cloned'],
-        div[class='slick-slide slick-active slick-current'],
-        div[class='slick-slide slick-active slick-cloned'] {
-          div {
-            height: 280px;
-          }
-        }
       }
     }
     &__right {

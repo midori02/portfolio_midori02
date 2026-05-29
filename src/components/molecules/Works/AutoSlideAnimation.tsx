@@ -28,10 +28,20 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
     cssEase: 'linear',
     dots: false,
     infinite: true,
-    slidesToShow: 2,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     rtl: position === 'left',
     speed: 4000,
     pauseOnHover: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   }
 
   return (
@@ -50,7 +60,7 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
               onClick={() => console.log(content.id)}
               key={content.id}
             >
-              <ImageArea path={content.image[0].path} width={400} height={400} layout="fill" />
+              <ImageArea path={content.image[0].path} width={400} height={400} />
             </div>
           ))}
         </Slider>

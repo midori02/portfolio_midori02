@@ -1,20 +1,17 @@
 .image_area {
+  position: relative;
   width: 100%;
   overflow: hidden;
   line-height: 0;
 
   &__img {
-    display: block;
-    width: 100% !important;
-    height: auto !important;
-    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
-  &--fill {
-    height: 100%;
-
+  &--contain {
     .image_area__img {
-      height: 100% !important;
+      object-fit: contain;
     }
   }
 }

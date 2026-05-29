@@ -30,28 +30,27 @@ const ImageArea: VFC<Props> = (props) => {
 
   const wrapperClass = [
     styles.image_area,
-    layout === 'fill' ? styles['image_area--fill'] : '',
+    objectFit === 'contain' ? styles['image_area--contain'] : '',
     className,
   ]
     .filter(Boolean)
     .join(' ')
 
+  const wrapperStyle =
+    layout === 'responsive'
+      ? { aspectRatio: `${width} / ${height}` }
+      : { width: '100%', height: '100%' }
+
   return (
-    <div
-      className={wrapperClass}
-      onClick={onClick}
-      style={layout === 'responsive' ? { aspectRatio: `${width} / ${height}` } : undefined}
-    >
+    <div className={wrapperClass} onClick={onClick} style={wrapperStyle}>
       <Image
         src={path}
         alt={alt}
-        width={width}
-        height={height}
+        fill
         className={styles.image_area__img}
-        style={{ objectFit }}
         sizes={
           layout === 'fill'
-            ? '(max-width: 768px) 45vw, 280px'
+            ? '(max-width: 768px) 90vw, 280px'
             : '(max-width: 768px) 90vw, (max-width: 1024px) 50vw, 800px'
         }
       />
