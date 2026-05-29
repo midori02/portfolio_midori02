@@ -1,6 +1,7 @@
 import '../styles/globals.scss'
 import { useEffect } from 'react'
 import type { AppProps } from 'next/app'
+import Head from 'next/head'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { NextSeo } from 'next-seo'
@@ -26,6 +27,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <QueryClientProvider client={queryClient} contextSharing>
+      <Head>
+        <link rel="stylesheet" href="https://use.typekit.net/phb0zlb.css" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500&family=Open+Sans:wght@600&display=swap"
+        />
+      </Head>
       <NextSeo
         title="midori02--portfolio"
         description="This Page is midori02's portfolio..."
