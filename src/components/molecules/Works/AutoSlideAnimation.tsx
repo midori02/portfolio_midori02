@@ -20,17 +20,19 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
   const { title, contents, position } = props
   const className = 'auto_slide__' + position
   const slideKey = contents.map((content) => content.id).join('-')
+  const slideCount = contents.length
+  const desktopSlidesToShow = Math.min(2, Math.max(1, slideCount))
 
   const settings = {
     autoplaySpeed: 2000,
-    autoplay: true,
+    autoplay: slideCount > 0,
     arrows: false,
     cssEase: 'linear',
     dots: false,
-    infinite: true,
-    slidesToShow: 2,
+    infinite: slideCount > desktopSlidesToShow,
+    slidesToShow: desktopSlidesToShow,
     slidesToScroll: 1,
-    rtl: position === 'left',
+    rtl: false,
     speed: 4000,
     pauseOnHover: false,
     responsive: [
@@ -39,6 +41,7 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          infinite: slideCount > 1,
         },
       },
     ],
@@ -49,7 +52,7 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
       <CommonLink path={`/${title}`}>
         <div className={styles.auto_slide__container_title}>
           {title}
-          {title === 'lps' && <p>(ランディングページ)</p>}
+          {title === 'lps' && <span className={styles.auto_slide__container_title_sub}>(ランディングページ)</span>}
         </div>
       </CommonLink>
       <div className={styles.auto_slide__container_animation}>

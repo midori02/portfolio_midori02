@@ -11,6 +11,13 @@
     &_title {
       @include font-decoration($black, 24px, mic-32-new-web, 400, 6px);
       cursor: pointer;
+
+      &_sub {
+        display: block;
+        font-size: 0.55em;
+        letter-spacing: 2px;
+        margin-top: 4px;
+      }
     }
 
     &_animation {
@@ -27,6 +34,18 @@
 
       div[class='slick-list'] {
         margin: 0 -8px;
+        overflow: hidden;
+      }
+
+      div[class='slick-track'] {
+        display: flex !important;
+        flex-direction: row !important;
+      }
+
+      div[class='slick-slide'] {
+        flex-shrink: 0;
+        height: auto;
+        float: none;
       }
 
       &_image {
@@ -56,6 +75,9 @@
   }
   &__left {
     @extend .auto_slide__container;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     .auto_slide__container_title {
       position: absolute;
       right: 24%;
