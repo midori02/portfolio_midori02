@@ -37,49 +37,57 @@
     }
   }
   @for $i from 1 through 10 {
-    &__center_blubb_#{$i} {
-      position: absolute;
-      top: 4rem;
-      left: 4rem;
-      width: 6rem;
-      height: 6rem;
-      transform: rotate((random(300)) + deg);
+    .frame {
+      &__center {
+        &_blubb_#{$i} {
+          position: absolute;
+          top: 4rem;
+          left: 4rem;
+          width: 6rem;
+          height: 6rem;
+          transform: rotate((random(300)) + deg);
 
-      &:after {
-        position: absolute;
-        display: block;
-        content: '';
-        width: 6rem;
-        height: 6rem;
-        background: #fff;
-        border-radius: 50%;
-        transform-origin: (40 - $i * 4) + px (40 - $i * 4) + px;
-        animation: rotate (3.5 + $i / 5) + s ease-in ($i / 5) + s infinite;
-        filter: blur(5px);
+          &:after {
+            position: absolute;
+            display: block;
+            content: '';
+            width: 6rem;
+            height: 6rem;
+            background: #fff;
+            border-radius: 50%;
+            transform-origin: (40 - $i * 4) + px (40 - $i * 4) + px;
+            animation: rotate (3.5 + $i / 5) + s ease-in ($i / 5) + s infinite;
+            filter: blur(5px);
+          }
+        }
       }
     }
   }
 
   @for $i from 1 through 10 {
-    &__center_sparkle_#{$i} {
-      position: absolute;
-      top: 6rem;
-      left: 6rem;
-      width: (40 + $i) + px;
-      height: (40 + $i) + px;
-      transform: rotate((random(300)) + deg);
+    .frame {
+      &__center {
+        &_sparkle_#{$i} {
+          position: absolute;
+          top: 6rem;
+          left: 6rem;
+          width: (40 + $i) + px;
+          height: (40 + $i) + px;
+          transform: rotate((random(300)) + deg);
 
-      &:after {
-        position: absolute;
-        display: block;
-        content: '';
-        width: (16 + $i) + px;
-        height: (16 + $i) + px;
-        background-color: white;
-        border-radius: 50%;
-        transform-origin: (60 - $i * 2) + px (60 - $i * 2) + px;
-        animation: rotate (3.5 + $i / 5) + s ease-in ($i / 5) + s infinite;
-        filter: blur(4px);
+          &:after {
+            position: absolute;
+            display: block;
+            content: '';
+            width: (16 + $i) + px;
+            height: (16 + $i) + px;
+            background-color: white;
+            border-radius: 50%;
+            transform-origin: (60 - $i * 2) + px (60 - $i * 2) + px;
+            animation: rotate (3.5 + $i / 5) + s ease-in ($i / 5) + s infinite;
+            filter: blur(4px);
+          }
+        }
       }
     }
   }
