@@ -1,4 +1,4 @@
-import { adminsRef, firebaseTimeStamp } from '../firebase/index'
+import { adminsRef } from '../firebase/index'
 import { ContentType } from '../types/content'
 
 export const fetchContents = (id: string): Promise<ContentType[] | undefined> => {

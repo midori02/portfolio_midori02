@@ -6,11 +6,12 @@ type Props = {
   path: string
   width: number
   height: number
+  alt?: string
 }
 const ImageArea: VFC<Props> = (props) => {
-  const { onClick, path, width, height } = props
+  const { onClick, path, width, height, alt = '' } = props
 
-  return <Image src={path} width={width} height={height} />
+  return <Image src={path} width={width} height={height} alt={alt} onClick={onClick} />
 }
 
 export default ImageArea

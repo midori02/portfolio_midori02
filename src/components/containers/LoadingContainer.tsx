@@ -1,11 +1,15 @@
-import { FC, useState, useEffect, useCallback } from 'react'
+import { FC, ReactNode, useState, useEffect, useCallback } from 'react'
 
 import { Metaballs } from 'components/atoms/Animation'
 
 const LOADING_KEY = 'portfolio_midori02_loaded'
 const MAX_WAIT_MS = 7000
 
-const LoadingContainer: FC = ({ children }) => {
+type Props = {
+  children?: ReactNode
+}
+
+const LoadingContainer: FC<Props> = ({ children = null }) => {
   const [ready, setReady] = useState(false)
 
   const finishLoading = useCallback(() => {

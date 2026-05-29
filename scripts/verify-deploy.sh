@@ -19,10 +19,10 @@ echo ""
 echo "=== 3/4 production build (Node 24, Vercel 同条件) ==="
 nvm use 24 >/dev/null
 node scripts/check-node-version.js build
-NODE_OPTIONS=--openssl-legacy-provider npm run build
+npm run build
 
 echo ""
-echo "=== 4/4 dev smoke (Node 16, .next 再生成 + JS チャンク) ==="
+echo "=== 4/4 dev smoke (Node 18+, .next 再生成 + JS チャンク) ==="
 bash scripts/restart-and-verify-dev.sh
 
 echo ""

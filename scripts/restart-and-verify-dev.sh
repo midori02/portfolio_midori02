@@ -14,9 +14,9 @@ export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
 # shellcheck source=/dev/null
 if [ -s "$NVM_DIR/nvm.sh" ]; then
   . "$NVM_DIR/nvm.sh"
-  nvm use 16 >/dev/null
+  nvm use 18 >/dev/null 2>&1 || nvm use 20 >/dev/null 2>&1 || nvm use 24 >/dev/null
 else
-  echo "[WARN] nvm not found. Ensure Node.js 16 is active for dev."
+  echo "[WARN] nvm not found. Ensure Node.js 18+ is active for dev."
 fi
 
 node scripts/check-node-version.js dev

@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import Head from 'next/head'
 import { Header, Footer } from 'components/organisms'
 import { Spacer } from 'components/atoms/Spacer'
@@ -8,6 +8,7 @@ import styles from 'styles/components/layout/layout.module.scss'
 
 type Props = {
   pageTitle: string
+  children: ReactNode
 }
 
 const Layout: FC<Props> = (props) => {
