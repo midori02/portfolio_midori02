@@ -1,34 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# portfolio_midori02
 
-## Getting Started
+midori02 のポートフォリオサイト（Next.js Pages Router + Firebase + Vercel）。
 
-First, run the development server:
+## 開発
 
 ```bash
-npm run dev
-# or
-yarn dev
+npm ci
+npm run dev src
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- ローカル: http://127.0.0.1:3001（Node **18+**）
+- 環境変数: `src/.env.local`（テンプレは `src/.env.local.example`）
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## デプロイ前の確認
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+push 前に必ず実行:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+npm run verify:deploy
+```
+
+ビルド・主要ルート・JS チャンクの自動チェック。**見た目（レイアウト・フォント・スライダー）は含まれません。**
+
+### 本番反映の手順
+
+**`develop` へのマージは必ずリポジトリオーナー（midori02）が GitHub 上で行ってください。**  
+エージェントや CI が `develop` に直接マージすることはありません。
+
+1. feature ブランチで修正
+2. `npm run verify:deploy` を PASS
+3. ローカル `npm run dev src` で目視確認（TOP / Works / About / Contact、SP 幅も確認）
+4. feature ブランチを push → Vercel **Preview URL** で最終確認
+5. **オーナーが** GitHub で PR を作成・レビュー・`develop` へマージ
+6. Vercel が Production（https://www.midori02.com/）へ自動デプロイ
+7. 本番で表示・お問い合わせ送信を確認
+
+### Vercel 設定チェックリスト
+
+- Node.js Version: **24.x**
+- Production 環境変数: `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL`
+
+### Firebase ルール
+
+Firestore / Storage ルールは Vercel デプロイとは別です。変更時は Firebase Console または CLI で公開してください。
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Next.js deployment documentation](https://nextjs.org/docs/deployment)

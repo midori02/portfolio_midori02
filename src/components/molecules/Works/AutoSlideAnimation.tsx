@@ -1,4 +1,4 @@
-import { FC, useEffect, ReactElement, useRef } from 'react'
+import { FC, ReactElement } from 'react'
 import Slider from 'react-slick'
 
 import { ImageArea } from 'components/atoms/Images'
@@ -19,11 +19,7 @@ type Props = {
 const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
   const { title, contents, position } = props
   const className = 'auto_slide__' + position
-  const ttlRef = useRef(null)
-  const slideRef = useRef(null)
   const slideKey = contents.map((content) => content.id).join('-')
-  // const sliderRef = useRef(null)
-  // const isVisible = useIsVisible(slideRef)
 
   const settings = {
     autoplaySpeed: 2000,
@@ -33,35 +29,28 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
     dots: false,
     infinite: true,
     slidesToShow: 2,
-    rtl: position === 'left' ? true : false,
+    rtl: position === 'left',
     speed: 4000,
     pauseOnHover: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   }
-
-  useEffect(() => {
-    const animate = async () => {
-      if (slideRef.current) {
-        const sr = (await import('scrollreveal')).default
-        sr().reveal(slideRef.current, {
-          duration: 2000,
-          opacity: 0,
-          origin: 'bottom',
-          distance: '160px',
-        })
-      }
-    }
-    animate()
-  }, [slideRef])
 
   return (
     <div className={position ? styles[className] : styles.auto_slide__container}>
       <CommonLink path={`/${title}`}>
-        <div ref={ttlRef} className={styles.auto_slide__container_title}>
+        <div className={styles.auto_slide__container_title}>
           {title}
           {title === 'lps' && <p>(ランディングページ)</p>}
         </div>
       </CommonLink>
-      <div ref={slideRef} className={styles.auto_slide__container_animation}>
+      <div className={styles.auto_slide__container_animation}>
         <Slider key={slideKey} {...settings}>
           {contents.map((content) => (
             <div
