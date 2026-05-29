@@ -32,14 +32,6 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
     rtl: position === 'left',
     speed: 4000,
     pauseOnHover: false,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
   }
 
   return (

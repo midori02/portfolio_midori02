@@ -3,23 +3,21 @@
 
 .auto_slide {
   width: 100vw;
+  height: 100vh;
 
   &__container {
     display: flex;
-    flex-direction: column;
     margin-top: 56px;
     position: relative;
-    width: 100%;
     &_title {
       @include font-decoration($black, 24px, mic-32-new-web, 400, 6px);
       cursor: pointer;
-      position: static;
-      margin-bottom: 16px;
     }
 
     &_animation {
-      width: 100%;
-      margin-top: 0;
+      width: 60%;
+      height: 60%;
+      margin-top: 56px;
       div[class='slick-slide'],
       div[class='slick-slider slick-initialized'],
       div[class='slick-slide slick-active'],
@@ -38,19 +36,14 @@
         margin: 0 -8px;
       }
       &_image {
-        div {
-          max-width: 100%;
-          max-height: 100%;
-          width: 100%;
-          height: 100%;
-          &:last-child {
-            border: 1px solid $black;
-          }
-        }
+        border: 1px solid $black;
+        box-sizing: border-box;
+        height: 100%;
         img {
-          object-fit: cover;
+          display: block;
           width: 100%;
           height: 100%;
+          object-fit: cover;
         }
       }
     }
@@ -58,24 +51,29 @@
 
   &__right {
     @extend .auto_slide__container;
-    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    .auto_slide__container_title {
+      position: absolute;
+      left: 24%;
+    }
   }
   &__left {
     @extend .auto_slide__container;
-    align-items: flex-start;
+    .auto_slide__container_title {
+      position: absolute;
+      right: 24%;
+    }
   }
 
   @include mq('md') {
     &__container {
-      flex-direction: row;
       margin-top: 80px;
       &_title {
         font-size: 28px;
-        position: absolute;
-        margin-bottom: 0;
       }
       &_animation {
-        width: 60%;
         margin-top: 64px;
         div[class='slick-slide'],
         div[class='slick-slider slick-initialized'],
@@ -90,8 +88,6 @@
       }
     }
     &__right {
-      flex-direction: column;
-      align-items: flex-end;
       .auto_slide__container_title {
         left: 28%;
       }
