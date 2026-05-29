@@ -50,7 +50,7 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
               onClick={() => console.log(content.id)}
               key={content.id}
             >
-              <ImageArea path={content.image[0].path} width={400} height={400} />
+              <ImageArea path={content.image[0].path} width={400} height={400} layout="fill" />
             </div>
           ))}
         </Slider>
