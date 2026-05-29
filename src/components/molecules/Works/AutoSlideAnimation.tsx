@@ -56,17 +56,20 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
         </div>
       </CommonLink>
       <div className={styles.auto_slide__container_animation}>
-        <Slider key={slideKey} {...settings}>
-          {contents.map((content) => (
-            <div
-              className={styles.auto_slide__container_animation_image}
-              onClick={() => console.log(content.id)}
-              key={content.id}
-            >
-              <ImageArea path={content.image[0].path} width={400} height={400} fit="frame" />
-            </div>
-          ))}
-        </Slider>
+        {slideCount > 0 && (
+          <Slider key={slideKey} {...settings}>
+            {contents.map((content) => (
+              <div key={content.id}>
+                <div
+                  className={styles.auto_slide__container_animation_image}
+                  onClick={() => console.log(content.id)}
+                >
+                  <ImageArea path={content.image[0].path} width={400} height={400} fit="frame" />
+                </div>
+              </div>
+            ))}
+          </Slider>
+        )}
       </div>
     </div>
   )

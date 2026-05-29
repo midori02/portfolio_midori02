@@ -24,28 +24,20 @@
       width: min(100%, 280px);
       margin-top: 56px;
 
-      div[class='slick-slide'],
-      div[class='slick-slide slick-active'],
-      div[class='slick-slide slick-cloned'],
-      div[class='slick-slide slick-active slick-current'],
-      div[class='slick-slide slick-active slick-cloned'] {
-        margin: 0 8px;
-      }
-
-      div[class='slick-list'] {
+      :global(.slick-list) {
         margin: 0 -8px;
         overflow: hidden;
       }
 
-      div[class='slick-track'] {
-        display: flex !important;
-        flex-direction: row !important;
+      :global(.slick-slide) {
+        float: left;
+        height: auto;
+        padding: 0 8px;
+        box-sizing: border-box;
       }
 
-      div[class='slick-slide'] {
-        flex-shrink: 0;
-        height: auto;
-        float: none;
+      :global(.slick-slide > div) {
+        outline: none;
       }
 
       &_image {
