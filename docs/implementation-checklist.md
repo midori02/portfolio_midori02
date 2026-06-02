@@ -72,11 +72,16 @@ push・PR 更新・ユーザーへの報告時は、**毎回**次をセットで
 ```tsx
 // ✅ 維持
 rtl: false
-slidesToShow: Math.min(2, slideCount)  // 枚数に応じる
+slidesToShow: Math.min(2, slideCount)  // 2 件以上のときのみ Slider 使用
 infinite: slideCount > desktopSlidesToShow
 responsive: [{ breakpoint: 768, settings: { slidesToShow: 1, ... } }]
 
-// ✅ react-slick 必須の二重ラップ
+// ✅ 作品が 1 件だけのカテゴリ（lps 等すべて）: Slider 不使用・静止 1 枚
+//    slidesToShow: 2 + 1 件 → 空枠 half 幅でレイアウト崩れ
+{slideCount === 1 && renderSlideImage(contents[0])}
+{slideCount > 1 && <Slider>...</Slider>}
+
+// ✅ react-slick 必須の二重ラップ（2 件以上のとき）
 <Slider>
   <div key={id}>                    {/* 外: slick 用 */}
     <div className={..._image}>     {/* 内: 枠・border */}
@@ -123,6 +128,7 @@ Works / 画像 / スライダーに触る？
 ## 4. PR 前の目視チェック（Works 関連変更時は必須）
 
 - [ ] TOP Works: 各カテゴリ（websites / lps / apps …）が **横並びスライド**（縦積みでない）
+- [ ] **作品 1 件のカテゴリ**は Slider なし・**静止 1 枚**（空枠 half 幅になっていない）
 - [ ] スライド画像: **横伸びしていない**（円・文字が潰れていない）
 - [ ] 枠線: 各スライドに **1px 黒 border**
 - [ ] 左配置（lps 等）・右配置（websites 等）が **交互**になっている

@@ -25,7 +25,7 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
 
   const settings = {
     autoplaySpeed: 2000,
-    autoplay: slideCount > 0,
+    autoplay: true,
     arrows: false,
     cssEase: 'linear',
     dots: false,
@@ -47,6 +47,15 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
     ],
   }
 
+  const renderSlideImage = (content: Props['contents'][number]) => (
+    <div
+      className={styles.auto_slide__container_animation_image}
+      onClick={() => console.log(content.id)}
+    >
+      <ImageArea fit="frame" path={content.image[0].path} width={400} height={400} />
+    </div>
+  )
+
   return (
     <div className={position ? styles[className] : styles.auto_slide__container}>
       <CommonLink path={`/${title}`}>
@@ -58,17 +67,11 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
         </div>
       </CommonLink>
       <div className={styles.auto_slide__container_animation}>
-        {slideCount > 0 && (
+        {slideCount === 1 && renderSlideImage(contents[0])}
+        {slideCount > 1 && (
           <Slider key={slideKey} {...settings}>
             {contents.map((content) => (
-              <div key={content.id}>
-                <div
-                  className={styles.auto_slide__container_animation_image}
-                  onClick={() => console.log(content.id)}
-                >
-                  <ImageArea fit="frame" path={content.image[0].path} width={400} height={400} />
-                </div>
-              </div>
+              <div key={content.id}>{renderSlideImage(content)}</div>
             ))}
           </Slider>
         )}
