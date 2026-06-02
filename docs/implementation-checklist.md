@@ -2,9 +2,27 @@
 
 レイアウト崩れ・Works スライダー不具合の再発を防ぐため、**コード変更前・PR 前**に確認する。
 
-全体の流れは **[README.md § 開発フロー](../README.md#開発フロー)**（要件定義 → … → テスト → レビュー → マージ）に従う。
+全体の流れは **[README.md § 開発フロー](../README.md#開発フロー)**。**企画者・開発者・検収者の 3 視点**で各フェーズを確認する。
 
-`npm run verify:deploy` はビルドとルート到達のみ。**見た目は `verify:works-layout` と目視で必須。**
+`npm run verify:deploy` はビルドとルート到達のみ。**検収者目線の表示確認**（`verify:works-layout` + Preview 目視）を省略しない。
+
+---
+
+## 0. 3 視点クイックチェック（報告前）
+
+### 企画者目線
+- [ ] 今回の依頼範囲だけを直している（依頼外セクションに触れていない）
+- [ ] 完了条件（あるべき見え方）を言語化できる
+
+### 開発者目線
+- [ ] 変更ファイルがチェックリスト §2 と整合
+- [ ] `npm run verify:deploy` PASS
+- [ ] Works / 画像変更時: `npm run verify:works-layout` 実行（dev 起動中）
+
+### 検収者目線
+- [ ] **Preview URL**（Production ではない）で PC / SP を確認
+- [ ] 報告に Preview URL + PR URL + コミット SHA を記載
+- [ ] NG が残る場合は「直った」と書かない
 
 ---
 
