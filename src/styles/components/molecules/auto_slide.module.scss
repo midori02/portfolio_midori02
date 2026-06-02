@@ -3,10 +3,11 @@
 
 .auto_slide {
   width: 100vw;
-  height: 100vh;
 
   &__container {
     display: flex;
+    width: 100vw;
+    height: 100vh;
     margin-top: 56px;
     position: relative;
     &_title {
@@ -43,6 +44,10 @@
 
       :global(.slick-slide > div) {
         outline: none;
+      }
+
+      &_single {
+        width: min(100%, 392px);
       }
 
       &_image {
@@ -89,6 +94,7 @@
       }
       &_animation {
         width: 60%;
+        height: 60%;
         max-width: none;
         margin-top: 64px;
         &_image {

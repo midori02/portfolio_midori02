@@ -66,7 +66,14 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
           )}
         </div>
       </CommonLink>
-      <div className={styles.auto_slide__container_animation}>
+      <div
+        className={[
+          styles.auto_slide__container_animation,
+          slideCount === 1 ? styles.auto_slide__container_animation_single : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
         {slideCount === 1 && renderSlideImage(contents[0])}
         {slideCount > 1 && (
           <Slider key={slideKey} {...settings}>

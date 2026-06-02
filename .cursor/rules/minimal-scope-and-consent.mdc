@@ -5,6 +5,8 @@ alwaysApply: true
 
 # 最小スコープとユーザー確認（公開サイト）
 
+**作業前に [README.md](../README.md) の「開発フロー」を確認する。** テストフェーズで表示確認（`verify:works-layout` / Preview 目視）を省略しない。
+
 ## 変更範囲
 
 - **依頼された箇所だけ**直す。TOP だけの依頼で Works / About / ImageArea / スライダー CSS 等を触らない。
@@ -63,5 +65,6 @@ npm run verify:deploy
 3. `npm ci` が成功すること
 4. Vercel Dashboard → Node.js **24.x**、SMTP 環境変数 6 項目
 5. Works / 画像変更時: **`docs/implementation-checklist.md` §4** の目視（Preview URL・PC/SP）
+6. Works / 画像変更時: **`npm run verify:works-layout`**（dev 起動中。README「開発フロー §6」）
 
 ローカル dev は **Node 16**、Vercel は **Node 24**。ブランチ切替後は `verify:dev` が `.next` を消して再起動する。
