@@ -4,6 +4,11 @@ import { Metaballs } from 'components/atoms/Animation'
 
 const LOADING_KEY = 'portfolio_midori02_loaded'
 const MAX_WAIT_MS = 7000
+/** SCSS mq('md') = 768px 未満を SP 扱い */
+const SP_MAX_WIDTH_MEDIA = '(max-width: 767px)'
+
+const isSpViewport = (): boolean =>
+  typeof window !== 'undefined' && window.matchMedia(SP_MAX_WIDTH_MEDIA).matches
 
 type Props = {
   children?: ReactNode
@@ -17,6 +22,11 @@ const LoadingContainer: FC<Props> = ({ children = null }) => {
   }, [])
 
   useEffect(() => {
+    if (isSpViewport()) {
+      finishLoading()
+      return
+    }
+
     let skipped = false
 
     try {
