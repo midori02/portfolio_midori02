@@ -1,27 +1,21 @@
 .image_area {
-  overflow: hidden;
+  width: 100%;
   line-height: 0;
+  overflow: hidden;
 
   &__img {
     display: block;
+    width: 100% !important;
+    height: auto !important;
     max-width: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
-  &--frame {
-    position: relative;
-    width: 100%;
-    height: 100%;
-
+  &--contain {
     .image_area__img {
-      width: 100% !important;
-      height: 100% !important;
-      max-width: none;
-      object-fit: cover;
-      object-position: center;
+      height: auto !important;
+      object-fit: contain;
     }
-  }
-
-  &--contain.image_area--frame .image_area__img {
-    object-fit: contain;
   }
 }
