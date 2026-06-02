@@ -44,7 +44,7 @@ Works / 画像変更時は **[実装チェックリスト](docs/implementation-c
 1. feature ブランチで修正
 2. `npm run verify:deploy` を PASS
 3. ローカル `npm run dev src` で目視確認（TOP / Works / About / Contact、SP 幅も確認）
-4. feature ブランチを push → Vercel **Preview URL** で最終確認
+4. feature ブランチを push → Vercel **Preview URL** で最終確認（**報告時は Preview URL・PR URL・コミット SHA を必ず貼る**。詳細は [実装チェックリスト §1](docs/implementation-checklist.md)）
 5. **オーナーが** GitHub で PR を作成・レビュー・`develop` へマージ
 6. Vercel が Production（https://www.midori02.com/）へ自動デプロイ
 7. 本番で表示・お問い合わせ送信を確認

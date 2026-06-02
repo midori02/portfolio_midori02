@@ -29,6 +29,8 @@ Next.js 14 は `Image` が `<img>` 直出力。`develop` 版 SCSS を戻すだ�
 
 **確認:** PR の Vercel Preview（Production URL ではない）で PC/SP 目視。詳細は `docs/implementation-checklist.md`。
 
+**ユーザーへの報告時は確認用 URL を必ず貼る:** Vercel Preview URL + PR URL + コミット SHA（7 文字）。URL なしで「確認してください」とだけ書かない。
+
 ## 外部サービス・秘密情報
 
 - **FormSubmit 等の外部サービスを勝手に導入しない。** ユーザー明示のないアカウント作成・Webhook 登録は禁止。

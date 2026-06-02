@@ -15,6 +15,21 @@
 | 画面幅 | **PC（768px 以上）** と **SP（767px 以下）** の両方 |
 | 対象ページ | TOP（Works スライダー）、各 Works 一覧、Contact フォント |
 
+### 確認用 URL を必ず貼る（必須）
+
+push・PR 更新・ユーザーへの報告時は、**毎回**次をセットで記載する。URL なしの「確認してください」は禁止。
+
+1. **Vercel Preview URL**（`git-fix-...vercel.app` または PR コメントの Preview リンク）
+2. **PR URL**（例: `https://github.com/midori02/portfolio_midori02/pull/46`）
+3. **コミット SHA**（先頭 7 文字。Preview がこのコミットを指しているか確認用）
+
+取得方法:
+
+- GitHub PR → Vercel bot コメントの **Preview** リンク
+- Vercel Dashboard → **Preview** タブ → 対象ブランチのデプロイ
+
+**Production URL（`www.midori02.com` / `ldad6se5e` 等）はマージ前の確認用として貼らない。**
+
 ---
 
 ## 2. Works / 画像 / スライダー — 再発防止（最重要）
