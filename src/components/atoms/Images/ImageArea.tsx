@@ -19,17 +19,19 @@ const ImageArea: VFC<Props> = (props) => {
 
   if (fit === 'frame') {
     const imgStyle: CSSProperties = { objectFit, objectPosition: 'center' }
+    const frameClass =
+      objectFit === 'contain' ? styles['image_area--frame-contain'] : styles['image_area--frame']
 
     return (
       <div
-        className={[styles.image_area, styles['image_area--frame'], 'image_area'].join(' ')}
+        className={[styles.image_area, frameClass, 'image_area'].join(' ')}
         onClick={onClick}
       >
         <Image
           src={path}
           alt={alt}
           fill
-          sizes="(max-width: 768px) 50vw, 280px"
+          sizes={objectFit === 'contain' ? '392px' : '(max-width: 768px) 50vw, 280px'}
           className={styles.image_area__imgFill}
           style={imgStyle}
         />

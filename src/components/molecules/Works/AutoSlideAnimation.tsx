@@ -47,12 +47,23 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
     ],
   }
 
-  const renderSlideImage = (content: Props['contents'][number]) => (
+  const renderSlideImage = (content: Props['contents'][number], isSingle: boolean) => (
     <div
-      className={styles.auto_slide__container_animation_image}
+      className={[
+        styles.auto_slide__container_animation_image,
+        isSingle ? styles.auto_slide__container_animation_image_single : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}
       onClick={() => console.log(content.id)}
     >
-      <ImageArea fit="frame" path={content.image[0].path} width={400} height={400} />
+      <ImageArea
+        fit="frame"
+        objectFit={isSingle ? 'contain' : 'cover'}
+        path={content.image[0].path}
+        width={400}
+        height={400}
+      />
     </div>
   )
 
@@ -74,11 +85,11 @@ const AutoSlideAnimation: FC<Props> = (props): ReactElement => {
           .filter(Boolean)
           .join(' ')}
       >
-        {slideCount === 1 && renderSlideImage(contents[0])}
+        {slideCount === 1 && renderSlideImage(contents[0], true)}
         {slideCount > 1 && (
           <Slider key={slideKey} {...settings}>
             {contents.map((content) => (
-              <div key={content.id}>{renderSlideImage(content)}</div>
+              <div key={content.id}>{renderSlideImage(content, false)}</div>
             ))}
           </Slider>
         )}

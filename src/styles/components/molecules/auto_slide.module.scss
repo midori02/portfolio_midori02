@@ -48,6 +48,7 @@
 
       &_single {
         width: min(100%, 392px);
+        height: auto;
       }
 
       &_image {
@@ -57,6 +58,12 @@
         height: 120px;
         overflow: hidden;
         position: relative;
+
+        &_single {
+          height: auto;
+          max-height: 280px;
+          aspect-ratio: 16 / 10;
+        }
       }
     }
   }
@@ -97,8 +104,20 @@
         height: 60%;
         max-width: none;
         margin-top: 64px;
+
+        &_single {
+          width: min(100%, 392px);
+          height: auto;
+          max-width: 392px;
+        }
+
         &_image {
           height: 160px;
+
+          &_single {
+            height: auto;
+            max-height: 280px;
+          }
         }
       }
     }
@@ -121,8 +140,20 @@
       }
       &_animation {
         margin-top: 92px;
+
+        &_single {
+          width: min(100%, 392px);
+          height: auto;
+          max-width: 392px;
+        }
+
         &_image {
           height: 280px;
+
+          &_single {
+            height: auto;
+            max-height: 280px;
+          }
         }
       }
     }

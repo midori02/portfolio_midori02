@@ -17,6 +17,7 @@
     "verify:dev": "bash scripts/restart-and-verify-dev.sh",
     "verify:deploy": "bash scripts/verify-deploy.sh",
     "verify:works-layout": "node scripts/check-works-layout.mjs",
+    "verify:works-acceptance": "node scripts/check-works-acceptance.mjs",
     "sync:vercel-smtp": "bash scripts/sync-vercel-smtp-env.sh"
   },
   "dependencies": {
