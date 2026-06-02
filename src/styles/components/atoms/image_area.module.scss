@@ -5,17 +5,24 @@
 
   &__img {
     display: block;
-    width: 100% !important;
-    height: auto !important;
     max-width: 100%;
-    object-fit: cover;
-    object-position: center;
+    width: 100%;
+    height: auto;
   }
 
-  &--contain {
-    .image_area__img {
-      height: auto !important;
-      object-fit: contain;
-    }
+  &--frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--frame &__img {
+    width: auto;
+    height: auto;
+    max-width: none;
+  }
+
+  &--contain &__img {
+    object-fit: contain;
   }
 }
