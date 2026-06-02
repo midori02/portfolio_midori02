@@ -4,7 +4,7 @@
 .input_area {
   width: 90%;
   label {
-    @include font-decoration($grey700, 12px, Noto Sans, 300, 2px);
+    @include font-decoration($grey700, 12px, 'Noto Sans JP', 300, 2px);
     margin-bottom: 4px;
     span {
       color: $red;
@@ -21,6 +21,9 @@
     text-indent: 4px;
     border: 1px solid $black;
     border-radius: 4px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
     &:focus {
       outline: none;
       border-color: $yellow;

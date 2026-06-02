@@ -60,7 +60,7 @@ const WorksCard: FC<Props> = (props) => {
             </div>
             <div className={styles.modal__inner}>
               <div className={styles.modal__inner_banner}>
-                <ImageArea path={content.image[0].path} width={800} height={500} />
+                <ImageArea path={content.image[0].path} width={800} height={500} objectFit="contain" />
               </div>
               <div className={styles.modal__inner_contents}>
                 <h1>{content.title}</h1>

@@ -1,0 +1,36 @@
+.image_area {
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+
+  &--frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--frame-contain {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    max-height: 280px;
+    background-color: #fff;
+  }
+
+  &__img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  &__imgFill {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &--contain &__img {
+    object-fit: contain;
+  }
+}

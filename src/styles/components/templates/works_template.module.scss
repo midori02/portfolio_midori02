@@ -16,6 +16,14 @@
   &__menu {
     @include flex-column-aligncenter-center;
   }
+  &__contents {
+    width: 100%;
+    overflow: hidden;
+
+    &_hidden {
+      width: 100%;
+    }
+  }
   div[class='wave_animation_wave_animation__3QcPn'] {
     svg:nth-child(2) {
       align-items: center;

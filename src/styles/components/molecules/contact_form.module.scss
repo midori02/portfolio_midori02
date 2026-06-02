@@ -14,7 +14,7 @@
     cursor: pointer;
   }
   label {
-    @include font-decoration($grey700, 12px, Noto Sans, 300, 2px);
+    @include font-decoration($grey700, 12px, 'Noto Sans JP', 300, 2px);
     margin-left: 8px;
     margin-bottom: 4px;
   }
@@ -22,7 +22,7 @@
     margin-top: 8px;
   }
   &__send_error {
-    @include font-decoration($grey700, 12px, Noto Sans, 300, 2px);
+    @include font-decoration($grey700, 12px, 'Noto Sans JP', 300, 2px);
     margin-top: 8px;
     color: #c0392b;
   }
