@@ -10,6 +10,24 @@ alwaysApply: true
 - **依頼された箇所だけ**直す。TOP だけの依頼で Works / About / ImageArea / スライダー CSS 等を触らない。
 - レイアウト修正は **git HEAD の構造を維持**したうえで、必要最小限の diff のみ。
 - `react-slick` + Next.js `Image` の `div` ラッパー前提の CSS を、`<img>` 一括置換で壊さない。
+- Works / スライダー / `ImageArea` に触る前に **`docs/implementation-checklist.md` §2** を読む。`develop` の `auto_slide` 一括 revert 禁止。
+
+## Works / 画像 / スライダー — 再発防止
+
+Next.js 14 は `Image` が `<img>` 直出力。`develop` 版 SCSS を戻すだけでは直らず、**slick 向け修正まで消える**と縦並び・横伸びが再発する。
+
+**変更時は必ずセットで整合:**
+
+- `src/components/atoms/Images/ImageArea.tsx` + `src/styles/components/atoms/image_area.module.scss`
+- `src/components/molecules/Works/AutoSlideAnimation.tsx` + `src/styles/components/molecules/auto_slide.module.scss`
+
+**維持必須（`develop` 復元で上書きしない）:**
+
+- スライダー: `ImageArea fit="frame"` / `__imgFill` は `__img` と別クラス
+- slick: `rtl: false`、`:global(.slick-slide) { float: left }`、Slider 子の**二重 `div` ラップ**
+- `div[class='slick-slide']` 完全一致セレクタのみに依存しない
+
+**確認:** PR の Vercel Preview（Production URL ではない）で PC/SP 目視。詳細は `docs/implementation-checklist.md`。
 
 ## 外部サービス・秘密情報
 
@@ -42,5 +60,6 @@ npm run verify:deploy
 2. **Node 16** で `npm run verify:dev`（ポート **3001**、`.next` 再生成、チャンク 404 検出）
 3. `npm ci` が成功すること
 4. Vercel Dashboard → Node.js **24.x**、SMTP 環境変数 6 項目
+5. Works / 画像変更時: **`docs/implementation-checklist.md` §4** の目視（Preview URL・PC/SP）
 
 ローカル dev は **Node 16**、Vercel は **Node 24**。ブランチ切替後は `verify:dev` が `.next` を消して再起動する。
