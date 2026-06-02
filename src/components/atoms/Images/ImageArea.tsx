@@ -17,9 +17,9 @@ type Props = {
 const ImageArea: VFC<Props> = (props) => {
   const { onClick, path, width, height, alt = '', objectFit = 'cover', fit = 'intrinsic' } = props
 
-  const imgStyle: CSSProperties = { objectFit }
-
   if (fit === 'frame') {
+    const imgStyle: CSSProperties = { objectFit, objectPosition: 'center' }
+
     return (
       <div
         className={[styles.image_area, styles['image_area--frame'], 'image_area'].join(' ')}
@@ -30,12 +30,14 @@ const ImageArea: VFC<Props> = (props) => {
           alt={alt}
           fill
           sizes="(max-width: 768px) 50vw, 280px"
-          className={styles.image_area__img}
+          className={styles.image_area__imgFill}
           style={imgStyle}
         />
       </div>
     )
   }
+
+  const imgStyle: CSSProperties = { objectFit }
 
   return (
     <div
